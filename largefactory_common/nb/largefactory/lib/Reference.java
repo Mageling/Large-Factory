@@ -1,8 +1,7 @@
 package nb.largefactory.lib;
 
 public class Reference {
-    
-    
+
     /* Debug Mode On-Off */
     public static final boolean DEBUG_MODE = false;
 

@@ -1,6 +1,7 @@
 package nb.largefactory;
 
 import nb.largefactory.item.ItemLargeFactory;
+import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
 import nb.largefactory.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
@@ -20,12 +21,13 @@ public class LargeFactory {
     public void preInit(FMLPreInitializationEvent event) {
         ItemLargeFactory.registerItems();
     }
-    
+
     @Init
     public void load(FMLInitializationEvent event) {
-        
+        VanillaCrafting.registerVanillaCrafting();
+        VanillaCrafting.registerVanillaSmelting();
     }
-    
+
     @PostInit
     public void modsLoaded(FMLPostInitializationEvent event) {
 
