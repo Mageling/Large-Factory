@@ -1,6 +1,6 @@
 package nb.largefactory.tileentity;
 
-import nb.largefactory.item.ItemLargeFactory;
+import nb.largefactory.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -41,12 +41,11 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
 
     private void makeSalt() {
         if (saltCondenserItemStacks[0] == null) {
-            saltCondenserItemStacks[0] = new ItemStack(ItemLargeFactory.salt, 1);
+            saltCondenserItemStacks[0] = new ItemStack(ModItems.salt, 1);
             return;
         } else {
-            if (saltCondenserItemStacks[0].itemID == ItemLargeFactory.salt.itemID) {
-                saltCondenserItemStacks[0] = new ItemStack(
-                        ItemLargeFactory.salt,
+            if (saltCondenserItemStacks[0].itemID == ModItems.salt.itemID) {
+                saltCondenserItemStacks[0] = new ItemStack(ModItems.salt,
                         saltCondenserItemStacks[0].stackSize + 1);
                 return;
             }

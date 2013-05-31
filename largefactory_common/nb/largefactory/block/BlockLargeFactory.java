@@ -5,7 +5,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockLargeFactory {
 
-    static int saltCondenserId = 7670;
+    static int saltCondenserId = 3670;
 
     public static BlockSaltCondenser saltCondenser = new BlockSaltCondenser(
             saltCondenserId);
