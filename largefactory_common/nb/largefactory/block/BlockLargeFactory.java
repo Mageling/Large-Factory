@@ -1,14 +1,13 @@
 package nb.largefactory.block;
 
+import nb.largefactory.lib.BlockIDs;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockLargeFactory {
 
-    static int saltCondenserId = 3670;
-
     public static BlockSaltCondenser saltCondenser = new BlockSaltCondenser(
-            saltCondenserId);
+            BlockIDs.SALT_CONDENSER_ID);
 
     public static void registerBlocks() {
         GameRegistry.registerBlock(saltCondenser, "saltCondenser");

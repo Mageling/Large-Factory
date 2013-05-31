@@ -5,6 +5,7 @@ import java.util.Random;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,6 +18,7 @@ public class BlockSaltCondenser extends BlockContainer {
 
     protected BlockSaltCondenser(int par1) {
         super(par1, Material.wood);
+        this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @Override
@@ -27,6 +29,16 @@ public class BlockSaltCondenser extends BlockContainer {
     @Override
     public int idDropped(int par1, Random par2Random, int par3) {
         return 0;
+    }
+
+    @Override
+    public int getRenderType() {
+        return -1;
+    }
+
+    @Override
+    public boolean isOpaqueCube() {
+        return false;
     }
 
     @Override
