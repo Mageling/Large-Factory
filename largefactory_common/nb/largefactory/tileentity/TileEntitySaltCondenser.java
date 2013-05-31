@@ -13,7 +13,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class TileEntitySaltCondenser extends TileEntity implements IInventory {
 
     private ItemStack[] saltCondenserItemStacks = new ItemStack[1];
-    public int saltCondenserTimeRemaining = 20304000;
+    public int saltCondenserTimeRemaining = 2304000; // ticks in 32 hours
     public int saltProgress = 0;
     public boolean ceaseFunction = false;
     private String customName;
@@ -29,9 +29,9 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
                 } else {
                     saltProgress = saltProgress + 1;
                 }
-                if (saltProgress >= 576000) {
+                if (saltProgress >= 36000) { // ticks in 30 minutes
                     this.makeSalt();
-                    saltProgress = saltProgress - 576000;
+                    saltProgress = saltProgress - 36000;
                 }
             }
         } else {

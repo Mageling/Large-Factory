@@ -15,6 +15,8 @@ public class ItemLargeFactory {
     static int saltSteakCookedId = 7775;
     static int saltChickenRawId = 7776;
     static int saltChickenCookedId = 7777;
+    static int saltFishRawId = 7778;
+    static int saltFishCookedId = 7779;
 
     public static Item salt = new Item(saltId).setUnlocalizedName("salt")
             .setCreativeTab(CreativeTabs.tabFood);
@@ -38,6 +40,12 @@ public class ItemLargeFactory {
             CreativeTabs.tabFood);
     public static Item saltChickenCooked = new ItemFood(saltChickenCookedId, 7,
             0.6f, true).setUnlocalizedName("saltChickenCooked").setCreativeTab(
+            CreativeTabs.tabFood);
+    public static Item saltFishRaw = new ItemFood(saltFishRawId, 3, 0.3F, false)
+            .setUnlocalizedName("saltFishRaw").setCreativeTab(
+                    CreativeTabs.tabFood);
+    public static Item saltFishCooked = new ItemFood(saltFishCookedId, 6, 0.6F,
+            false).setUnlocalizedName("saltFishCooked").setCreativeTab(
             CreativeTabs.tabFood);
 
     public static void registerItems() {
@@ -64,6 +72,12 @@ public class ItemLargeFactory {
 
         GameRegistry.registerItem(saltSteakCooked, "saltSteakCooked");
         LanguageRegistry.addName(saltSteakCooked, "Salted Steak");
+
+        GameRegistry.registerItem(saltFishRaw, "saltFishRaw");
+        LanguageRegistry.addName(saltFishRaw, "Salted Raw Fish");
+
+        GameRegistry.registerItem(saltFishCooked, "saltFishCooked");
+        LanguageRegistry.addName(saltFishCooked, "Salted Fish");
     }
 
 }

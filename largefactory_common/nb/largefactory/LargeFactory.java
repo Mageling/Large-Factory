@@ -1,5 +1,6 @@
 package nb.largefactory;
 
+import nb.largefactory.block.BlockLargeFactory;
 import nb.largefactory.item.ItemLargeFactory;
 import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
@@ -20,6 +21,8 @@ public class LargeFactory {
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         ItemLargeFactory.registerItems();
+        BlockLargeFactory.registerBlocks();
+
     }
 
     @Init
