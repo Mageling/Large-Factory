@@ -1,8 +1,11 @@
 package nb.largefactory.proxy;
 
+import nb.largefactory.lib.Strings;
+import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy implements IGuiHandler {
 
@@ -23,5 +26,8 @@ public class CommonProxy implements IGuiHandler {
     public void initRenderingandTextures() {
 
     }
-
+    
+    public void registerTileEntities() {
+        GameRegistry.registerTileEntity(TileEntitySaltCondenser.class, Strings.TE_SALT_CONDENSER_NAME);
+    }
 }
