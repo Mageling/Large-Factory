@@ -1,6 +1,6 @@
 package nb.largefactory.item.crafting;
 
-import nb.largefactory.block.BlockLargeFactory;
+import nb.largefactory.block.ModBlocks;
 import nb.largefactory.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class VanillaCrafting {
                         new Object[] { ModItems.salt, ModItems.salt,
                                 Item.rottenFlesh });
         GameRegistry
-                .addRecipe(new ItemStack(BlockLargeFactory.saltCondenser, 1),
+                .addRecipe(new ItemStack(ModBlocks.saltCondenser, 1),
                         new Object[] { "G G", "PBP", "PCP", 'G', Block.glass,
                                 'P', Block.planks, 'B', Item.bucketEmpty, 'C',
                                 Block.chest });

@@ -18,11 +18,14 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(BlockIDs.SALT_CONDENSER_ID,
                 new ItemSaltCondenserRenderer());
     }
-    
+
+    @Override
     public void registerTileEntities() {
         super.registerTileEntities();
-        
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySaltCondenser.class, new TileEntitySaltCondenserRenderer());
+
+        ClientRegistry.bindTileEntitySpecialRenderer(
+                TileEntitySaltCondenser.class,
+                new TileEntitySaltCondenserRenderer());
     }
 
 }
