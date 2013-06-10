@@ -1,6 +1,7 @@
 package nb.largefactory.tileentity;
 
 import nb.largefactory.item.ModItems;
+import nb.largefactory.lib.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -89,8 +90,8 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
         saltProgress = par1NBTTagCompound.getInteger("SaltProgress");
         ceaseFunction = par1NBTTagCompound.getBoolean("CeaseFunction");
 
-        if (par1NBTTagCompound.hasKey("CustomName")) {
-            customName = par1NBTTagCompound.getString("CustomName");
+        if (par1NBTTagCompound.hasKey(Strings.NBT_TE_CUSTOM_NAME)) {
+            customName = par1NBTTagCompound.getString(Strings.NBT_TE_CUSTOM_NAME);
         }
     }
 
@@ -115,7 +116,7 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
         par1NBTTagCompound.setTag("Items", nbttaglist);
 
         if (this.isInvNameLocalized()) {
-            par1NBTTagCompound.setString("CustomName", customName);
+            par1NBTTagCompound.setString(Strings.NBT_TE_CUSTOM_NAME, customName);
         }
     }
 

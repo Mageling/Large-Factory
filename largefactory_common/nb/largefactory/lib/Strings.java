@@ -8,6 +8,17 @@ public class Strings {
     /* Block name constants */
 
     /* Item name constants */
+    public static final String SALT_NAME = "salt";
+    public static final String SALT_FLESH_NAME = "saltFlesh";
+    public static final String SALT_PORK_RAW_NAME = "saltPorkRaw";
+    public static final String SALT_PORK_COOKED_NAME = "saltPorkCooked";
+    public static final String SALT_STEAK_RAW_NAME = "saltSteakRaw";
+    public static final String SALT_STEAK_COOKED_NAME = "saltSteakCooked";
+    public static final String SALT_CHICKEN_RAW_NAME = "saltChickenRaw";
+    public static final String SALT_CHICKEN_COOKED_NAME = "saltChickenCooked";
+    public static final String SALT_FISH_RAW_NAME = "saltFishRaw";
+    public static final String SALT_FISH_COOKED_NAME = "saltFishCooked";
+    
 
     /* TileEntity name constants */
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";

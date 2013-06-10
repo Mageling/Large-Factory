@@ -10,21 +10,11 @@ import nb.largefactory.item.salt.ItemSaltPorkCooked;
 import nb.largefactory.item.salt.ItemSaltPorkRaw;
 import nb.largefactory.item.salt.ItemSaltSteakCooked;
 import nb.largefactory.item.salt.ItemSaltSteakRaw;
+import nb.largefactory.lib.ItemIDs;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems {
-
-    static int saltId = 7770;
-    static int saltFleshId = 7771;
-    static int saltPorkRawId = 7772;
-    static int saltPorkCookedId = 7773;
-    static int saltSteakRawId = 7774;
-    static int saltSteakCookedId = 7775;
-    static int saltChickenRawId = 7776;
-    static int saltChickenCookedId = 7777;
-    static int saltFishRawId = 7778;
-    static int saltFishCookedId = 7779;
 
     public static Item salt;
     public static Item saltFlesh;
@@ -38,34 +28,34 @@ public class ModItems {
     public static Item saltFishCooked;
 
     public static void registerItems() {
-        salt = new ItemSalt(saltId);
+        salt = new ItemSalt(ItemIDs.SALT);
         LanguageRegistry.addName(salt, "Salt");
 
-        saltChickenRaw = new ItemSaltChickenRaw(saltChickenRawId);
+        saltChickenRaw = new ItemSaltChickenRaw(ItemIDs.SALT_CHICKEN_RAW);
         LanguageRegistry.addName(saltChickenRaw, "Salted Raw Chicken");
 
-        saltChickenCooked = new ItemSaltChickenCooked(saltChickenCookedId);
+        saltChickenCooked = new ItemSaltChickenCooked(ItemIDs.SALT_CHICKEN_COOKED);
         LanguageRegistry.addName(saltChickenCooked, "Salted Chicken");
 
-        saltFlesh = new ItemSaltFlesh(saltFleshId);
+        saltFlesh = new ItemSaltFlesh(ItemIDs.SALT_FLESH);
         LanguageRegistry.addName(saltFlesh, "Salted Flesh");
 
-        saltPorkRaw = new ItemSaltPorkRaw(saltPorkRawId);
+        saltPorkRaw = new ItemSaltPorkRaw(ItemIDs.SALT_PORK_RAW);
         LanguageRegistry.addName(saltPorkRaw, "Salted Raw Pork");
 
-        saltPorkCooked = new ItemSaltPorkCooked(saltPorkCookedId);
+        saltPorkCooked = new ItemSaltPorkCooked(ItemIDs.SALT_PORK_COOKED);
         LanguageRegistry.addName(saltPorkCooked, "Salted Porkchop");
 
-        saltSteakRaw = new ItemSaltSteakRaw(saltSteakRawId);
+        saltSteakRaw = new ItemSaltSteakRaw(ItemIDs.SALT_STEAK_RAW);
         LanguageRegistry.addName(saltSteakRaw, "Salted Raw Steak");
 
-        saltSteakCooked = new ItemSaltSteakCooked(saltSteakCookedId);
+        saltSteakCooked = new ItemSaltSteakCooked(ItemIDs.SALT_STEAK_COOKED);
         LanguageRegistry.addName(saltSteakCooked, "Salted Steak");
 
-        saltFishRaw = new ItemSaltFishRaw(saltFishRawId);
+        saltFishRaw = new ItemSaltFishRaw(ItemIDs.SALT_FISH_RAW);
         LanguageRegistry.addName(saltFishRaw, "Salted Raw Fish");
 
-        saltFishCooked = new ItemSaltFishCooked(saltFishCookedId);
+        saltFishCooked = new ItemSaltFishCooked(ItemIDs.SALT_FISH_COOKED);
         LanguageRegistry.addName(saltFishCooked, "Salted Fish");
     }
 
