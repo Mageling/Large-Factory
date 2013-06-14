@@ -1,5 +1,5 @@
 package nb.largefactory.xml;
 
-public class XML_decoder {
+public class XMLDecoder {
 
 }
