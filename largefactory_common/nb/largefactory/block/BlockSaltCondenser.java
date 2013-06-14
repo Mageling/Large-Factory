@@ -1,8 +1,8 @@
 package nb.largefactory.block;
 
 import java.util.Random;
-
 import nb.largefactory.lib.RenderIds;
+import nb.largefactory.lib.Strings;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -14,25 +14,33 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockSaltCondenser extends BlockContainerLargeFactory {
+public class BlockSaltCondenser extends Block {
 
     private final Random saltRand = new Random();
 
     protected BlockSaltCondenser(int par1) {
         super(par1, Material.wood);
+        this.setUnlocalizedName(Strings.SALT_CONDENSER_NAME);
+        this.setHardness(5F);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
-
+    /**
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return null;
-    }
+        return new TileEntitySaltCondenser();
+    } **/
 
     @Override
     public int idDropped(int par1, Random par2Random, int par3) {
         return 0;
     }
+/**
+    @Override
+    public boolean renderAsNormalBlock() {
 
+        return false;
+    }
+    
     @Override
     public int getRenderType() {
         return RenderIds.saltCondenserRenderId;
@@ -42,6 +50,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     public boolean isOpaqueCube() {
         return false;
     }
+    **/
 
     public void dropItemStack(ItemStack itemstack, World world, int x, int y,
             int z) {
@@ -77,7 +86,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
             }
         }
     }
-
+/**
     @Override
     public void breakBlock(World par1World, int par2, int par3, int par4,
             int par5, int par6) {
@@ -104,6 +113,6 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
         }
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
-    }
+    } **/
 
 }

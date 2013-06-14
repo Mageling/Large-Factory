@@ -23,11 +23,11 @@ public class VanillaCrafting {
                 .addShapelessRecipe(new ItemStack(ModItems.saltFlesh, 1),
                         new Object[] { ModItems.salt, ModItems.salt,
                                 Item.rottenFlesh });
-        GameRegistry
+        /**GameRegistry
                 .addRecipe(new ItemStack(ModBlocks.saltCondenser, 1),
                         new Object[] { "G G", "PBP", "PCP", 'G', Block.glass,
                                 'P', Block.planks, 'B', Item.bucketEmpty, 'C',
-                                Block.chest });
+                                Block.chest });**/
 
     }
 

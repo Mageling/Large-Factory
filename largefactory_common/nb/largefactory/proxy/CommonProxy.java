@@ -29,8 +29,8 @@ public class CommonProxy implements IGuiHandler {
     }
 
     public void registerTileEntities() {
-        GameRegistry.registerTileEntity(TileEntitySaltCondenser.class,
-                Strings.TE_SALT_CONDENSER_NAME);
+        //GameRegistry.registerTileEntity(TileEntitySaltCondenser.class,
+        //        Strings.TE_SALT_CONDENSER_NAME);
     }
 
     public void handleTileEntityPacket(int x, int y, int z,

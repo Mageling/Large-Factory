@@ -10,7 +10,8 @@ public class Strings {
     public static final String NBT_TE_DIRECTION_KEY = "teDirection";
 
     /* Block name constants */
-
+    public static final String SALT_CONDENSER_NAME = "saltCondenser";
+    
     /* Item name constants */
     public static final String SALT_NAME = "salt";
     public static final String SALT_FLESH_NAME = "saltFlesh";
