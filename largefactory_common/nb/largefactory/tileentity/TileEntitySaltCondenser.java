@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class TileEntitySaltCondenser extends TileEntity implements IInventory {
+public class TileEntitySaltCondenser extends TileEntityLargeFactory implements IInventory {
 
     private ItemStack[] saltCondenserItemStacks = new ItemStack[1];
     public int saltCondenserTimeRemaining = 2304000; // ticks in 32 hours
@@ -90,9 +90,6 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
         saltProgress = par1NBTTagCompound.getInteger("SaltProgress");
         ceaseFunction = par1NBTTagCompound.getBoolean("CeaseFunction");
 
-        if (par1NBTTagCompound.hasKey(Strings.NBT_TE_CUSTOM_NAME)) {
-            customName = par1NBTTagCompound.getString(Strings.NBT_TE_CUSTOM_NAME);
-        }
     }
 
     @Override
@@ -115,9 +112,6 @@ public class TileEntitySaltCondenser extends TileEntity implements IInventory {
 
         par1NBTTagCompound.setTag("Items", nbttaglist);
 
-        if (this.isInvNameLocalized()) {
-            par1NBTTagCompound.setString(Strings.NBT_TE_CUSTOM_NAME, customName);
-        }
     }
 
     @Override

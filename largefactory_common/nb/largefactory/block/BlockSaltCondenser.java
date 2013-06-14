@@ -2,6 +2,7 @@ package nb.largefactory.block;
 
 import java.util.Random;
 
+import nb.largefactory.lib.RenderIds;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -33,7 +34,7 @@ public class BlockSaltCondenser extends BlockContainer {
 
     @Override
     public int getRenderType() {
-        return -1;
+        return RenderIds.saltCondenserRenderId;
     }
 
     @Override

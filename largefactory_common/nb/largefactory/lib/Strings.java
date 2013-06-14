@@ -3,8 +3,12 @@ package nb.largefactory.lib;
 public class Strings {
 
     /* NBT related constants */
+    public static final String NBT_ITEM_DISPLAY = "display";
+    public static final String NBT_ITEM_COLOR = "color";
+    public static final String NBT_TE_STATE_KEY = "teState";
     public static final String NBT_TE_CUSTOM_NAME = "CustomName";
-
+    public static final String NBT_TE_DIRECTION_KEY = "teDirection";
+    
     /* Block name constants */
 
     /* Item name constants */
@@ -22,6 +26,8 @@ public class Strings {
 
     /* TileEntity name constants */
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";
+
+    
 
     /* Container related constants */
 
