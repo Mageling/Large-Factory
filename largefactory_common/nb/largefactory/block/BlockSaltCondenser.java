@@ -1,11 +1,16 @@
 package nb.largefactory.block;
 
 import java.util.Random;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import nb.largefactory.lib.Reference;
 import nb.largefactory.lib.RenderIds;
 import nb.largefactory.lib.Strings;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
@@ -14,7 +19,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockSaltCondenser extends Block {
+public class BlockSaltCondenser extends BlockContainerLargeFactory {
 
     private final Random saltRand = new Random();
 
@@ -24,11 +29,11 @@ public class BlockSaltCondenser extends Block {
         this.setHardness(5F);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
-    /**
+    
     @Override
     public TileEntity createNewTileEntity(World world) {
         return new TileEntitySaltCondenser();
-    } **/
+    }
 
     @Override
     public int idDropped(int par1, Random par2Random, int par3) {
@@ -86,7 +91,7 @@ public class BlockSaltCondenser extends Block {
             }
         }
     }
-/**
+
     @Override
     public void breakBlock(World par1World, int par2, int par3, int par4,
             int par5, int par6) {
@@ -113,6 +118,6 @@ public class BlockSaltCondenser extends Block {
         }
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
-    } **/
+    } 
 
 }

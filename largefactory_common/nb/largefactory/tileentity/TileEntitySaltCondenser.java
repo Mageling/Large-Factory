@@ -12,11 +12,21 @@ import net.minecraft.world.biome.BiomeGenBase;
 public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
         IInventory {
     
-    private ItemStack[] saltCondenserItemStacks = new ItemStack[1];
+    public static final int INVENTORY_SIZE = 1;
+    public static final int OUTPUT_INVENTORY_INDEX = 0;
+    
+    
+    private ItemStack[] saltCondenserItemStacks;
     public int saltCondenserTimeRemaining = 2304000; // ticks in 32 hours
     public int saltProgress = 0;
     public boolean ceaseFunction = false;
-    private String customName;
+    
+    
+    public TileEntitySaltCondenser() {
+        
+    }
+    
+    
 
     @Override
     public void updateEntity() {
@@ -199,6 +209,31 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
     @Override
     public boolean isStackValidForSlot(int i, ItemStack itemstack) {
         return false;
+    }
+    
+    @Override
+    public String toString() {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(super.toString());
+
+        stringBuilder.append("TileEntitySaltCondenser Data - ");
+        for (int i = 0; i < saltCondenserItemStacks.length; i++) {
+            if (i != 0) {
+                stringBuilder.append(", ");
+            }
+
+            if (saltCondenserItemStacks[i] != null) {
+                stringBuilder.append(String.format("saltCondenserItemStacks[%d]: %s", i, saltCondenserItemStacks[i].toString()));
+            }
+            else {
+                stringBuilder.append(String.format("saltCondenserItemStacks[%d]: empty", i));
+            }
+        }
+        stringBuilder.append("\n");
+
+        return stringBuilder.toString();
     }
 
 }

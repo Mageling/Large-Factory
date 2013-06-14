@@ -41,7 +41,11 @@ public class LargeFactory {
     public void preInit(FMLPreInitializationEvent event) {
         // Register Blocks and Items
         ModItems.registerItems();
-        //ModBlocks.registerBlocks();
+        ModBlocks.registerBlocks();
+        
+        // Register crafting and smelting
+        VanillaCrafting.registerVanillaCrafting();
+        VanillaCrafting.registerVanillaSmelting();
 
     }
 
@@ -49,10 +53,6 @@ public class LargeFactory {
     public void load(FMLInitializationEvent event) {
         // Register the GUI Handler
         // NetworkRegistry.instance().registerGuiHandler(instance, proxy);
-
-        // Register crafting and smelting
-        VanillaCrafting.registerVanillaCrafting();
-        VanillaCrafting.registerVanillaSmelting();
 
         // Register Tile Entities
         proxy.registerTileEntities();
