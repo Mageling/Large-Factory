@@ -7,16 +7,15 @@ import java.io.IOException;
 
 import nb.largefactory.network.PacketTypeHandler;
 import net.minecraft.network.INetworkManager;
-
-
 import cpw.mods.fml.common.network.Player;
 
 public class PacketLargeFactory {
-    
+
     public PacketTypeHandler packetType;
     public boolean isChunkDataPacket;
 
-    public PacketLargeFactory(PacketTypeHandler packetType, boolean isChunkDataPacket) {
+    public PacketLargeFactory(PacketTypeHandler packetType,
+            boolean isChunkDataPacket) {
 
         this.packetType = packetType;
         this.isChunkDataPacket = isChunkDataPacket;
@@ -30,8 +29,7 @@ public class PacketLargeFactory {
         try {
             dos.writeByte(packetType.ordinal());
             this.writeData(dos);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace(System.err);
         }
 
@@ -42,8 +40,7 @@ public class PacketLargeFactory {
 
         try {
             this.readData(data);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace(System.err);
         }
     }

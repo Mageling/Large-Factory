@@ -3,8 +3,6 @@ package nb.largefactory.network;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
-
-
 import nb.largefactory.lib.Reference;
 import nb.largefactory.network.packet.PacketLargeFactory;
 import nb.largefactory.network.packet.PacketTileUpdate;
@@ -12,12 +10,9 @@ import nb.largefactory.network.packet.PacketTileWithItemUpdate;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet250CustomPayload;
 
-
-
 public enum PacketTypeHandler {
-    TILE(PacketTileUpdate.class),
-    TILE_WITH_ITEM(PacketTileWithItemUpdate.class);
-    
+    TILE(PacketTileUpdate.class), TILE_WITH_ITEM(PacketTileWithItemUpdate.class);
+
     private Class<? extends PacketLargeFactory> clazz;
 
     PacketTypeHandler(Class<? extends PacketLargeFactory> clazz) {
@@ -35,8 +30,7 @@ public enum PacketTypeHandler {
 
         try {
             packet = values()[selector].clazz.newInstance();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace(System.err);
         }
 
@@ -51,8 +45,7 @@ public enum PacketTypeHandler {
 
         try {
             packet = values()[type.ordinal()].clazz.newInstance();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace(System.err);
         }
 

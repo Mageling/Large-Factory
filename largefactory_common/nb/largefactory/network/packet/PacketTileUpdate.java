@@ -4,15 +4,14 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-
-import cpw.mods.fml.common.network.Player;
 import nb.largefactory.LargeFactory;
 import nb.largefactory.network.PacketTypeHandler;
 import net.minecraft.network.INetworkManager;
 import net.minecraftforge.common.ForgeDirection;
+import cpw.mods.fml.common.network.Player;
 
 public class PacketTileUpdate extends PacketLargeFactory {
-    
+
     public int x, y, z;
     public byte orientation;
     public byte state;
@@ -23,7 +22,8 @@ public class PacketTileUpdate extends PacketLargeFactory {
         super(PacketTypeHandler.TILE, true);
     }
 
-    public PacketTileUpdate(int x, int y, int z, ForgeDirection orientation, byte state, String customName) {
+    public PacketTileUpdate(int x, int y, int z, ForgeDirection orientation,
+            byte state, String customName) {
 
         super(PacketTypeHandler.TILE, true);
         this.x = x;
@@ -59,7 +59,8 @@ public class PacketTileUpdate extends PacketLargeFactory {
     @Override
     public void execute(INetworkManager manager, Player player) {
 
-        LargeFactory.proxy.handleTileEntityPacket(x, y, z, ForgeDirection.getOrientation(orientation), state, customName);
+        LargeFactory.proxy.handleTileEntityPacket(x, y, z,
+                ForgeDirection.getOrientation(orientation), state, customName);
     }
 
 }

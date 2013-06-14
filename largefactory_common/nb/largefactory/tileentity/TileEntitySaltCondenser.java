@@ -1,17 +1,16 @@
 package nb.largefactory.tileentity;
 
 import nb.largefactory.item.ModItems;
-import nb.largefactory.lib.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class TileEntitySaltCondenser extends TileEntityLargeFactory implements IInventory {
+public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
+        IInventory {
 
     private ItemStack[] saltCondenserItemStacks = new ItemStack[1];
     public int saltCondenserTimeRemaining = 2304000; // ticks in 32 hours
