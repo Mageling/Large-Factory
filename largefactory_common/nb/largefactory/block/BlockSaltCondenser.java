@@ -4,16 +4,17 @@ import java.util.Random;
 
 import nb.largefactory.lib.RenderIds;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockSaltCondenser extends BlockContainer {
+public class BlockSaltCondenser extends BlockContainerLargeFactory {
 
     private final Random saltRand = new Random();
 
@@ -42,9 +43,51 @@ public class BlockSaltCondenser extends BlockContainer {
         return false;
     }
 
+    public void dropItemStack(ItemStack itemstack, World world, int x, int y,
+            int z) {
+
+        if (itemstack != null) {
+            float f = saltRand.nextFloat() * 0.8F + 0.1F;
+            float f1 = saltRand.nextFloat() * 0.8F + 0.1F;
+            float f2 = saltRand.nextFloat() * 0.8F + 0.1F;
+
+            while (itemstack.stackSize > 0) {
+                int k1 = saltRand.nextInt(21) + 10;
+
+                if (k1 > itemstack.stackSize) {
+                    k1 = itemstack.stackSize;
+                }
+
+                itemstack.stackSize -= k1;
+                EntityItem entityitem = new EntityItem(world, x + f, y + f1, z
+                        + f2, new ItemStack(itemstack.itemID, k1,
+                        itemstack.getItemDamage()));
+
+                if (itemstack.hasTagCompound()) {
+                    entityitem.getEntityItem().setTagCompound(
+                            (NBTTagCompound) itemstack.getTagCompound().copy());
+                }
+
+                float f3 = 0.05F;
+                entityitem.motionX = (float) saltRand.nextGaussian() * f3;
+                entityitem.motionY = (float) saltRand.nextGaussian() * f3
+                        + 0.2F;
+                entityitem.motionZ = (float) saltRand.nextGaussian() * f3;
+                world.spawnEntityInWorld(entityitem);
+            }
+        }
+    }
+
     @Override
     public void breakBlock(World par1World, int par2, int par3, int par4,
             int par5, int par6) {
+
+        dropItemStack(new ItemStack(Item.bucketEmpty, 1), par1World, par2,
+                par3, par4);
+        dropItemStack(new ItemStack(Block.glass, 2), par1World, par2, par3,
+                par4);
+        dropItemStack(new ItemStack(Block.chest, 1), par1World, par2, par3,
+                par4);
 
         TileEntitySaltCondenser tileentitysaltcondenser = (TileEntitySaltCondenser) par1World
                 .getBlockTileEntity(par2, par3, par4);
@@ -54,40 +97,7 @@ public class BlockSaltCondenser extends BlockContainer {
                 ItemStack itemstack = tileentitysaltcondenser
                         .getStackInSlot(j1);
 
-                if (itemstack != null) {
-                    float f = saltRand.nextFloat() * 0.8F + 0.1F;
-                    float f1 = saltRand.nextFloat() * 0.8F + 0.1F;
-                    float f2 = saltRand.nextFloat() * 0.8F + 0.1F;
-
-                    while (itemstack.stackSize > 0) {
-                        int k1 = saltRand.nextInt(21) + 10;
-
-                        if (k1 > itemstack.stackSize) {
-                            k1 = itemstack.stackSize;
-                        }
-
-                        itemstack.stackSize -= k1;
-                        EntityItem entityitem = new EntityItem(par1World, par2
-                                + f, par3 + f1, par4 + f2,
-                                new ItemStack(itemstack.itemID, k1,
-                                        itemstack.getItemDamage()));
-
-                        if (itemstack.hasTagCompound()) {
-                            entityitem.getEntityItem().setTagCompound(
-                                    (NBTTagCompound) itemstack.getTagCompound()
-                                            .copy());
-                        }
-
-                        float f3 = 0.05F;
-                        entityitem.motionX = (float) saltRand.nextGaussian()
-                                * f3;
-                        entityitem.motionY = (float) saltRand.nextGaussian()
-                                * f3 + 0.2F;
-                        entityitem.motionZ = (float) saltRand.nextGaussian()
-                                * f3;
-                        par1World.spawnEntityInWorld(entityitem);
-                    }
-                }
+                dropItemStack(itemstack, par1World, par2, par3, par4);
 
                 par1World.func_96440_m(par2, par3, par4, par5);
             }
