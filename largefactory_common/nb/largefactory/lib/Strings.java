@@ -11,7 +11,7 @@ public class Strings {
 
     /* Block name constants */
     public static final String SALT_CONDENSER_NAME = "saltCondenser";
-    
+
     /* Item name constants */
     public static final String SALT_NAME = "salt";
     public static final String SALT_FLESH_NAME = "saltFlesh";
@@ -28,5 +28,6 @@ public class Strings {
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";
 
     /* Container related constants */
+    public static final String CONTAINER_INVENTORY = "container.inventory";
 
 }

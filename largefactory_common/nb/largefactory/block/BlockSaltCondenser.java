@@ -2,17 +2,16 @@ package nb.largefactory.block;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import nb.largefactory.lib.Reference;
+import nb.largefactory.LargeFactory;
+import nb.largefactory.lib.GuiIDs;
 import nb.largefactory.lib.RenderIds;
 import nb.largefactory.lib.Strings;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,7 +28,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
         this.setHardness(5F);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
-    
+
     @Override
     public TileEntity createNewTileEntity(World world) {
         return new TileEntitySaltCondenser();
@@ -45,7 +44,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
 
         return false;
     }
-    
+
     @Override
     public int getRenderType() {
         return RenderIds.saltCondenserRenderId;
@@ -117,6 +116,27 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
         }
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
-    } 
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z,
+            EntityPlayer player, int par6, float par7, float par8, float par9) {
+
+        if (player.isSneaking())
+            return false;
+        else {
+            if (!world.isRemote) {
+                TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world
+                        .getBlockTileEntity(x, y, z);
+
+                if (tileEntitySaltCondenser != null) {
+                    player.openGui(LargeFactory.instance,
+                            GuiIDs.SALT_CONDENSER, world, x, y, z);
+                }
+            }
+
+            return true;
+        }
+    }
 
 }

@@ -10,8 +10,7 @@ public class ModBlocks {
     public static Block saltCondenser;
 
     public static void registerBlocks() {
-         saltCondenser = new BlockSaltCondenser(
-                 BlockIDs.SALT_CONDENSER_ID);
+        saltCondenser = new BlockSaltCondenser(BlockIDs.SALT_CONDENSER_ID);
         GameRegistry.registerBlock(saltCondenser, "saltCondenser");
         LanguageRegistry.addName(saltCondenser, "Salt Condenser");
     }

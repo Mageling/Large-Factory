@@ -42,7 +42,7 @@ public class LargeFactory {
         // Register Blocks and Items
         ModItems.registerItems();
         ModBlocks.registerBlocks();
-        
+
         // Register crafting and smelting
         VanillaCrafting.registerVanillaCrafting();
         VanillaCrafting.registerVanillaSmelting();
@@ -52,7 +52,7 @@ public class LargeFactory {
     @Init
     public void load(FMLInitializationEvent event) {
         // Register the GUI Handler
-        // NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+        NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 
         // Register Tile Entities
         proxy.registerTileEntities();
