@@ -39,7 +39,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     public int idDropped(int par1, Random par2Random, int par3) {
         return 0;
     }
-/**
+
     @Override
     public boolean renderAsNormalBlock() {
 
@@ -55,7 +55,6 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     public boolean isOpaqueCube() {
         return false;
     }
-    **/
 
     public void dropItemStack(ItemStack itemstack, World world, int x, int y,
             int z) {

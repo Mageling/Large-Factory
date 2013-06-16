@@ -14,7 +14,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
-/**
+
     @Override
     public void initRenderingandTextures() {
         RenderIds.saltCondenserRenderId = RenderingRegistry
@@ -30,7 +30,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(
                 TileEntitySaltCondenser.class,
                 new TileEntitySaltCondenserRenderer());
-    } **/
+    } 
 
     @Override
     public void handleTileEntityPacket(int x, int y, int z,
@@ -59,7 +59,8 @@ public class ClientProxy extends CommonProxy {
 
         this.handleTileEntityPacket(x, y, z, orientation, state, customName);
         /**
-         * empty if for now if (tileEntity != null) { if(tileEntity instanceof
+         * empty if for now
+         * if (tileEntity != null) { if(tileEntity instanceof
          * TileEntitySaltCondenser) {
          * 
          * } }
