@@ -14,7 +14,7 @@ public class ContainerSaltCondenser extends Container {
 
         // Add the output slot to the container
         this.addSlotToContainer(new SlotOutput(saltCondenser,
-                TileEntitySaltCondenser.OUTPUT_INVENTORY_INDEX, 78, 35));
+                TileEntitySaltCondenser.OUTPUT_INVENTORY_INDEX, 80, 36));
 
         // Add the player's inventory slots to the container
         for (int inventoryRowIndex = 0; inventoryRowIndex < 3; ++inventoryRowIndex) {

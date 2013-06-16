@@ -20,8 +20,8 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
     public int saltProgress = 0;
     public boolean ceaseFunction = false;
 
-    public TileEntitySaltCondenser() {
-
+    public TileEntitySaltCondenser() {    
+        saltCondenserItemStacks = new ItemStack[INVENTORY_SIZE];
     }
 
     @Override

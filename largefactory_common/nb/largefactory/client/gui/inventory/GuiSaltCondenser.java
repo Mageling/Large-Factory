@@ -2,6 +2,7 @@ package nb.largefactory.client.gui.inventory;
 
 import nb.largefactory.inventory.ContainerSaltCondenser;
 import nb.largefactory.lib.Strings;
+import nb.largefactory.lib.Textures;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -44,7 +45,7 @@ public class GuiSaltCondenser extends GuiContainer {
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         mc.renderEngine
-                .bindTexture("largefactory/textures/gui/guiSaltCondenser.png");
+                .bindTexture(Textures.GUI_SALT_CONDENSER);
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
