@@ -11,40 +11,11 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class TileEntityLargeFactory extends TileEntity {
 
-    protected ForgeDirection orientation;
-    protected byte state;
     protected String customName;
 
     public TileEntityLargeFactory() {
 
-        orientation = ForgeDirection.SOUTH;
-        state = 0;
         customName = "";
-    }
-
-    public ForgeDirection getOrientation() {
-
-        return orientation;
-    }
-
-    public void setOrientation(ForgeDirection orientation) {
-
-        this.orientation = orientation;
-    }
-
-    public void setOrientation(int orientation) {
-
-        this.orientation = ForgeDirection.getOrientation(orientation);
-    }
-
-    public short getState() {
-
-        return state;
-    }
-
-    public void setState(byte state) {
-
-        this.state = state;
     }
 
     public boolean hasCustomName() {
@@ -72,15 +43,6 @@ public class TileEntityLargeFactory extends TileEntity {
 
         super.readFromNBT(nbtTagCompound);
 
-        if (nbtTagCompound.hasKey(Strings.NBT_TE_DIRECTION_KEY)) {
-            orientation = ForgeDirection.getOrientation(nbtTagCompound
-                    .getByte(Strings.NBT_TE_DIRECTION_KEY));
-        }
-
-        if (nbtTagCompound.hasKey(Strings.NBT_TE_STATE_KEY)) {
-            state = nbtTagCompound.getByte(Strings.NBT_TE_STATE_KEY);
-        }
-
         if (nbtTagCompound.hasKey(Strings.NBT_TE_CUSTOM_NAME)) {
             customName = nbtTagCompound.getString(Strings.NBT_TE_CUSTOM_NAME);
         }
@@ -91,10 +53,6 @@ public class TileEntityLargeFactory extends TileEntity {
 
         super.writeToNBT(nbtTagCompound);
 
-        nbtTagCompound.setByte(Strings.NBT_TE_DIRECTION_KEY,
-                (byte) orientation.ordinal());
-        nbtTagCompound.setByte(Strings.NBT_TE_STATE_KEY, state);
-
         if (this.hasCustomName()) {
             nbtTagCompound.setString(Strings.NBT_TE_CUSTOM_NAME, customName);
         }
@@ -104,21 +62,7 @@ public class TileEntityLargeFactory extends TileEntity {
     public Packet getDescriptionPacket() {
 
         return PacketTypeHandler.populatePacket(new PacketTileUpdate(xCoord,
-                yCoord, zCoord, orientation, state, customName));
-    }
-
-    @Override
-    public String toString() {
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder
-                .append(String
-                        .format("TileEntityLargeFactory Data - xCoord: %d, yCoord: %d, zCoord: %d, customName: '%s', orientation: %s, state: %d\n",
-                                xCoord, yCoord, zCoord, customName,
-                                orientation, state));
-
-        return stringBuilder.toString();
+                yCoord, zCoord, customName));
     }
 
 }

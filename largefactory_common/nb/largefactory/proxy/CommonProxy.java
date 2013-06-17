@@ -46,13 +46,11 @@ public class CommonProxy implements IGuiHandler {
                 Strings.TE_SALT_CONDENSER_NAME);
     }
 
-    public void handleTileEntityPacket(int x, int y, int z,
-            ForgeDirection orientation, byte state, String customName) {
+    public void handleTileEntityPacket(int x, int y, int z, String customName) {
 
     }
 
-    public void handleTileWithItemPacket(int x, int y, int z,
-            ForgeDirection orientation, byte state, String customName,
+    public void handleTileWithItemPacket(int x, int y, int z, String customName,
             int itemID, int metaData, int stackSize, int color) {
 
     }

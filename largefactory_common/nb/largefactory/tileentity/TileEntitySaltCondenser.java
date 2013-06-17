@@ -207,31 +207,4 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
         return false;
     }
 
-    @Override
-    public String toString() {
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append(super.toString());
-
-        stringBuilder.append("TileEntitySaltCondenser Data - ");
-        for (int i = 0; i < saltCondenserItemStacks.length; i++) {
-            if (i != 0) {
-                stringBuilder.append(", ");
-            }
-
-            if (saltCondenserItemStacks[i] != null) {
-                stringBuilder.append(String.format(
-                        "saltCondenserItemStacks[%d]: %s", i,
-                        saltCondenserItemStacks[i].toString()));
-            } else {
-                stringBuilder.append(String.format(
-                        "saltCondenserItemStacks[%d]: empty", i));
-            }
-        }
-        stringBuilder.append("\n");
-
-        return stringBuilder.toString();
-    }
-
 }

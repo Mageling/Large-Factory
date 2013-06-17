@@ -13,8 +13,6 @@ import cpw.mods.fml.common.network.Player;
 public class PacketTileWithItemUpdate extends PacketLargeFactory {
 
     public int x, y, z;
-    public byte orientation;
-    public byte state;
     public String customName;
     public int itemID, metaData, stackSize, color;
 
@@ -31,8 +29,6 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
         this.x = x;
         this.y = y;
         this.z = z;
-        this.orientation = (byte) orientation.ordinal();
-        this.state = state;
         this.customName = customName;
         this.itemID = itemID;
         this.metaData = metaData;
@@ -46,8 +42,6 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
         data.writeInt(x);
         data.writeInt(y);
         data.writeInt(z);
-        data.writeByte(orientation);
-        data.writeByte(state);
         data.writeUTF(customName);
         data.writeInt(itemID);
         data.writeInt(metaData);
@@ -61,8 +55,6 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
         x = data.readInt();
         y = data.readInt();
         z = data.readInt();
-        orientation = data.readByte();
-        state = data.readByte();
         customName = data.readUTF();
         itemID = data.readInt();
         metaData = data.readInt();
@@ -73,8 +65,7 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
     @Override
     public void execute(INetworkManager manager, Player player) {
 
-        LargeFactory.proxy.handleTileWithItemPacket(x, y, z,
-                ForgeDirection.getOrientation(orientation), state, customName,
+        LargeFactory.proxy.handleTileWithItemPacket(x, y, z, customName,
                 itemID, metaData, stackSize, color);
     }
 
