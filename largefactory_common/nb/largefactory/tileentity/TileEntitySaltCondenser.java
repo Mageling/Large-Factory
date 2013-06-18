@@ -20,7 +20,7 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
     public int saltProgress = 0;
     public boolean ceaseFunction = false;
 
-    public TileEntitySaltCondenser() {    
+    public TileEntitySaltCondenser() {
         saltCondenserItemStacks = new ItemStack[INVENTORY_SIZE];
     }
 
@@ -60,17 +60,22 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
 
     private boolean canProduce() {
         if (worldObj.canBlockSeeTheSky(xCoord, yCoord, zCoord)) {
-            if (worldObj.getBlockId(xCoord + 1, yCoord, zCoord) == Block.waterStill.blockID)
+            if (worldObj.getBlockId(xCoord + 1, yCoord, zCoord) == Block.waterStill.blockID) {
                 return true;
-            if (worldObj.getBlockId(xCoord - 1, yCoord, zCoord) == Block.waterStill.blockID)
+            }
+            if (worldObj.getBlockId(xCoord - 1, yCoord, zCoord) == Block.waterStill.blockID) {
                 return true;
-            if (worldObj.getBlockId(xCoord, yCoord, zCoord + 1) == Block.waterStill.blockID)
+            }
+            if (worldObj.getBlockId(xCoord, yCoord, zCoord + 1) == Block.waterStill.blockID) {
                 return true;
-            if (worldObj.getBlockId(xCoord, yCoord, zCoord - 1) == Block.waterStill.blockID)
+            }
+            if (worldObj.getBlockId(xCoord, yCoord, zCoord - 1) == Block.waterStill.blockID) {
                 return true;
+            }
             return false;
-        } else
+        } else {
             return false;
+        }
     }
 
     @Override
@@ -147,8 +152,9 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
 
                 return itemstack;
             }
-        } else
+        } else {
             return null;
+        }
     }
 
     @Override
@@ -157,8 +163,9 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
             ItemStack itemstack = saltCondenserItemStacks[par1];
             saltCondenserItemStacks[par1] = null;
             return itemstack;
-        } else
+        } else {
             return null;
+        }
     }
 
     @Override

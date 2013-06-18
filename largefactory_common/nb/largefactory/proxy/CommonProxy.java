@@ -7,7 +7,6 @@ import nb.largefactory.lib.Strings;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -50,8 +49,9 @@ public class CommonProxy implements IGuiHandler {
 
     }
 
-    public void handleTileWithItemPacket(int x, int y, int z, String customName,
-            int itemID, int metaData, int stackSize, int color) {
+    public void handleTileWithItemPacket(int x, int y, int z,
+            String customName, int itemID, int metaData, int stackSize,
+            int color) {
 
     }
 }

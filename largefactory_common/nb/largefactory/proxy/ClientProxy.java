@@ -7,9 +7,7 @@ import nb.largefactory.lib.RenderIds;
 import nb.largefactory.tileentity.TileEntityLargeFactory;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -47,8 +45,9 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void handleTileWithItemPacket(int x, int y, int z, String customName,
-            int itemID, int metaData, int stackSize, int color) {
+    public void handleTileWithItemPacket(int x, int y, int z,
+            String customName, int itemID, int metaData, int stackSize,
+            int color) {
 
         // World world = FMLClientHandler.instance().getClient().theWorld;
         // TileEntity tileEntity = world.getBlockTileEntity(x, y, z);

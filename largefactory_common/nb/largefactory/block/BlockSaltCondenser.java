@@ -122,9 +122,9 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     public boolean onBlockActivated(World world, int x, int y, int z,
             EntityPlayer player, int par6, float par7, float par8, float par9) {
 
-        if (player.isSneaking())
+        if (player.isSneaking()) {
             return false;
-        else {
+        } else {
             if (!world.isRemote) {
                 TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world
                         .getBlockTileEntity(x, y, z);

@@ -1,7 +1,7 @@
 package nb.largefactory.lib;
 
 public class Textures {
-    
+
     // Base file paths
     public static final String MODEL_SHEET_LOCATION = "/mods/largefactory/textures/models/";
     public static final String ARMOR_SHEET_LOCATION = "/mods/largefactory/textures/armor/";
@@ -15,10 +15,11 @@ public class Textures {
     // Armor sprite sheets
 
     // GUI textures
-    public static final String GUI_SALT_CONDENSER = GUI_SHEET_LOCATION + "guiSaltCondenser.png";
-    
+    public static final String GUI_SALT_CONDENSER = GUI_SHEET_LOCATION
+            + "guiSaltCondenser.png";
+
     // Model textures
-    
+
     // Effect textures
 
 }

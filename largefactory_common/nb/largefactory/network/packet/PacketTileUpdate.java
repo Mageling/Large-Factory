@@ -7,7 +7,6 @@ import java.io.IOException;
 import nb.largefactory.LargeFactory;
 import nb.largefactory.network.PacketTypeHandler;
 import net.minecraft.network.INetworkManager;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.common.network.Player;
 
 public class PacketTileUpdate extends PacketLargeFactory {

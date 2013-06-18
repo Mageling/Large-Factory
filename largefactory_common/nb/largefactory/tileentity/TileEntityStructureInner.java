@@ -11,18 +11,16 @@ public class TileEntityStructureInner extends TileEntityStructure {
 
     @Override
     public boolean validateStructure() {
-        if(this.numAdjascent(this.getStructureType()) == 6) {
+        if (this.numAdjascent(this.getStructureType()) == 6)
             return true;
-        }
         return false;
     }
 
     @Override
     public void setControlBlockLocation(int x, int y, int z) {
-        if(controlBlockLocation != null) {
-            //error message
+        if (controlBlockLocation != null)
+            // error message
             return;
-        }
         controlBlockLocation = new int[3];
         controlBlockLocation[0] = x;
         controlBlockLocation[1] = y;

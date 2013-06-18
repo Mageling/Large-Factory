@@ -59,8 +59,9 @@ public class ContainerSaltCondenser extends Container {
 
                 if (!this.mergeItemStack(slotItemStack,
                         TileEntitySaltCondenser.INVENTORY_SIZE,
-                        inventorySlots.size(), false))
+                        inventorySlots.size(), false)) {
                     return null;
+                }
             }
 
             if (slotItemStack.stackSize == 0) {
