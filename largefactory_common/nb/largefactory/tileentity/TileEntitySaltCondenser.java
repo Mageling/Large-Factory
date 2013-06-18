@@ -51,9 +51,11 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
             return;
         } else {
             if (saltCondenserItemStacks[0].itemID == ModItems.salt.itemID) {
-                saltCondenserItemStacks[0] = new ItemStack(ModItems.salt,
-                        saltCondenserItemStacks[0].stackSize + 1);
-                return;
+                if (saltCondenserItemStacks[0].stackSize < 64) {
+                    saltCondenserItemStacks[0] = new ItemStack(ModItems.salt,
+                            saltCondenserItemStacks[0].stackSize + 1);
+                    return;
+                }
             }
         }
     }

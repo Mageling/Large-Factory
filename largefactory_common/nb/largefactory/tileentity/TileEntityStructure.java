@@ -12,6 +12,8 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
     protected int[] controlBlockLocation;
     protected boolean inStructure = false;
 
+    public abstract void onNotified();
+
     public abstract boolean validateStructure();
 
     public abstract void setControlBlockLocation(int x, int y, int z);

@@ -39,4 +39,10 @@ public class TileEntityStructureCasing extends TileEntityStructure {
         return null;
     }
 
+    @Override
+    public void onNotified() {
+        // TODO Auto-generated method stub
+
+    }
+
 }

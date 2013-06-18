@@ -12,7 +12,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLDecoder {
-    public void instantiate() {
+    public static void instantiate() {
         try {
             File file = new File("test.xml");
             if (file.exists()) {
@@ -47,7 +47,8 @@ public class XMLDecoder {
         }
     }
 
-    public StructureType getStructureType(String ComponentType) {
+    public static StructureType getStructureTypeFromComponentName(
+            String ComponentType) {
         StructureType output = StructureType.CASING;
         // do some stuff
         return output;

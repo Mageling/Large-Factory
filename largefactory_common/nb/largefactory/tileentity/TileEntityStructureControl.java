@@ -1,12 +1,16 @@
 package nb.largefactory.tileentity;
 
 import nb.largefactory.structure.StructureType;
+import nb.largefactory.xml.XMLDecoder;
 
 public class TileEntityStructureControl extends TileEntityStructure {
 
     public TileEntityStructureControl(String componentName) {
         super(componentName);
         controlBlockLocation = new int[3];
+        controlBlockLocation[0] = xCoord;
+        controlBlockLocation[1] = yCoord;
+        controlBlockLocation[2] = zCoord;
     }
 
     @Override
@@ -153,8 +157,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     public StructureType getStructureType() {
-        // TODO Auto-generated method stub
-        return null;
+        return XMLDecoder.getStructureTypeFromComponentName(componentName);
     }
 
     @Override
@@ -162,4 +165,12 @@ public class TileEntityStructureControl extends TileEntityStructure {
         return true;
     }
 
+    public void createStructure() {
+
+    }
+
+    @Override
+    public void onNotified() {
+        this.deleteStructure();
+    }
 }
