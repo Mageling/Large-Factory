@@ -1,6 +1,8 @@
 package nb.largefactory.structure;
 
 public enum StructureType {
+    
+    CASING(false, false),
     // T1
     CRUSHER(true, false),
     GRINDER(false, false),

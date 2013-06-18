@@ -1,3 +1,5 @@
+package nb.largefactory.xml;
+
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,7 +43,7 @@ public class XMLDecoder {
         catch(Exception e){}
         }
     public StructureType get_structure_type(String ComponentType){
-        StructureType output = StructureType.CRUSHER;
+        StructureType output = StructureType.CASING;
         //do some stuff
         return output;
         }

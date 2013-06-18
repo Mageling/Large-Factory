@@ -53,4 +53,38 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
         return i;
     }
     
+    public int numAdjascent(StructureType structureType) {
+        int i = 0;
+        if(this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        if(this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        if(this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        if(this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        if(this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        if(this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure) {
+            if(((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).getStructureType() == structureType || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).getStructureType() == StructureType.CASING) {
+                i++;
+            }
+        }
+        return i;
+    }
 }
