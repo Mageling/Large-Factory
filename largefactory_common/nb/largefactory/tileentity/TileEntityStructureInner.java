@@ -10,39 +10,41 @@ public class TileEntityStructureInner extends TileEntityStructure {
     }
 
     @Override
-    public boolean validateStructure() {
-        if (this.numAdjascent(this.getStructureType()) == 6) {
+    public boolean validateStructure(StructureType structureType) {
+        if (this.getStructureType() != structureType) {
+            return false;
+        }
+        if (this.numAdjacent(this.getStructureType()) == 6) {
             return true;
         }
         return false;
     }
 
     @Override
-    public void setControlBlockLocation(int x, int y, int z) {
+    public boolean setControlBlockLocation(int x, int y, int z) {
         if (controlBlockLocation != null) {
-            // error message
-            return;
+            return false;
         }
         controlBlockLocation = new int[3];
         controlBlockLocation[0] = x;
         controlBlockLocation[1] = y;
         controlBlockLocation[2] = z;
+        return true;
     }
 
     @Override
     public void onBlockBreak() {
         notifyControlBlock();
-        removeFromStructure();
     }
 
-    private void removeFromStructure() {
+    protected void removeFromStructure() {
         controlBlockLocation = null;
         inStructure = false;
 
     }
 
-    private void notifyControlBlock() {
-        // TODO Auto-generated method stub
+    protected void notifyControlBlock() {
+        ((TileEntityStructureControl) worldObj.getBlockTileEntity(controlBlockLocation[0], controlBlockLocation[1], controlBlockLocation[2])).onNotified();
 
     }
 

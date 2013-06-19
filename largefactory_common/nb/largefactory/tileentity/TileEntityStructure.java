@@ -14,15 +14,19 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
 
     public abstract void onNotified();
 
-    public abstract boolean validateStructure();
+    public abstract boolean validateStructure(StructureType structureType);
 
-    public abstract void setControlBlockLocation(int x, int y, int z);
+    public abstract boolean setControlBlockLocation(int x, int y, int z);
 
     public abstract boolean isFace(StructureType structureType);
 
     public abstract void onBlockBreak();
 
     public abstract StructureType getStructureType();
+    
+    protected abstract void notifyControlBlock();
+    
+    protected abstract void removeFromStructure();
 
     public int numAdjacentInner(StructureType structureType) {
         int i = 0;
@@ -65,7 +69,7 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
         return i;
     }
 
-    public int numAdjascent(StructureType structureType) {
+    public int numAdjacent(StructureType structureType) {
         int i = 0;
         if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1,

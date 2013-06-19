@@ -14,9 +14,14 @@ public class TileEntityStructureControl extends TileEntityStructure {
     }
 
     @Override
-    public boolean validateStructure() {
-        StructureType structureType = this.getStructureType();
+    public boolean validateStructure(StructureType structureType) {
+        if(this.getStructureType() != structureType) {
+            return false;
+        }
         if (numAdjacentInner(structureType) == 1) {
+            if (numAdjacent(structureType) != 5) {
+                return false;
+            }
             if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
                 if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
                         xCoord + 1, yCoord, zCoord)).getStructureType() == structureType) {
@@ -136,11 +141,15 @@ public class TileEntityStructureControl extends TileEntityStructure {
     }
 
     @Override
-    public void setControlBlockLocation(int x, int y, int z) {
-        controlBlockLocation[0] = x;
-        controlBlockLocation[1] = y;
-        controlBlockLocation[2] = z;
-
+    public boolean setControlBlockLocation(int x, int y, int z) {
+        if(x == this.xCoord) {
+            if(y == this.yCoord) {
+                if(z == this.zCoord) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -162,7 +171,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     public boolean isFace(StructureType structureType) {
-        return true;
+        return this.getStructureType() == structureType;
     }
 
     public void createStructure() {
@@ -172,5 +181,17 @@ public class TileEntityStructureControl extends TileEntityStructure {
     @Override
     public void onNotified() {
         this.deleteStructure();
+    }
+
+    @Override
+    protected void notifyControlBlock() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    protected void removeFromStructure() {
+        // TODO Auto-generated method stub
+        
     }
 }

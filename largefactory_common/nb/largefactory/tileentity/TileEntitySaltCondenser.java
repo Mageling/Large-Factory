@@ -16,7 +16,7 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
     public static final int OUTPUT_INVENTORY_INDEX = 0;
 
     private ItemStack[] saltCondenserItemStacks;
-    public int saltCondenserTimeRemaining = 2304000; // ticks in 32 hours
+    public int saltCondenserTimeRemaining = 1152000; // ticks in 16 hours
     public int saltProgress = 0;
     public boolean ceaseFunction = false;
 
@@ -31,13 +31,13 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
             if (this.canProduce()) {
                 if (worldObj.getBiomeGenForCoords(xCoord, zCoord) == BiomeGenBase.beach
                         || worldObj.getBiomeGenForCoords(xCoord, zCoord) == BiomeGenBase.ocean) {
-                    saltProgress = saltProgress + 16;
+                    saltProgress = saltProgress + 4; 
                 } else {
                     saltProgress = saltProgress + 1;
                 }
-                if (saltProgress >= 507600) { // 16 x ticks in 30 minutes
+                if (saltProgress >= 72000) { // ticks in an hour
                     this.makeSalt();
-                    saltProgress = saltProgress - 507600;
+                    saltProgress = saltProgress - 72000;
                 }
             }
         } else {
