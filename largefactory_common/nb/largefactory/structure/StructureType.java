@@ -30,5 +30,13 @@ public enum StructureType {
     public boolean isOutput() {
         return isOutput;
     }
+    
+    public static StructureType stringToStructureType(String structureName) {
+        switch (structureName) {
+            case "casing":  return StructureType.CASING;
+            case "crusher": return StructureType.CRUSHER;
+            default:        return null;
+        }
+    }
 
 }

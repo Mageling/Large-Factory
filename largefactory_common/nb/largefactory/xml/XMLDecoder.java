@@ -12,7 +12,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLDecoder {
-    public static void instantiate() {
+    NodeList node;
+    
+    public void instantiate() {
         try {
             File file = new File("test.xml");
             if (file.exists()) {
@@ -21,36 +23,23 @@ public class XMLDecoder {
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse("test.xml");
                 // Node node = doc.getDocumentElement();
-                NodeList node = doc.getElementsByTagName("*");
-                for (int i = 0; i < node.getLength(); i++) {
-                    Node currentNode = node.item(i);
-                    String x = currentNode.getNodeName();
-                    if (x == "component") {
-                        NodeList tmpNode = currentNode.getChildNodes();
-                        for (int j = 0; j < tmpNode.getLength(); j++) {
-                            if (j % 2 == 1) {
-                                System.out.println(tmpNode.item(j)
-                                        .getNodeName());
-                                System.out.println(tmpNode.item(j)
-                                        .getTextContent());
-                                System.out.println("");
-                            }
-                        }
-                    }
-                    // System.out.println(firstNode.getNodeName() + ' ' +
-                    // ((NodeList) firstNode).item(0).getNodeValue());
+                node = doc.getElementsByTagName("*");
                 }
-            } else {
-                System.out.println("File not found!");
-            }
         } catch (Exception e) {
         }
     }
 
-    public static StructureType getStructureTypeFromComponentName(
-            String ComponentType) {
-        StructureType output = StructureType.CASING;
+    public StructureType getStructureType(String ComponentType) {
+        for (int i = 0; i < node.getLength(); i++) {
+            Node currentNode = node.item(i);           
+            if (currentNode.getNodeName() == ComponentType) {
+                Node StructureNode = currentNode.getParentNode();
+                String StructureName = StructureNode.getNodeName();
+                StructureType output = StructureType.stringToStructureType(StructureName);
+                return output;
+            }
+        }
+        return null;
         // do some stuff
-        return output;
     }
 }
