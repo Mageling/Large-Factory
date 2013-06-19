@@ -1,10 +1,13 @@
 package nb.largefactory.client.renderer.item;
 
 import nb.largefactory.client.model.ModelSaltCondenser;
+import nb.largefactory.lib.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class ItemSaltCondenserRenderer implements IItemRenderer {
 
@@ -26,7 +29,7 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
 
         switch (type) {
             case ENTITY: {
-                renderSaltCondenser(-0.5F, 0.0F, 0.5F, 1.0F);
+                renderSaltCondenser(0.5F, 0.0F, 0.5F, 1.0F);
                 return;
             }
             case EQUIPPED: {
@@ -38,7 +41,7 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
                 return;
             }
             case INVENTORY: {
-                renderSaltCondenser(0.0F, -0.1F, 1.0F, 1.0F);
+                renderSaltCondenser(1.0F, 0.0F, 1.0F, 1.0F);
                 return;
             }
             default:
@@ -55,8 +58,8 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
         GL11.glTranslatef(x, y, z);
         GL11.glRotatef(-90F, 1F, 0, 0);
 
-        // TODO Bind texture
-        // FMLClientHandler.instance().getClient().renderEngine.bindTexture();
+        // Bind Texture
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
 
         // Render
         modelSaltCondenser.render();

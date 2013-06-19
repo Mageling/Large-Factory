@@ -12,9 +12,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLDecoder {
-    NodeList node;
+    static NodeList node;
     
-    public void instantiate() {
+    public static void instantiate() {
         try {
             File file = new File("test.xml");
             if (file.exists()) {
@@ -29,7 +29,7 @@ public class XMLDecoder {
         }
     }
 
-    public StructureType getStructureType(String ComponentType) {
+    public static StructureType getStructureType(String ComponentType) {
         for (int i = 0; i < node.getLength(); i++) {
             Node currentNode = node.item(i);           
             if (currentNode.getNodeName() == ComponentType) {

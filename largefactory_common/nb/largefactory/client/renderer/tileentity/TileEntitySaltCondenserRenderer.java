@@ -1,11 +1,14 @@
 package nb.largefactory.client.renderer.tileentity;
 
 import nb.largefactory.client.model.ModelSaltCondenser;
+import nb.largefactory.lib.Textures;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class TileEntitySaltCondenserRenderer extends TileEntitySpecialRenderer {
 
@@ -26,7 +29,8 @@ public class TileEntitySaltCondenserRenderer extends TileEntitySpecialRenderer {
             GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F,
                     (float) z + 0.5F);
 
-            // TODO Bind texture
+            // Bind Texture
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
 
             modelSaltCondenser.render();
 

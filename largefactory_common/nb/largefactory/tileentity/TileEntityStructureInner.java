@@ -48,7 +48,7 @@ public class TileEntityStructureInner extends TileEntityStructure {
 
     @Override
     public StructureType getStructureType() {
-        return XMLDecoder.getStructureTypeFromComponentName(componentName);
+        return XMLDecoder.getStructureType(componentName);
     }
 
     @Override

@@ -157,7 +157,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     public StructureType getStructureType() {
-        return XMLDecoder.getStructureTypeFromComponentName(componentName);
+        return XMLDecoder.getStructureType(componentName);
     }
 
     @Override

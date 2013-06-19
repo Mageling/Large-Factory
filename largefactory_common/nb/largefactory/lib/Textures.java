@@ -19,6 +19,7 @@ public class Textures {
             + "guiSaltCondenser.png";
 
     // Model textures
+    public static final String SALT_CONDENSER = MODEL_SHEET_LOCATION + "saltCondenser.png";
 
     // Effect textures
 
