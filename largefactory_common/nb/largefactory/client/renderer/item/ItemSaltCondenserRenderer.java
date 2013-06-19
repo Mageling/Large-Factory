@@ -29,19 +29,19 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
 
         switch (type) {
             case ENTITY: {
-                renderSaltCondenser(0.5F, 0.0F, 0.5F, 1.0F);
+                renderSaltCondenser(0.0F, 0.0F, 0.5F, 1.0F);
                 return;
             }
             case EQUIPPED: {
-                renderSaltCondenser(0.0F, 0.0F, 1.0F, 1.0F);
+                renderSaltCondenser(0.0F, 0.5F, 1.5F, 1.0F);
                 return;
             }
             case EQUIPPED_FIRST_PERSON: {
-                renderSaltCondenser(0.0F, 0.0F, 1.0F, 1.0F);
+                renderSaltCondenser(0.0F, 0.5F, 1.0F, 1.0F);
                 return;
             }
             case INVENTORY: {
-                renderSaltCondenser(1.0F, 0.0F, 1.0F, 1.0F);
+                renderSaltCondenser(0.0F, 0.0F, 0.5F, 1.0F);
                 return;
             }
             default:

@@ -1,7 +1,7 @@
 # Blender v2.67 (sub 0) OBJ File: 'salt_col.blend'
 # www.blender.org
 mtllib salt_collector_6.mtl
-o Untitled_Cube.001
+# o Untitled_Cube.001
 v -0.437500 0.000000 0.437500
 v -0.437500 0.000000 -0.437500
 v 0.437500 0.000000 -0.437500
