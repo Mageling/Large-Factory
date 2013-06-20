@@ -1,7 +1,7 @@
 # Blender v2.67 (sub 0) OBJ File: 'salt_col.blend'
 # www.blender.org
 mtllib saltCondenser.mtl
-o Cube
+# o Cube
 v -0.500000 0.000000 0.500000
 v -0.500000 0.000000 -0.500000
 v 0.500000 0.000000 -0.500000

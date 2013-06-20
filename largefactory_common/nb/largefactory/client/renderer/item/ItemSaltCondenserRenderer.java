@@ -29,19 +29,19 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
 
         switch (type) {
             case ENTITY: {
-                renderSaltCondenser(0.0F, 0.0F, 0.5F, 1.0F);
+                renderSaltCondenser(0.0F, 0.0F, 0.0F, 1.0F);
                 return;
             }
             case EQUIPPED: {
-                renderSaltCondenser(0.0F, 0.5F, 1.5F, 1.0F);
+                renderSaltCondenser(0.5F, -0.0F, 0.5F, 1.0F);
                 return;
             }
             case EQUIPPED_FIRST_PERSON: {
-                renderSaltCondenser(0.0F, 0.5F, 1.0F, 1.0F);
+                renderSaltCondenser(0.5F, -0.5F, 0.5F, 1.5F);
                 return;
             }
             case INVENTORY: {
-                renderSaltCondenser(0.0F, 0.0F, 0.5F, 1.0F);
+                renderSaltCondenser(0.0F, -0.5F, 0.0F, 1.0F);
                 return;
             }
             default:
@@ -56,7 +56,7 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
         // Scale, Translate, Rotate
         GL11.glScalef(scale, scale, scale);
         GL11.glTranslatef(x, y, z);
-        GL11.glRotatef(-90F, 1F, 0, 0);
+        GL11.glRotatef(0F, 1F, 0, 0);
 
         // Bind Texture
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
