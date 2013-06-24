@@ -32,11 +32,7 @@ public enum StructureType {
     }
     
     public static StructureType stringToStructureType(String structureName) {
-        switch (structureName) {
-            case "casing":  return StructureType.CASING;
-            case "crusher": return StructureType.CRUSHER;
-            default:        return null;
-        }
+        return StructureType.valueOf(structureName.toUpperCase().replace(" ", "_"));
     }
 
 }
