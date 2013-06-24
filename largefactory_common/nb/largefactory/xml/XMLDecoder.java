@@ -30,11 +30,8 @@ public class XMLDecoder {
 
     public static StructureType getStructureType(String ComponentType) {
         for (int i = 0; i < node.getLength(); i++) {          
-            if (node.item(i).getNodeName().equals(ComponentType)) {
-                Node StructureNode = node.item(i).getParentNode().getParentNode();
-                String StructureName = StructureNode.getNodeName();
-                StructureType output = StructureType.stringToStructureType(StructureName);
-                return output;
+            if (node.item(i).getTextContent().equals(ComponentType)) {
+                return StructureType.stringToStructureType(node.item(i).getParentNode().getParentNode().getNodeName());
             }
         }
         return null;
