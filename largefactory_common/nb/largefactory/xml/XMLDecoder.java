@@ -31,12 +31,7 @@ public class XMLDecoder {
     public static StructureType getStructureType(String ComponentType) {
         for (int i = 0; i < node.getLength(); i++) {
             if (node.item(i).getTextContent().equals(ComponentType)) {
-<<<<<<< HEAD
-                return StructureType.stringToStructureType(node.item(i)
-                        .getParentNode().getParentNode().getNodeName());
-=======
                 return StructureType.stringToStructureType(node.item(i).getParentNode().getParentNode().getNodeName().replace("_components",""));
->>>>>>> 7c503e2... Fixed to decoder more
             }
         }
         return null;
