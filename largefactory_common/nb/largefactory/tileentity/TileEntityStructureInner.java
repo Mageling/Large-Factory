@@ -29,10 +29,7 @@ public class TileEntityStructureInner extends TileEntityStructure {
         if (controlBlockLocation != null) {
             return false;
         }
-        controlBlockLocation = new int[3];
-        controlBlockLocation[0] = x;
-        controlBlockLocation[1] = y;
-        controlBlockLocation[2] = z;
+        controlBlockLocation = coordToArray(x, y, z);
         return true;
     }
 

@@ -159,4 +159,13 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
         componentName = par1NBTTagCompound.getString("Component Name");
         inStructure = par1NBTTagCompound.getBoolean("In Structure");
     }
+
+    public int[] coordToArray(int x, int y, int z) {
+        int[] array = new int[3];
+        array[0] = x;
+        array[1] = y;
+        array[2] = z;
+        return array;
+    }
+
 }

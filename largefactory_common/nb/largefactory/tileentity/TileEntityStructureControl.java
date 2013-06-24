@@ -725,7 +725,8 @@ public class TileEntityStructureControl extends TileEntityStructure {
         // TODO final cleanup stuff
     }
 
-    private int[] coordToArray(int x, int y, int z) {
+    @Override
+    public int[] coordToArray(int x, int y, int z) {
         int[] array = new int[3];
         array[0] = x;
         array[1] = y;
