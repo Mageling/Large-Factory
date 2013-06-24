@@ -59,7 +59,8 @@ public class ItemSaltCondenserRenderer implements IItemRenderer {
         GL11.glRotatef(0F, 1F, 0, 0);
 
         // Bind Texture
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
+        FMLClientHandler.instance().getClient().renderEngine
+                .bindTexture(Textures.SALT_CONDENSER);
 
         // Render
         modelSaltCondenser.render();

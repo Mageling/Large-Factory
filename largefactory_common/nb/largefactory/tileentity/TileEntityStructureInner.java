@@ -1,5 +1,6 @@
 package nb.largefactory.tileentity;
 
+import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureType;
 import nb.largefactory.xml.XMLDecoder;
 
@@ -12,11 +13,14 @@ public class TileEntityStructureInner extends TileEntityStructure {
     @Override
     public boolean validateStructure(StructureType structureType) {
         if (this.getStructureType() != structureType) {
+            StructureCreationErrors.INNER_BLOCK.printError(xCoord, yCoord,
+                    zCoord);
             return false;
         }
         if (this.numAdjacent(this.getStructureType()) == 6) {
             return true;
         }
+        StructureCreationErrors.INNER_BLOCK.printError(xCoord, yCoord, zCoord);
         return false;
     }
 
@@ -37,14 +41,18 @@ public class TileEntityStructureInner extends TileEntityStructure {
         notifyControlBlock();
     }
 
+    @Override
     protected void removeFromStructure() {
         controlBlockLocation = null;
         inStructure = false;
 
     }
 
+    @Override
     protected void notifyControlBlock() {
-        ((TileEntityStructureControl) worldObj.getBlockTileEntity(controlBlockLocation[0], controlBlockLocation[1], controlBlockLocation[2])).onNotified();
+        ((TileEntityStructureControl) worldObj.getBlockTileEntity(
+                controlBlockLocation[0], controlBlockLocation[1],
+                controlBlockLocation[2])).onNotified();
 
     }
 

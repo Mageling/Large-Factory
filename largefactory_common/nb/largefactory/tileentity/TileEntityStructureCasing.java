@@ -1,5 +1,6 @@
 package nb.largefactory.tileentity;
 
+import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureType;
 
 public class TileEntityStructureCasing extends TileEntityStructure {
@@ -15,16 +16,19 @@ public class TileEntityStructureCasing extends TileEntityStructure {
             return numAdjacent(structureType) == 6;
         }
         if (numAdjacentInner(structureType) == 1) {
-            if(numAdjacent(structureType) == 6) {
+            if (numAdjacent(structureType) == 6) {
                 return true;
             }
-            if(numAdjacent(structureType) < 5) {
+            if (numAdjacent(structureType) < 5) {
+                StructureCreationErrors.FACE_CASING_BLOCK.printError(xCoord,
+                        yCoord, zCoord);
                 return false;
             }
             if (numAdjacent(structureType) == 5) {
                 if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord + 1, yCoord, zCoord)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord + 1, yCoord, zCoord))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord - 1, yCoord,
                                 zCoord) instanceof TileEntityStructure)) {
                             return true;
@@ -38,12 +42,15 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
                 if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord - 1, yCoord, zCoord)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord - 1, yCoord, zCoord))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord + 1, yCoord,
                                 zCoord) instanceof TileEntityStructure)) {
                             return true;
@@ -57,12 +64,15 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
                 if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord, yCoord + 1, zCoord)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord, yCoord - 1,
                                 zCoord) instanceof TileEntityStructure)) {
                             return true;
@@ -76,12 +86,15 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
                 if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord, yCoord - 1, zCoord)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord, yCoord + 1,
                                 zCoord) instanceof TileEntityStructure)) {
                             return true;
@@ -95,12 +108,15 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
                 if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord, yCoord, zCoord + 1)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord + 1))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord, yCoord,
                                 zCoord - 1) instanceof TileEntityStructure)) {
                             return true;
@@ -114,12 +130,15 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
                 if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureInner) {
-                    if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                            xCoord, yCoord, zCoord - 1)).getStructureType() == structureType) {
+                    if (((TileEntityStructureInner) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1))
+                            .getStructureType() == structureType) {
                         if (!(worldObj.getBlockTileEntity(xCoord, yCoord,
                                 zCoord + 1) instanceof TileEntityStructure)) {
                             return true;
@@ -133,69 +152,132 @@ public class TileEntityStructureCasing extends TileEntityStructure {
                                 }
                             }
                         }
+                        StructureCreationErrors.FACE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
                         return false;
                     }
                 }
             }
         }
         if (numAdjacentInner(structureType) == 0) {
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1,
+                    yCoord, zCoord)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                        yCoord + 1, zCoord)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord, yCoord - 1, zCoord))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord, yCoord,
+                            zCoord + 1) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1,
+                    yCoord, zCoord)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                        yCoord, zCoord + 1)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord, yCoord, zCoord - 1))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                            zCoord) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                    yCoord + 1, zCoord)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(
+                        xCoord + 1, yCoord, zCoord)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord - 1, yCoord, zCoord))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord, yCoord,
+                            zCoord + 1) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                    yCoord + 1, zCoord)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                        yCoord, zCoord + 1)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord, yCoord, zCoord - 1))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                            zCoord) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                    yCoord, zCoord + 1)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(
+                        xCoord + 1, yCoord, zCoord)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord - 1, yCoord, zCoord))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                            zCoord) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
-            if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
-                if (((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).isFace(structureType) || ((TileEntityStructure) this.worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).isFace(structureType)) {
-                    if (this.worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure && this.worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure) {
-                        return true;
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                    yCoord, zCoord + 1)).isFace(structureType)
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                            xCoord, yCoord, zCoord - 1)).isFace(structureType)) {
+                if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
+                        yCoord + 1, zCoord)).isFace(structureType)
+                        || ((TileEntityStructure) worldObj.getBlockTileEntity(
+                                xCoord, yCoord - 1, zCoord))
+                                .isFace(structureType)) {
+                    if (!(worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                            zCoord) instanceof TileEntityStructure && worldObj
+                            .getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure)) {
+                        StructureCreationErrors.EDGE_CASING_BLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
                     }
-                    return false;
                 }
             }
             return true;
         }
+        StructureCreationErrors.OTHER.printError(xCoord, yCoord, zCoord);
         return false;
     }
 
     @Override
     public boolean setControlBlockLocation(int x, int y, int z) {
         int[] controlBlockLocationNew = new int[controlBlockLocation.length + 3];
-        for(int i = 0; i < controlBlockLocation.length; i++) {
+        for (int i = 0; i < controlBlockLocation.length; i++) {
             controlBlockLocationNew[i] = controlBlockLocation[i];
         }
         controlBlockLocationNew[controlBlockLocation.length] = x;
@@ -227,8 +309,10 @@ public class TileEntityStructureCasing extends TileEntityStructure {
 
     @Override
     protected void notifyControlBlock() {
-        for(int i = 0; i < controlBlockLocation.length; i = i + 3) {
-            ((TileEntityStructureControl) this.worldObj.getBlockTileEntity(controlBlockLocation[i], controlBlockLocation[i + 1], controlBlockLocation[i + 2])).onNotified();
+        for (int i = 0; i < controlBlockLocation.length; i = i + 3) {
+            ((TileEntityStructureControl) worldObj.getBlockTileEntity(
+                    controlBlockLocation[i], controlBlockLocation[i + 1],
+                    controlBlockLocation[i + 2])).onNotified();
         }
     }
 

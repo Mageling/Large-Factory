@@ -30,9 +30,10 @@ public enum StructureType {
     public boolean isOutput() {
         return isOutput;
     }
-    
+
     public static StructureType stringToStructureType(String structureName) {
-        return StructureType.valueOf(structureName.toUpperCase().replace(" ", "_"));
+        return StructureType.valueOf(structureName.toUpperCase().replace(" ",
+                "_"));
     }
 
 }

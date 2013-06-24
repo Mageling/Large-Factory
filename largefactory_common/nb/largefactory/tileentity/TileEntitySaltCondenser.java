@@ -31,7 +31,7 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
             if (this.canProduce()) {
                 if (worldObj.getBiomeGenForCoords(xCoord, zCoord) == BiomeGenBase.beach
                         || worldObj.getBiomeGenForCoords(xCoord, zCoord) == BiomeGenBase.ocean) {
-                    saltProgress = saltProgress + 4; 
+                    saltProgress = saltProgress + 4;
                 } else {
                     saltProgress = saltProgress + 1;
                 }
