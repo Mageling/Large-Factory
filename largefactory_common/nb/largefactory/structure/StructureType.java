@@ -46,6 +46,10 @@ public enum StructureType {
     public boolean isOutput() {
         return isOutput;
     }
+    
+    public Class<? extends ComponentDataClass> getComponentClass() {
+        return componentClass;
+    }
 
     public static StructureType stringToStructureType(String structureName) {
         return StructureType.valueOf(structureName.toUpperCase().replace(" ",

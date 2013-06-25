@@ -8,7 +8,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import nb.largefactory.lib.Files;
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.*;
+import nb.largefactory.structure.component.ComponentDataClass;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -52,14 +53,11 @@ public class XMLDecoder {
     }
 
     public static Object createStructureObjectFromNode(Node componentNode) {
-        String loc = StructureType.stringToStructureType(
+        Class<? extends ComponentDataClass> loc = StructureType.stringToStructureType(
                 componentNode.getParentNode().getNodeName())
                 .getComponentClass();
-        try {
-            return Class.forName(loc);
-        } catch (ClassNotFoundException e) {
-        }
+        loc.getNameBo();
+        
         return null;
-
     }
 }
