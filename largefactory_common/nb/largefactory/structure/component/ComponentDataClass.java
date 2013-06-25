@@ -7,4 +7,6 @@ public class ComponentDataClass {
     String[] recipie = null;
     Enum<StructureType> strutureType = null;
     int[] dimensions = null;
+    int maxNumber = 1;
+    boolean main = false;
 }

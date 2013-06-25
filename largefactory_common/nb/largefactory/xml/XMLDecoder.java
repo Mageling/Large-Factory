@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import nb.largefactory.structure.StructureType;
 import nb.largefactory.lib.Files;
+import nb.largefactory.structure.*;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -30,9 +30,7 @@ public class XMLDecoder {
                 node = doc.getElementsByTagName("*");
                 for (int i = 0; i < node.getLength(); i++) {
                     if (node.item(i).getNodeName().equals("component")) {
-                        componentList.put(node.item(i).getFirstChild()
-                                .getTextContent(),
-                                createStructureObjectFromNode(node.item(i)));
+                        componentList.put(node.item(i).getFirstChild().getTextContent(),createStructureObjectFromNode(node.item(i)));
                     }
                 }
             }
@@ -52,7 +50,12 @@ public class XMLDecoder {
     }
 
     public static Object createStructureObjectFromNode(Node componentNode) {
-        // do some stuff
+        String loc = StructureType.stringToStructureType(componentNode.getParentNode().getNodeName()).getComponentClass();
+        try {
+            return Class.forName(loc);
+        } catch (ClassNotFoundException e) {
+        }
         return null;
+        
     }
 }
