@@ -29,7 +29,8 @@ public enum StructureType {
     private boolean isOutput;
     private String componentClass;
 
-    private StructureType(boolean isInput, boolean isOutput, String componentClass) {
+    private StructureType(boolean isInput, boolean isOutput,
+            String componentClass) {
         this.isInput = isInput;
         this.isOutput = isOutput;
         this.componentClass = componentClass;
@@ -42,11 +43,12 @@ public enum StructureType {
     public boolean isOutput() {
         return isOutput;
     }
+
     public String getComponentClass() {
         return componentClass;
     }
-    
-    public static StructureType getComponentClass(String structureName){
+
+    public static StructureType getComponentClass(String structureName) {
         return getComponentClass(structureName);
     }
 
