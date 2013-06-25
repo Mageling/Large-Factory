@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureType;
 import nb.largefactory.xml.XMLDecoder;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityStructureControl extends TileEntityStructure {
@@ -798,4 +800,94 @@ public class TileEntityStructureControl extends TileEntityStructure {
         // TODO Auto-generated method stub
 
     }
+    
+    
+    public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
+        super.writeToNBT(par1NBTTagCompound);
+        
+        NBTTagList nbttaglist = new NBTTagList();
+
+        for (int i = 0; i < componentList.length; ++i) {
+            NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+            nbttagcompound1.setString("Component List:" + i,
+                    componentList[i]);
+            nbttaglist.appendTag(nbttagcompound1);
+        }
+
+        par1NBTTagCompound.setTag("Component List", nbttaglist);
+        
+        nbttaglist = new NBTTagList();
+
+        for (int i = 0; i < innerBlocks.length; ++i) {
+            NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+            nbttagcompound1.setInteger("Inner Bocks:" + i + ": x",
+                    innerBlocks[i][0]);
+            nbttagcompound1.setInteger("Inner Bocks:" + i + ": y",
+                    innerBlocks[i][1]);
+            nbttagcompound1.setInteger("Inner Bocks:" + i + ": z",
+                    innerBlocks[i][2]);
+            nbttaglist.appendTag(nbttagcompound1);
+        }
+
+        par1NBTTagCompound.setTag("Inner Blocks", nbttaglist);
+        
+        nbttaglist = new NBTTagList();
+
+        for (int i = 0; i < casingBlocks.length; ++i) {
+            NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+            nbttagcompound1.setInteger("Casing Bocks:" + i + ": x",
+                    casingBlocks[i][0]);
+            nbttagcompound1.setInteger("Casing Bocks:" + i + ": y",
+                    casingBlocks[i][1]);
+            nbttagcompound1.setInteger("Casing Bocks:" + i + ": z",
+                    casingBlocks[i][2]);
+            nbttaglist.appendTag(nbttagcompound1);
+        }
+
+        par1NBTTagCompound.setTag("Casing Blocks", nbttaglist);
+        
+        par1NBTTagCompound.setBoolean("Is Notified", isNotified);
+        
+    }
+    
+    public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
+        super.readFromNBT(par1NBTTagCompound);
+        isNotified = par1NBTTagCompound.getBoolean("Is Notified");
+        
+        NBTTagList nbttaglist = par1NBTTagCompound
+                .getTagList("Component List");
+        componentList = new String[nbttaglist.tagCount()];
+
+        for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist
+                    .tagAt(i);
+            componentList[i] = nbttagcompound1
+                    .getString("Component List:" + i);
+
+        }
+        
+        nbttaglist = par1NBTTagCompound.getTagList("Inner Blocks");
+        ArrayList<int[]> tempInnerBlocks = new ArrayList<int[]>(nbttaglist.tagCount());
+        
+        for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist
+                    .tagAt(i);
+            tempInnerBlocks.add(coordToArray(nbttagcompound1.getInteger("Inner Bocks:" + i + ": x"), nbttagcompound1.getInteger("Inner Bocks:" + i + ": y"), nbttagcompound1.getInteger("Inner Bocks:" + i + ": z")));
+        }
+        
+        innerBlocks = tempInnerBlocks.toArray(innerBlocks);
+        
+        nbttaglist = par1NBTTagCompound.getTagList("Casing Blocks");
+        ArrayList<int[]> tempCasingBlocks = new ArrayList<int[]>(nbttaglist.tagCount());
+        
+        for (int i = 0; i < nbttaglist.tagCount(); ++i) {
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist
+                    .tagAt(i);
+            tempCasingBlocks.add(coordToArray(nbttagcompound1.getInteger("Casing Bocks:" + i + ": x"), nbttagcompound1.getInteger("Casing Bocks:" + i + ": y"), nbttagcompound1.getInteger("Casing Bocks:" + i + ": z")));
+        }
+        
+        casingBlocks = tempCasingBlocks.toArray(casingBlocks);
+        
+    }
+    
 }
