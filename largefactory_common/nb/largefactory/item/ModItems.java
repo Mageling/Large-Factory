@@ -3,6 +3,7 @@ package nb.largefactory.item;
 import nb.largefactory.item.salt.ItemSalt;
 import nb.largefactory.item.salt.ItemSaltChickenCooked;
 import nb.largefactory.item.salt.ItemSaltChickenRaw;
+import nb.largefactory.item.salt.ItemSaltChunk;
 import nb.largefactory.item.salt.ItemSaltFishCooked;
 import nb.largefactory.item.salt.ItemSaltFishRaw;
 import nb.largefactory.item.salt.ItemSaltFlesh;
@@ -17,6 +18,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ModItems {
 
     public static Item salt;
+    public static Item saltChunk;
     public static Item saltFlesh;
     public static Item saltPorkRaw;
     public static Item saltPorkCooked;
@@ -30,6 +32,9 @@ public class ModItems {
     public static void registerItems() {
         salt = new ItemSalt(ItemIDs.SALT);
         LanguageRegistry.addName(salt, "Salt");
+
+        saltChunk = new ItemSaltChunk(ItemIDs.SALT_CHUNK);
+        LanguageRegistry.addName(saltChunk, "Salt Chunk");
 
         saltChickenRaw = new ItemSaltChickenRaw(ItemIDs.SALT_CHICKEN_RAW);
         LanguageRegistry.addName(saltChickenRaw, "Salted Raw Chicken");

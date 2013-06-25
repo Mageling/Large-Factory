@@ -11,9 +11,11 @@ public class Strings {
 
     /* Block name constants */
     public static final String SALT_CONDENSER_NAME = "saltCondenser";
+    public static final String SALT_BLOCK_NAME = "saltBlock";
 
     /* Item name constants */
     public static final String SALT_NAME = "salt";
+    public static final String SALT_CHUNK_NAME = "saltChunk";
     public static final String SALT_FLESH_NAME = "saltFlesh";
     public static final String SALT_PORK_RAW_NAME = "saltPorkRaw";
     public static final String SALT_PORK_COOKED_NAME = "saltPorkCooked";

@@ -2,6 +2,7 @@ package nb.largefactory.lib;
 
 public class ItemIDs {
 
+    public static int SALT_CHUNK = 7780;
     public static int SALT = 7770;
     public static int SALT_FLESH = 7771;
     public static int SALT_PORK_RAW = 7772;

@@ -30,13 +30,11 @@ public enum StructureType {
 
     private boolean isInput;
     private boolean isOutput;
-    private Class<? extends ComponentDataClass> componentClass;
 
     private StructureType(boolean isInput, boolean isOutput,
             Class<? extends ComponentDataClass> componentClass) {
         this.isInput = isInput;
         this.isOutput = isOutput;
-        this.componentClass = componentClass;
     }
 
     public boolean isInput() {
@@ -58,7 +56,7 @@ public enum StructureType {
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
         for (String component : components) {
-             // TODO check for required block
+            // TODO check for required block
         }
         StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
         return false;

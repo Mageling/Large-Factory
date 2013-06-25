@@ -28,6 +28,15 @@ public class VanillaCrafting {
                         new Object[] { "G G", "PBP", "PCP", 'G', Block.glass,
                                 'P', Block.planks, 'B', Item.bucketEmpty, 'C',
                                 Block.chest });
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltChunk),
+                new Object[] { ModItems.salt, ModItems.salt, ModItems.salt,
+                        ModItems.salt, ModItems.salt, ModItems.salt,
+                        ModItems.salt, ModItems.salt });
+        GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.saltBlock),
+                new Object[] { ModItems.saltChunk, ModItems.saltChunk,
+                        ModItems.saltChunk, ModItems.saltChunk,
+                        ModItems.saltChunk, ModItems.saltChunk,
+                        ModItems.saltChunk, ModItems.saltChunk });
 
     }
 
