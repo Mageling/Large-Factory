@@ -12,6 +12,11 @@ public class TileEntityStructureInner extends TileEntityStructure {
 
     @Override
     public boolean validateStructure(StructureType structureType) {
+        if (inStructure) {
+            StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord,
+                    yCoord, zCoord);
+            return false;
+        }
         if (this.getStructureType() != structureType) {
             StructureCreationErrors.INNER_BLOCK.printError(xCoord, yCoord,
                     zCoord);

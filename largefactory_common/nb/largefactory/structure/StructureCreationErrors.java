@@ -8,6 +8,7 @@ public enum StructureCreationErrors {
     EDGE_CASING_BLOCK(" "),
     TWO_CONTROL_BLOCK(" "),
     MISSING_BLOCK(" "),
+    ALREADY_IN_STRUCTURE(" "),
     OTHER("Unknown Error");
 
     private String message;

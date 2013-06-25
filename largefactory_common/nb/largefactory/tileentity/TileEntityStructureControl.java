@@ -24,6 +24,11 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     public boolean validateStructure(StructureType structureType) {
+        if (inStructure) {
+            StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord,
+                    yCoord, zCoord);
+            return false;
+        }
         if (this.getStructureType() != structureType) {
             StructureCreationErrors.CONTROL_BLOCK.printError(xCoord, yCoord,
                     zCoord);
@@ -725,8 +730,44 @@ public class TileEntityStructureControl extends TileEntityStructure {
             }
         }
 
-        // TODO final cleanup stuff
+        // final cleanup stuff
+        arrayListInner.trimToSize();
+        int[][] tempArrayInner = null;
+        tempArrayInner = arrayListInner.toArray(tempArrayInner);
+        String[] tempComponentList = new String[tempArrayInner.length];
+        for (int i = 0; i < tempArrayInner.length; i++) {
+            tempComponentList[i] = ((TileEntityStructure) worldObj
+                    .getBlockTileEntity(tempArrayInner[i][0],
+                            tempArrayInner[i][1], tempArrayInner[i][2]))
+                    .getComponentName();
+        }
+        if (!structureType.validateStructure(tempComponentList, xCoord, yCoord,
+                zCoord)) {
+            return;
+        }
 
+        arrayListCasing.trimToSize();
+        int[][] tempArrayCasing = null;
+        tempArrayCasing = arrayListCasing.toArray(tempArrayCasing);
+
+        for (int[] location : tempArrayInner) {
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).setControlBlockLocation(
+                    location[0], location[1], location[2]);
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).setInStructure(true);
+        }
+        for (int[] location : tempArrayCasing) {
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).setControlBlockLocation(
+                    location[0], location[1], location[2]);
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).setInStructure(true);
+        }
+
+        innerBlocks = tempArrayInner;
+        casingBlocks = tempArrayCasing;
+        componentList = tempComponentList;
     }
 
     @Override
