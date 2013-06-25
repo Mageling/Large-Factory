@@ -1,11 +1,14 @@
 package nb.largefactory.structure;
 
+import nb.largefactory.structure.component.ComponentDataClass;
+import nb.largefactory.structure.component.GrinderComponents;
+
 public enum StructureType {
 
     CASING(false, false, null),
     // T1
     CRUSHER(true, false, null),
-    GRINDER(false, false, "GrinderComponents"),
+    GRINDER(false, false, GrinderComponents.class),
     EXTRACTOR(false, false, null),
     SCRAPER(false, false, null),
     SOLID_SEPARATOR(false, false, null),
@@ -27,10 +30,10 @@ public enum StructureType {
 
     private boolean isInput;
     private boolean isOutput;
-    private String componentClass;
+    private Class<? extends ComponentDataClass> componentClass;
 
     private StructureType(boolean isInput, boolean isOutput,
-            String componentClass) {
+            Class<? extends ComponentDataClass> componentClass) {
         this.isInput = isInput;
         this.isOutput = isOutput;
         this.componentClass = componentClass;
@@ -44,14 +47,6 @@ public enum StructureType {
         return isOutput;
     }
 
-    public String getComponentClass() {
-        return componentClass;
-    }
-
-    public static StructureType getComponentClass(String structureName) {
-        return getComponentClass(structureName);
-    }
-
     public static StructureType stringToStructureType(String structureName) {
         return StructureType.valueOf(structureName.toUpperCase().replace(" ",
                 "_"));
@@ -59,7 +54,7 @@ public enum StructureType {
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
         for (String component : components) {
-
+             // TODO check for required block
         }
         StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
         return false;
