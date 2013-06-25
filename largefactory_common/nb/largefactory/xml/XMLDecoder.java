@@ -21,7 +21,7 @@ public class XMLDecoder {
     public static void instantiate() {
         componentList = new HashMap<String, Object>();
         try {
-            File file = new File("test.xml");
+            File file = new File(Files.XML_FILE_LOCATION);
             if (file.exists()) {
                 DocumentBuilderFactory fact = DocumentBuilderFactory
                         .newInstance();
