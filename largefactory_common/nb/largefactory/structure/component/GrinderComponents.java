@@ -8,20 +8,28 @@ public class GrinderComponents extends ComponentDataClass {
     float percentYieldIncreace = 0;
     float ergCostReduction = 0;
 
-    public GrinderComponents(String nameSet, String[] recipeSet,
-            int[] dimensionsSet, int maxNumberSet, boolean diskSet) {
+    public GrinderComponents(String nameSet, String recipeSet,
+            String dimensionsSet, String maxNumberSet, String diskSet, String ergCostSet, String percentYieldIncreaceSet, String ergCostReductionSet) {
         strutureType = StructureType.GRINDER;
         name = nameSet;
         if (nameSet.equals("grinder")) {
             main = true;
         }
-        recipe = recipeSet;
-        dimensions = dimensionsSet;
-        maxNumber = maxNumberSet;
-        disk = diskSet;
+        //recipe = recipeSet;
+        //dimensions = dimensionsSet;
+        //TODO make these parse correctly
+        maxNumber = Integer.parseInt(maxNumberSet);
+        if(diskSet != null){
+            disk = Boolean.valueOf(diskSet);
+        }
+        if(ergCostSet != null){
+        ergCost = Float.parseFloat(ergCostSet);
+        }
+        if(percentYieldIncreaceSet != null){
+        percentYieldIncreace = Float.parseFloat(percentYieldIncreaceSet);
+        }
+        if(ergCostReductionSet != null){
+        ergCostReduction = Float.parseFloat(ergCostReductionSet);
+        }
     }
-    public int test(){
-        return 6;
-    }
-
 }

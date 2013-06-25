@@ -1,26 +1,20 @@
 package nb.largefactory.xml;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import nb.largefactory.lib.Files;
 import nb.largefactory.structure.*;
-import nb.largefactory.structure.component.ComponentDataClass;
+import nb.largefactory.structure.component.ComponentFactory;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLDecoder {
     static NodeList node;
-    static Map<String, Object> componentList;
 
     public static void instantiate() {
-        componentList = new HashMap<String, Object>();
         try {
             File file = new File(Files.XML_FILE_LOCATION);
             if (file.exists()) {
@@ -31,9 +25,7 @@ public class XMLDecoder {
                 node = doc.getElementsByTagName("*");
                 for (int i = 0; i < node.getLength(); i++) {
                     if (node.item(i).getNodeName().equals("component")) {
-                        componentList.put(node.item(i).getFirstChild()
-                                .getTextContent(),
-                                createStructureObjectFromNode(node.item(i)));
+                        ComponentFactory.createComponent(node.item(i).getChildNodes(),StructureType.stringToStructureType(node.item(i).getParentNode().getNodeName()));
                     }
                 }
             }
@@ -52,10 +44,4 @@ public class XMLDecoder {
         return null;
     }
 
-    public static Object createStructureObjectFromNode(Node componentNode) {
-        Class<? extends ComponentDataClass> loc = StructureType.stringToStructureType(
-                componentNode.getParentNode().getNodeName())
-                .getComponentClass();
-       return null;
-    }
 }
