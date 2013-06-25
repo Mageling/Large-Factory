@@ -30,11 +30,13 @@ public enum StructureType {
 
     private boolean isInput;
     private boolean isOutput;
+    private Class<? extends ComponentDataClass> componentClass;
 
     private StructureType(boolean isInput, boolean isOutput,
             Class<? extends ComponentDataClass> componentClass) {
         this.isInput = isInput;
         this.isOutput = isOutput;
+        this.componentClass = componentClass;
     }
 
     public boolean isInput() {

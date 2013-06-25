@@ -56,8 +56,6 @@ public class XMLDecoder {
         Class<? extends ComponentDataClass> loc = StructureType.stringToStructureType(
                 componentNode.getParentNode().getNodeName())
                 .getComponentClass();
-        loc.getNameBo();
-        
-        return null;
+       return null;
     }
 }
