@@ -15,8 +15,8 @@ import org.w3c.dom.NodeList;
 
 public class XMLDecoder {
     static NodeList node;
-    static Map<String,Object> componentList;
-    
+    static Map<String, Object> componentList;
+
     public static void instantiate() {
         componentList = new HashMap<String, Object>();
         try {
@@ -27,9 +27,11 @@ public class XMLDecoder {
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse("test.xml");
                 node = doc.getElementsByTagName("*");
-                for (int i=0; i < node.getLength(); i++){
-                    if(node.item(i).getNodeName().equals("component")){
-                        componentList.put(node.item(i).getFirstChild().getTextContent(), createStructureObjectFromNode(node.item(i)));
+                for (int i = 0; i < node.getLength(); i++) {
+                    if (node.item(i).getNodeName().equals("component")) {
+                        componentList.put(node.item(i).getFirstChild()
+                                .getTextContent(),
+                                createStructureObjectFromNode(node.item(i)));
                     }
                 }
             }
@@ -40,11 +42,14 @@ public class XMLDecoder {
     public static StructureType getStructureType(String ComponentType) {
         for (int i = 0; i < node.getLength(); i++) {
             if (node.item(i).getTextContent().equals(ComponentType)) {
-                return StructureType.stringToStructureType(node.item(i).getParentNode().getParentNode().getNodeName().replace("_components",""));
+                return StructureType.stringToStructureType(node.item(i)
+                        .getParentNode().getParentNode().getNodeName()
+                        .replace("_components", ""));
             }
         }
         return null;
     }
+
     public static Object createStructureObjectFromNode(Node componentNode) {
         // do some stuff
         return null;

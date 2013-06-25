@@ -6,6 +6,7 @@ import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
 import nb.largefactory.network.PacketHandler;
 import nb.largefactory.proxy.CommonProxy;
+import nb.largefactory.xml.XMLDecoder;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.IMCCallback;
 import cpw.mods.fml.common.Mod.Init;
@@ -39,6 +40,9 @@ public class LargeFactory {
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
+        // Load the XML decoder
+        XMLDecoder.instantiate();
+
         // Register Blocks and Items
         ModItems.registerItems();
         ModBlocks.registerBlocks();

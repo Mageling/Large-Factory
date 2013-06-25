@@ -1,9 +1,14 @@
 package nb.largefactory.structure;
 
 public enum StructureCreationErrors {
-    CONTROL_BLOCK("The control block failed to validate"), INNER_BLOCK(" "), INNER_CASING_BLOCK(
-            " "), FACE_CASING_BLOCK(" "), EDGE_CASING_BLOCK(" "), TWO_CONTROL_BLOCK(
-            " "), MISSING_BLOCK(" "), OTHER("Unknown Error");
+    CONTROL_BLOCK("The control block failed to validate"),
+    INNER_BLOCK(" "),
+    INNER_CASING_BLOCK(" "),
+    FACE_CASING_BLOCK(" "),
+    EDGE_CASING_BLOCK(" "),
+    TWO_CONTROL_BLOCK(" "),
+    MISSING_BLOCK(" "),
+    OTHER("Unknown Error");
 
     private String message;
 

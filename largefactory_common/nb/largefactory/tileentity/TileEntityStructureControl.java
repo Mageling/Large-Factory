@@ -19,6 +19,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     protected int[][] innerBlocks = null;
     protected int[][] casingBlocks = null;
+    protected String[] componentList = null;
     protected boolean isNotified = false;
 
     @Override
@@ -203,8 +204,8 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     public void createStructure() {
         StructureType structureType = this.getStructureType();
-        ArrayList<int[]> arrayListInner = new ArrayList<int[]>();
-        ArrayList<int[]> arrayListCasing = new ArrayList<int[]>();
+        ArrayList<int[]> arrayListInner = new ArrayList<int[]>(12);
+        ArrayList<int[]> arrayListCasing = new ArrayList<int[]>(12);
         TileEntity te;
         int[] coords;
         int[] coordsBase;
@@ -533,6 +534,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
                 }
 
                 innerIndex++;
+                arrayListInner.ensureCapacity(arrayListInner.size() + 6);
             }
 
             while (casingIndex < arrayListCasing.size()) {
@@ -719,10 +721,12 @@ public class TileEntityStructureControl extends TileEntityStructure {
                 }
 
                 casingIndex++;
+                arrayListCasing.ensureCapacity(arrayListCasing.size() + 6);
             }
         }
 
         // TODO final cleanup stuff
+
     }
 
     @Override

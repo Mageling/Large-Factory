@@ -4,14 +4,24 @@ public enum StructureType {
 
     CASING(false, false),
     // T1
-    CRUSHER(true, false), GRINDER(false, false), EXTRACTOR(false, false), SCRAPER(
-            false, false), SOLID_SEPARATOR(false, false), COMPACTOR(false, true), SMELTER(
-            false, true), COAGULATOR(false, true),
+    CRUSHER(true, false),
+    GRINDER(false, false),
+    EXTRACTOR(false, false),
+    SCRAPER(false, false),
+    SOLID_SEPARATOR(false, false),
+    COMPACTOR(false, true),
+    SMELTER(false, true),
+    COAGULATOR(false, true),
 
     // T2
-    MELTER(true, false), REFINER(false, false), SKIMMER(false, false), PURIFIER(
-            false, false), LIQUID_SEPARATOR(false, false), BLAST_INJECTOR(
-            false, false), COOLER(false, true), HEATED_STORAGE_UNIT(false, true);
+    MELTER(true, false),
+    REFINER(false, false),
+    SKIMMER(false, false),
+    PURIFIER(false, false),
+    LIQUID_SEPARATOR(false, false),
+    BLAST_INJECTOR(false, false),
+    COOLER(false, true),
+    HEATED_STORAGE_UNIT(false, true);
 
     // T3 to be reworked
 
@@ -34,6 +44,14 @@ public enum StructureType {
     public static StructureType stringToStructureType(String structureName) {
         return StructureType.valueOf(structureName.toUpperCase().replace(" ",
                 "_"));
+    }
+
+    public boolean validateStructure(String[] components, int x, int y, int z) {
+        for (String component : components) {
+
+        }
+        StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
+        return false;
     }
 
 }
