@@ -1,0 +1,51 @@
+<components>
+	<crusher_components>
+		<component>
+			<name>crusher</name>
+			<recipie>null 2</recipie>
+			<effect>null 1</effect>
+		</component>
+		<component>
+			<name>power core</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>blade core</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>hydraulic piston</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>precision actuator</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>vibration chamber</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+	</crusher_components>
+	<grinder_components>
+		<component>
+			<name>grinder</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>iron disk</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+		<component>
+			<name>gem disk</name>
+			<recipie>null</recipie>
+			<effect>null</effect>
+		</component>
+	</grinder_components>
+</components>

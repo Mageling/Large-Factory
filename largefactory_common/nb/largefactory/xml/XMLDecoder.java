@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import nb.largefactory.structure.StructureType;
+import nb.largefactory.lib.Files;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
