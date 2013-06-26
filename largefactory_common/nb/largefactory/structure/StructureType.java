@@ -4,35 +4,38 @@ import nb.largefactory.structure.component.ComponentFactory;
 
 public enum StructureType {
 
-    CASING(false, false),
+    CASING(false, false, true),
     // T1
-    CRUSHER(true, false),
-    GRINDER(false, false),
-    EXTRACTOR(false, false),
-    SCRAPER(false, false),
-    SOLID_SEPARATOR(false, false),
-    COMPACTOR(false, true),
-    SMELTER(false, true),
-    COAGULATOR(false, true),
+    CRUSHER(true, false, false),
+    GRINDER(false, false, true),
+    EXTRACTOR(false, false, false),
+    SCRAPER(false, false, false),
+    SOLID_SEPARATOR(false, false, false),
+    COMPACTOR(false, true, false),
+    SMELTER(false, true, false),
+    COAGULATOR(false, true, false),
 
     // T2
-    MELTER(true, false),
-    REFINER(false, false),
-    SKIMMER(false, false),
-    PURIFIER(false, false),
-    LIQUID_SEPARATOR(false, false),
-    BLAST_INJECTOR(false, false),
-    COOLER(false, true),
-    HEATED_STORAGE_UNIT(false, true);
+    MELTER(true, false, false),
+    REFINER(false, false, false),
+    SKIMMER(false, false, false),
+    PURIFIER(false, false, false),
+    LIQUID_SEPARATOR(false, false, false),
+    BLAST_INJECTOR(false, false, false),
+    COOLER(false, true, false),
+    HEATED_STORAGE_UNIT(false, true, false);
 
     // T3 to be reworked
 
     private boolean isInput;
     private boolean isOutput;
+    private boolean specialValidation;
 
-    private StructureType(boolean isInput, boolean isOutput) {
+    private StructureType(boolean isInput, boolean isOutput,
+            boolean specialValidation) {
         this.isInput = isInput;
         this.isOutput = isOutput;
+        this.specialValidation = specialValidation;
     }
 
     public boolean isInput() {
@@ -49,7 +52,13 @@ public enum StructureType {
     }
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
-        // TODO make this validate properly for special cases
+        if (specialValidation) {
+            if (SpecialValidationHandler.validateStructure(this, components)) {
+                return true;
+            }
+            StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
+            return false;
+        }
         for (String component : components) {
             if (ComponentFactory.componentList.get(component).isRequired()) {
                 return true;

@@ -18,7 +18,7 @@ public class BlockStructure extends BlockContainerLargeFactory {
 
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return new TileEntityStructureCasing("casing");
+        return new TileEntityStructureCasing();
     }
 
 }
