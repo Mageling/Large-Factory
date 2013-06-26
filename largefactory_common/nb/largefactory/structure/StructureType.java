@@ -1,6 +1,6 @@
 package nb.largefactory.structure;
 
-import nb.largefactory.structure.component.*;
+import nb.largefactory.structure.component.ComponentFactory;
 
 public enum StructureType {
 
@@ -49,7 +49,7 @@ public enum StructureType {
     }
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
-        //TODO make this validate properly for special cases
+        // TODO make this validate properly for special cases
         for (String component : components) {
             if (ComponentFactory.componentList.get(component).isRequired()) {
                 return true;

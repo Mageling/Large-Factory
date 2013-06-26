@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureType;
-import nb.largefactory.xml.XMLDecoder;
+import nb.largefactory.structure.component.ComponentFactory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -201,7 +201,8 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     public StructureType getStructureType() {
-        return XMLDecoder.getStructureType(componentName);
+        return ComponentFactory.componentList.get(componentName)
+                .getStructureType();
     }
 
     @Override

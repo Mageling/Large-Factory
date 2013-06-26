@@ -12,6 +12,7 @@ public class Strings {
     /* Block name constants */
     public static final String SALT_CONDENSER_NAME = "saltCondenser";
     public static final String SALT_BLOCK_NAME = "saltBlock";
+    public static final String STRUCTURE_BLOCK_NAME = "structureBlock";
 
     /* Item name constants */
     public static final String SALT_NAME = "salt";

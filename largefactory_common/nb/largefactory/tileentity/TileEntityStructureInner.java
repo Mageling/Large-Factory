@@ -2,7 +2,7 @@ package nb.largefactory.tileentity;
 
 import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureType;
-import nb.largefactory.xml.XMLDecoder;
+import nb.largefactory.structure.component.ComponentFactory;
 
 public class TileEntityStructureInner extends TileEntityStructure {
 
@@ -60,7 +60,8 @@ public class TileEntityStructureInner extends TileEntityStructure {
 
     @Override
     public StructureType getStructureType() {
-        return XMLDecoder.getStructureType(componentName);
+        return ComponentFactory.componentList.get(componentName)
+                .getStructureType();
     }
 
     @Override
