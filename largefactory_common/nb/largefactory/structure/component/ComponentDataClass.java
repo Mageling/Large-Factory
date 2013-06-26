@@ -9,8 +9,6 @@ public class ComponentDataClass {
     int[] dimensions = null;
     int maxNumber = 1;
     boolean main = false;
-    
-    public String getNameBo(){
-        return name;
-    }
+    String textureFileLocation = null;
 }
+

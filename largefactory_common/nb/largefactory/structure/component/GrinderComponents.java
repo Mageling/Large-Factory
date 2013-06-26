@@ -7,9 +7,22 @@ public class GrinderComponents extends ComponentDataClass {
     float ergCost = 0;
     float percentYieldIncreace = 0;
     float ergCostReduction = 0;
-
+    
+    /**
+     * 
+     * @param nameSet
+     * @param recipeSet
+     * @param dimensionsSet
+     * @param maxNumberSet
+     * @param diskSet
+     * @param ergCostSet
+     * @param percentYieldIncreaceSet
+     * @param ergCostReductionSet
+     * @param textureFileLocationSet
+     */
     public GrinderComponents(String nameSet, String recipeSet,
-            String dimensionsSet, String maxNumberSet, String diskSet, String ergCostSet, String percentYieldIncreaceSet, String ergCostReductionSet) {
+            String dimensionsSet, String maxNumberSet, String diskSet, String ergCostSet, String percentYieldIncreaceSet,
+            String ergCostReductionSet, String textureFileLocationSet) {
         strutureType = StructureType.GRINDER;
         name = nameSet;
         if (nameSet.equals("grinder")) {
@@ -19,6 +32,7 @@ public class GrinderComponents extends ComponentDataClass {
         //dimensions = dimensionsSet;
         //TODO make these parse correctly
         maxNumber = Integer.parseInt(maxNumberSet);
+        textureFileLocation = textureFileLocationSet;
         if(diskSet != null){
             disk = Boolean.valueOf(diskSet);
         }

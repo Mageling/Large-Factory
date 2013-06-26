@@ -35,7 +35,8 @@ public class ComponentFactory {
         switch (strucType){
             case GRINDER:
                 GrinderComponents foo = new GrinderComponents(compName,xmlOutput.get("recipe"),xmlOutput.get("dimensions"),
-                        xmlOutput.get("maxnumber"),xmlOutput.get("disk"),xmlOutput.get("ergcost"),xmlOutput.get("percentyield"),xmlOutput.get("ergcostreduction"));
+                        xmlOutput.get("maxnumber"),xmlOutput.get("disk"),xmlOutput.get("ergcost"),xmlOutput.get("percentyield"),
+                        xmlOutput.get("ergcostreduction"),xmlOutput.get("texturefile"));
                 componentList.put(compName, foo);
                 break;
             case CRUSHER:
