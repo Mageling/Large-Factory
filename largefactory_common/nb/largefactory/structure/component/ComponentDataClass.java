@@ -11,4 +11,3 @@ public class ComponentDataClass {
     boolean main = false;
     String textureFileLocation = null;
 }
-

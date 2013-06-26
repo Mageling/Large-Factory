@@ -48,7 +48,9 @@ public enum StructureType {
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
         for (String component : components) {
-            // TODO check for required block
+            if (component == "") { // TODO function to get the name of the required component
+                return true;
+            }
         }
         StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
         return false;
