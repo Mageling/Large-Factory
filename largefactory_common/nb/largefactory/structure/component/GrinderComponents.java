@@ -24,7 +24,7 @@ public class GrinderComponents extends ComponentDataClass {
             String dimensionsSet, String maxNumberSet, String diskSet,
             String ergCostSet, String percentYieldIncreaceSet,
             String ergCostReductionSet, String textureFileLocationSet) {
-        strutureType = StructureType.GRINDER;
+        structureType = StructureType.GRINDER;
         name = nameSet;
         if (nameSet.equals("grinder")) {
             main = true;

@@ -21,10 +21,10 @@ import org.w3c.dom.NodeList;
  */
 
 public class ComponentFactory {
-    static Map<String, Object> componentList;
+    public static Map<String, ComponentDataClass> componentList;
 
     public static void instantiate() {
-        componentList = new HashMap<String, Object>();
+        componentList = new HashMap<String, ComponentDataClass>();
 
     }
 

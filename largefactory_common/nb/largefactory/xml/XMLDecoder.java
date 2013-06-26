@@ -37,15 +37,4 @@ public class XMLDecoder {
         }
     }
 
-    public static StructureType getStructureType(String ComponentType) {
-        for (int i = 0; i < node.getLength(); i++) {
-            if (node.item(i).getTextContent().equals(ComponentType)) {
-                return StructureType.stringToStructureType(node.item(i)
-                        .getParentNode().getParentNode().getNodeName()
-                        .replace("_components", ""));
-            }
-        }
-        return null;
-    }
-
 }
