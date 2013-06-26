@@ -19,6 +19,7 @@ public class GrinderComponents extends ComponentDataClass {
      * @param percentYieldIncreaceSet
      * @param ergCostReductionSet
      * @param textureFileLocationSet
+     * @param controlBlockSet
      */
     public GrinderComponents(String nameSet, String recipeSet,
             String dimensionsSet, String maxNumberSet, String diskSet,
