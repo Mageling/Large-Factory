@@ -1,5 +1,7 @@
 package nb.largefactory.structure.component;
 
+import java.util.HashMap;
+
 import nb.largefactory.structure.StructureType;
 
 public class GrinderComponents extends ComponentDataClass {
@@ -51,5 +53,12 @@ public class GrinderComponents extends ComponentDataClass {
         if (ergCostReductionSet != null) {
             ergCostReduction = Float.parseFloat(ergCostReductionSet);
         }
+    }
+    @Override
+    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current){
+        current.put("ergcost", (int) (current.get("ergcost") + this.ergCost));
+        current.put("percentyield", (int) (current.get("percentyield") + this.percentYieldIncreace));
+        current.put("ergcostreduction", (int) (current.get("ergcostreduction") + this.ergCostReduction));
+        return current;
     }
 }

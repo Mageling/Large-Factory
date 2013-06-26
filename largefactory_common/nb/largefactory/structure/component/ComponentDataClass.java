@@ -1,5 +1,7 @@
 package nb.largefactory.structure.component;
 
+import java.util.HashMap;
+
 import nb.largefactory.structure.StructureType;
 
 public class ComponentDataClass {
@@ -18,5 +20,12 @@ public class ComponentDataClass {
 
     public boolean isRequired() {
         return main;
+    }
+    /**
+     * 
+     * this overridden always
+     */
+    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current) {
+        return null;
     }
 }
