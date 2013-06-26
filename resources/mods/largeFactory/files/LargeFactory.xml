@@ -1,4 +1,5 @@
 <components>
+	<!--
 	<crusher_components>
 		<component>
 			<name>crusher</name>
@@ -31,21 +32,67 @@
 			<effect>null</effect>
 		</component>
 	</crusher_components>
+	-->
 	<grinder_components>
 		<component>
+			<name>grinder control</name>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<controlblock>true</controlblock>
+		<component>
 			<name>grinder</name>
-			<recipie>null</recipie>
-			<effect>null</effect>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
 		</component>
 		<component>
 			<name>iron disk</name>
-			<recipie>null</recipie>
-			<effect>null</effect>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<disk>true</disk>
 		</component>
 		<component>
 			<name>gem disk</name>
-			<recipie>null</recipie>
-			<effect>null</effect>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<disk>true</disk>
+			<percentyield>5</percentyield>
+			<ergcost>.5</ergcost>
+		</component>
+		<component>
+			<name>diamond disk</name>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<disk>true</disk>
+			<percentyield>10</percentyield>
+			<ergcost>1</ergcost>
+		</component>
+		<component>
+			<name>mithril disk</name>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<disk>true</disk>
+			<percentyield>10</percentyield>
+			<ergcost>.75</ergcost>
+		</component>
+		<component>
+			<name>AI grinder control</name>
+			<recipe></recipe>
+			<dimensions>1,1,1</dimensions>
+			<maxnumber>2</maxnumber>
+			<!-- 50% other liter erg +25% time -->
+		</component>
+		<component>
+			<name>liquid cooling</name>
+			<recipe></recipe>
+			<dimensions>2,2,1</dimensions>
+			<maxnumber>1</maxnumber>
+			<ergcostreduction>25</ergcostreduction>
 		</component>
 	</grinder_components>
 </components>
