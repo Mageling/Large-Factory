@@ -9,6 +9,7 @@ public class ComponentDataClass {
     int[] dimensions = null;
     int maxNumber = 1;
     boolean main = false;
+    boolean controlBlock = false;
     String textureFileLocation = null;
     
     public StructureType getStructureType(){

@@ -49,6 +49,7 @@ public enum StructureType {
     }
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
+        //TODO make this validate properly for special cases
         for (String component : components) {
             if (ComponentFactory.componentList.get(component).isRequired()) {
                 return true;

@@ -10,14 +10,15 @@ import org.w3c.dom.NodeList;
 /*  This is a list of every allowed entry in a XMl component 
  * IMPORTANT, the name of the component must be first
  * **************
- * name
- * recipe
- * dimensions
- * maxnumber
+ * name (required)
+ * recipe (required)
+ * dimensions (required)
+ * maxnumber (required)
  * disk
  * ergcost
  * percentyield
  * ergcostreduction
+ * controlblock
  */
 
 public class ComponentFactory {
@@ -45,7 +46,8 @@ public class ComponentFactory {
                         xmlOutput.get("ergcost"),
                         xmlOutput.get("percentyield"),
                         xmlOutput.get("ergcostreduction"),
-                        xmlOutput.get("texturefile"));
+                        xmlOutput.get("texturefile"),
+                        xmlOutput.get("controlblock"));
                 componentList.put(compName, foo);
                 break;
             case CRUSHER:
