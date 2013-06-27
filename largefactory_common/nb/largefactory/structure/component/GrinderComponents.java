@@ -6,9 +6,11 @@ import nb.largefactory.structure.StructureType;
 
 public class GrinderComponents extends ComponentDataClass {
     boolean disk = false;
-    float ergCost = 0;
-    float percentYieldIncreace = 0;
-    float ergCostReduction = 0;
+    int ergCost = 0;
+    int percentYieldIncreace = 0;
+    int ergCostReduction = 0;
+    int slagErgCost = 0;
+    int timeIncreace = 0;
 
     /**
      * 
@@ -22,12 +24,15 @@ public class GrinderComponents extends ComponentDataClass {
      * @param ergCostReductionSet
      * @param textureFileLocationSet
      * @param controlBlockSet
+     * @param timeIncreaseSet
+     * @param slagErgCostSet
      */
     public GrinderComponents(String nameSet, String recipeSet,
             String dimensionsSet, String maxNumberSet, String diskSet,
             String ergCostSet, String percentYieldIncreaceSet,
             String ergCostReductionSet, String textureFileLocationSet,
-            String controlBlockSet) {
+            String controlBlockSet, String timeIncreaseSet,
+            String slagErgCostSet) {
         structureType = StructureType.GRINDER;
         name = nameSet;
         if (nameSet.equals("grinder")) {
@@ -38,6 +43,12 @@ public class GrinderComponents extends ComponentDataClass {
         // TODO make these parse correctly
         maxNumber = Integer.parseInt(maxNumberSet);
         textureFileLocation = textureFileLocationSet;
+        if (slagErgCostSet != null){
+            slagErgCost = Integer.parseInt(slagErgCostSet);
+        }
+        if (timeIncreaseSet != null){
+            timeIncreace = Integer.parseInt(timeIncreaseSet);
+        }
         if (controlBlockSet != null) {
             controlBlock = true;
         }
@@ -45,13 +56,13 @@ public class GrinderComponents extends ComponentDataClass {
             disk = true;
         }
         if (ergCostSet != null) {
-            ergCost = Float.parseFloat(ergCostSet);
+            ergCost = Integer.parseInt(ergCostSet);
         }
         if (percentYieldIncreaceSet != null) {
-            percentYieldIncreace = Float.parseFloat(percentYieldIncreaceSet);
+            percentYieldIncreace = Integer.parseInt(percentYieldIncreaceSet);
         }
         if (ergCostReductionSet != null) {
-            ergCostReduction = Float.parseFloat(ergCostReductionSet);
+            ergCostReduction = Integer.parseInt(ergCostReductionSet);
         }
     }
     @Override
@@ -59,6 +70,8 @@ public class GrinderComponents extends ComponentDataClass {
         current.put("ergcost", (int) (current.get("ergcost") + this.ergCost));
         current.put("percentyield", (int) (current.get("percentyield") + this.percentYieldIncreace));
         current.put("ergcostreduction", (int) (current.get("ergcostreduction") + this.ergCostReduction));
+        current.put("slagergcost", (int) (current.get("slagergcost") + this.slagErgCost));
+        current.put("timeincreace", (int) (current.get("timeincreace") + this.timeIncreace));
         return current;
     }
 }

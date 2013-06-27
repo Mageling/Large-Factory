@@ -15,6 +15,8 @@ public class Crusher {
         effect.put("ergcost", 0);
         effect.put("percentyield", 0);
         effect.put("ergcostreduction", 0);
+        effect.put("timeincreace", 0);
+        effect.put("slagergcost", 0);
         int ergcost = 1000;
         
         for(int i = 0; i < components.getLength(); i++){

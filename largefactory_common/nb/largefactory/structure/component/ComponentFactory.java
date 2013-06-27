@@ -19,6 +19,8 @@ import org.w3c.dom.NodeList;
  * percentyield
  * ergcostreduction
  * controlblock
+ * timeincrease
+ * slagergcost
  */
 
 public class ComponentFactory {
@@ -47,7 +49,9 @@ public class ComponentFactory {
                         xmlOutput.get("percentyield"),
                         xmlOutput.get("ergcostreduction"),
                         xmlOutput.get("texturefile"),
-                        xmlOutput.get("controlblock"));
+                        xmlOutput.get("controlblock"),
+                        xmlOutput.get("timeincrease"),
+                        xmlOutput.get("slagergcost"));
                 componentList.put(compName, foo);
                 break;
             case CRUSHER:
