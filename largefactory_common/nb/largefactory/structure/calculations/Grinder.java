@@ -9,7 +9,7 @@ import org.w3c.dom.NodeList;
 
 import nb.largefactory.structure.component.*;
 
-public class Crusher {
+public class Grinder {
     public HashMap<String, Integer> process(NodeList components, HashMap<String, Integer> input){
         HashMap<String, Integer> effect = new HashMap<String, Integer>();
         effect.put("ergcost", 0);
