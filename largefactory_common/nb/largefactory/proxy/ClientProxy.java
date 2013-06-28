@@ -18,7 +18,7 @@ public class ClientProxy extends CommonProxy {
     public void initRenderingandTextures() {
         RenderIds.saltCondenserRenderId = RenderingRegistry
                 .getNextAvailableRenderId();
-        MinecraftForgeClient.registerItemRenderer(BlockIDs.SALT_CONDENSER_ID,
+        MinecraftForgeClient.registerItemRenderer(BlockIDs.SALT_CONDENSER,
                 new ItemSaltCondenserRenderer());
     }
 

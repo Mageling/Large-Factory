@@ -21,11 +21,13 @@ public class ComponentDataClass {
     public boolean isRequired() {
         return main;
     }
+
     /**
      * 
      * this overridden always
      */
-    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current) {
+    public HashMap<String, Integer> provideInformation(
+            HashMap<String, Integer> current) {
         return null;
     }
 }

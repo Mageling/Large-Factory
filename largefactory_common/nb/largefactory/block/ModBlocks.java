@@ -13,13 +13,18 @@ public class ModBlocks {
     public static Block structureComponent;
 
     public static void registerBlocks() {
-        saltCondenser = new BlockSaltCondenser(BlockIDs.SALT_CONDENSER_ID);
+        saltCondenser = new BlockSaltCondenser(BlockIDs.SALT_CONDENSER);
         GameRegistry.registerBlock(saltCondenser, Strings.SALT_CONDENSER_NAME);
         LanguageRegistry.addName(saltCondenser, "Salt Condenser");
 
         saltBlock = new BlockSalt(BlockIDs.SALT_BLOCK);
         GameRegistry.registerBlock(saltBlock, Strings.SALT_BLOCK_NAME);
         LanguageRegistry.addName(saltBlock, "Salt Block");
+
+        structureComponent = new BlockStructure(BlockIDs.STRUCTURE_BLOCK);
+        GameRegistry.registerBlock(structureComponent,
+                Strings.STRUCTURE_BLOCK_NAME);
+        LanguageRegistry.addName(structureComponent, "Structure Component");
     }
 
 }

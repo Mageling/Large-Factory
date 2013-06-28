@@ -43,10 +43,10 @@ public class GrinderComponents extends ComponentDataClass {
         // TODO make these parse correctly
         maxNumber = Integer.parseInt(maxNumberSet);
         textureFileLocation = textureFileLocationSet;
-        if (slagErgCostSet != null){
+        if (slagErgCostSet != null) {
             slagErgCost = Integer.parseInt(slagErgCostSet);
         }
-        if (timeIncreaseSet != null){
+        if (timeIncreaseSet != null) {
             timeIncreace = Integer.parseInt(timeIncreaseSet);
         }
         if (controlBlockSet != null) {
@@ -65,13 +65,17 @@ public class GrinderComponents extends ComponentDataClass {
             ergCostReduction = Integer.parseInt(ergCostReductionSet);
         }
     }
+
     @Override
-    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current){
-        current.put("ergcost", (int) (current.get("ergcost") + this.ergCost));
-        current.put("percentyield", (int) (current.get("percentyield") + this.percentYieldIncreace));
-        current.put("ergcostreduction", (int) (current.get("ergcostreduction") + this.ergCostReduction));
-        current.put("slagergcost", (int) (current.get("slagergcost") + this.slagErgCost));
-        current.put("timeincreace", (int) (current.get("timeincreace") + this.timeIncreace));
+    public HashMap<String, Integer> provideInformation(
+            HashMap<String, Integer> current) {
+        current.put("ergcost", current.get("ergcost") + ergCost);
+        current.put("percentyield", current.get("percentyield")
+                + percentYieldIncreace);
+        current.put("ergcostreduction", current.get("ergcostreduction")
+                + ergCostReduction);
+        current.put("slagergcost", current.get("slagergcost") + slagErgCost);
+        current.put("timeincreace", current.get("timeincreace") + timeIncreace);
         return current;
     }
 }

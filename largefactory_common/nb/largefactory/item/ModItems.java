@@ -29,6 +29,8 @@ public class ModItems {
     public static Item saltFishRaw;
     public static Item saltFishCooked;
 
+    public static Item itemStructure;
+
     public static void registerItems() {
         salt = new ItemSalt(ItemIDs.SALT);
         LanguageRegistry.addName(salt, "Salt");
@@ -63,6 +65,9 @@ public class ModItems {
 
         saltFishCooked = new ItemSaltFishCooked(ItemIDs.SALT_FISH_COOKED);
         LanguageRegistry.addName(saltFishCooked, "Salted Fish");
+
+        itemStructure = new ItemStructure(ItemIDs.ITEM_STRUCTURE);
+        LanguageRegistry.addName(itemStructure, "Structure Block");
     }
 
 }
