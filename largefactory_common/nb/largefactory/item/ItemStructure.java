@@ -5,6 +5,7 @@ import nb.largefactory.tileentity.TileEntityStructure;
 import nb.largefactory.tileentity.TileEntityStructureCasing;
 import nb.largefactory.tileentity.TileEntityStructureControl;
 import nb.largefactory.tileentity.TileEntityStructureInner;
+import nb.largefactory.tileentity.TileEntityStructureMultiblock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -41,6 +42,9 @@ public class ItemStructure extends ItemReedLargeFactory {
                 return new TileEntityStructureCasing();
             case 2:
                 return new TileEntityStructureInner(
+                        nbtTagCompound.getString("Component Name"));
+            case 3:
+                return new TileEntityStructureMultiblock(
                         nbtTagCompound.getString("Component Name"));
             default:
                 return null;

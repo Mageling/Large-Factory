@@ -2,13 +2,17 @@ package nb.largefactory.structure;
 
 public enum StructureCreationErrors {
     CONTROL_BLOCK("The control block failed to validate"),
-    INNER_BLOCK(" "),
-    INNER_CASING_BLOCK(" "),
-    FACE_CASING_BLOCK(" "),
-    EDGE_CASING_BLOCK(" "),
-    TWO_CONTROL_BLOCK(" "),
-    MISSING_BLOCK(" "),
-    ALREADY_IN_STRUCTURE(" "),
+    INNER_BLOCK("Exposed component"),
+    INNER_CASING_BLOCK("Exposed filler casing"),
+    FACE_CASING_BLOCK("Edges expected"),
+    EDGE_CASING_BLOCK("Corners expected"),
+    TWO_CONTROL_BLOCK("Multiple control blocks of the same type found"),
+    MISSING_BLOCK("This structure requires a component that was not found"),
+    ALREADY_IN_STRUCTURE("This block is already in a structure"),
+    ADJACENT_MULTIBLOCK(
+            "Multiblock components of the same type cannot be adjascent"),
+    INCORRECT_MULTIBLOCK("This multiblock is formed incorrectly"),
+
     OTHER("Unknown Error");
 
     private String message;
