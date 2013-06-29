@@ -30,27 +30,31 @@ public class ComponentDataClass {
             HashMap<String, Integer> current) {
         return null;
     }
+
     /**
      * This returns inner, multinner, control, casing
      */
-    public String getType(){
-        if (this.name.equals("casing")){
+    public String getType() {
+        if (name.equals("casing")) {
             return "casing";
-        }else if(this.controlBlock){
+        } else if (controlBlock) {
             return "control";
-        }else if(this.dimensions != null){
+        } else if (dimensions != null && dimensions != new int[] { 1, 1, 1 }) {
             return "multinner";
-        }else{
+        } else {
             return "inner";
         }
-        
+
     }
-    public int[] getMultiSize(){
-        if(this.dimensions == null){
-            return int[] dog = [1,1,1];
-        }else{
-            return this.dimensions;
+
+    // TODO I need a version for this that can be put into a switch statement
+    // (int, enum, or string)
+    public int[] getMultiSize() {
+        if (dimensions == null) {
+            return new int[] { 1, 1, 1 };
+        } else {
+            return dimensions;
         }
-        
+
     }
 }

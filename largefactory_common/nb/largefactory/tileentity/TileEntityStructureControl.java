@@ -195,8 +195,18 @@ public class TileEntityStructureControl extends TileEntityStructure {
     }
 
     private void deleteStructure() {
-        // TODO Auto-generated method stub
-
+        for (int[] location : innerBlocks) {
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).onNotified();
+        }
+        for (int[] location : casingBlocks) {
+            ((TileEntityStructure) worldObj.getBlockTileEntity(location[0],
+                    location[1], location[2])).onNotified();
+        }
+        innerBlocks = null;
+        casingBlocks = null;
+        componentList = null;
+        inStructure = false;
     }
 
     @Override
@@ -793,13 +803,12 @@ public class TileEntityStructureControl extends TileEntityStructure {
 
     @Override
     protected void notifyControlBlock() {
-        // TODO Auto-generated method stub
+        this.onNotified();
     }
 
     @Override
     protected void removeFromStructure() {
-        // TODO Auto-generated method stub
-
+        this.deleteStructure();
     }
 
     @Override

@@ -8,7 +8,7 @@ public class SpecialValidationHandler {
             case CASING:
                 return false;
             case GRINDER:
-                // TODO grinder validation code
+                // TODO Grinder validation code
                 break;
             default:
                 return false;

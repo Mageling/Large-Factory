@@ -1,6 +1,7 @@
 package nb.largefactory.item;
 
 import nb.largefactory.block.ModBlocks;
+import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.tileentity.TileEntityStructure;
 import nb.largefactory.tileentity.TileEntityStructureCasing;
 import nb.largefactory.tileentity.TileEntityStructureControl;
@@ -33,17 +34,18 @@ public class ItemStructure extends ItemReedLargeFactory {
 
     private TileEntityStructure getTileEntity(ItemStack itemStack) {
         NBTTagCompound nbtTagCompound = itemStack.getTagCompound();
-        int type = nbtTagCompound.getInteger("Component Class");
+        String type = ComponentFactory.componentList.get(
+                nbtTagCompound.getString("Component Name")).getType();
         switch (type) {
-            case 0:
+            case "control":
                 return new TileEntityStructureControl(
                         nbtTagCompound.getString("Component Name"));
-            case 1:
+            case "casing":
                 return new TileEntityStructureCasing();
-            case 2:
+            case "inner":
                 return new TileEntityStructureInner(
                         nbtTagCompound.getString("Component Name"));
-            case 3:
+            case "multinner":
                 return new TileEntityStructureMultiblock(
                         nbtTagCompound.getString("Component Name"));
             default:
