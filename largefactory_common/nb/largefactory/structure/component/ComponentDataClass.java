@@ -30,4 +30,27 @@ public class ComponentDataClass {
             HashMap<String, Integer> current) {
         return null;
     }
+    /**
+     * This returns inner, multinner, control, casing
+     */
+    public String getType(){
+        if (this.name.equals("casing")){
+            return "casing";
+        }else if(this.controlBlock){
+            return "control";
+        }else if(this.dimensions != null){
+            return "multinner";
+        }else{
+            return "inner";
+        }
+        
+    }
+    public int[] getMultiSize(){
+        if(this.dimensions == null){
+            return int[] dog = [1,1,1];
+        }else{
+            return this.dimensions;
+        }
+        
+    }
 }
