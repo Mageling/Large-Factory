@@ -344,6 +344,508 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
 
     private boolean validate2x2x1Multiblock() {
         // TODO 2x2x1 validation code
+        if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureMultiblock) {
+            if (((TileEntityStructureMultiblock) worldObj.getBlockTileEntity(
+                    xCoord + 1, yCoord, zCoord)).getComponentName() == componentName) {
+                if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord - 1, yCoord, zCoord))
+                            .getComponentName() == componentName) {
+                        StructureCreationErrors.ADJACENT_MULTIBLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord + 1))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructureMultiblock) {
+            if (((TileEntityStructureMultiblock) worldObj.getBlockTileEntity(
+                    xCoord - 1, yCoord, zCoord)).getComponentName() == componentName) {
+                if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord + 1, yCoord, zCoord))
+                            .getComponentName() == componentName) {
+                        StructureCreationErrors.ADJACENT_MULTIBLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord + 1))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord - 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord,
+                                zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord,
+                                            zCoord + 1)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureMultiblock) {
+            if (((TileEntityStructureMultiblock) worldObj.getBlockTileEntity(
+                    xCoord, yCoord, zCoord + 1)).getComponentName() == componentName) {
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord - 1))
+                            .getComponentName() == componentName) {
+                        StructureCreationErrors.ADJACENT_MULTIBLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord + 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord - 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord - 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord + 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord - 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord - 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureMultiblock) {
+            if (((TileEntityStructureMultiblock) worldObj.getBlockTileEntity(
+                    xCoord, yCoord, zCoord - 1)).getComponentName() == componentName) {
+                if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord, zCoord + 1))
+                            .getComponentName() == componentName) {
+                        StructureCreationErrors.ADJACENT_MULTIBLOCK.printError(
+                                xCoord, yCoord, zCoord);
+                        return false;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord - 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord - 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord + 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord - 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord - 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+                if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureMultiblock) {
+                    if (((TileEntityStructureMultiblock) worldObj
+                            .getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getComponentName() == componentName) {
+                        if (worldObj.getBlockTileEntity(xCoord, yCoord + 1,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord, yCoord + 1,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord + 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord + 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        if (worldObj.getBlockTileEntity(xCoord - 1, yCoord,
+                                zCoord) instanceof TileEntityStructureMultiblock) {
+                            if (((TileEntityStructureMultiblock) worldObj
+                                    .getBlockTileEntity(xCoord - 1, yCoord,
+                                            zCoord)).getComponentName() == componentName) {
+                                StructureCreationErrors.ADJACENT_MULTIBLOCK
+                                        .printError(xCoord, yCoord, zCoord);
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord,
+                zCoord);
         return false;
     }
 
