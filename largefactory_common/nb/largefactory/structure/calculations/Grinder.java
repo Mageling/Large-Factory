@@ -10,8 +10,7 @@ import nb.largefactory.structure.component.ComponentFactory;
 import org.w3c.dom.NodeList;
 
 public class Grinder {
-    public HashMap<String, Integer> process(NodeList components,
-            HashMap<String, Integer> input) {
+    public HashMap<String, Integer> process(NodeList components, HashMap<String, Integer> input) {
         HashMap<String, Integer> effect = new HashMap<String, Integer>();
         effect.put("ergcost", 0);
         effect.put("percentyield", 0);
@@ -21,9 +20,7 @@ public class Grinder {
         int ergcost = 1000;
 
         for (int i = 0; i < components.getLength(); i++) {
-            effect = ComponentFactory.componentList.get(
-                    components.item(i).getTextContent()).provideInformation(
-                    effect);
+            effect = ComponentFactory.componentList.get(components.item(i).getTextContent()).provideInformation(effect);
         }
 
         Iterator<Entry<String, Integer>> it = input.entrySet().iterator();

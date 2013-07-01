@@ -2,8 +2,7 @@ package nb.largefactory.structure;
 
 public class SpecialValidationHandler {
 
-    public static boolean validateStructure(StructureType structureType,
-            String[] components) {
+    public static boolean validateStructure(StructureType structureType, String[] components) {
         switch (structureType) {
             case CASING:
                 return false;

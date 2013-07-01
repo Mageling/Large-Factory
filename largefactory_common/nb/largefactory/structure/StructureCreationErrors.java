@@ -9,8 +9,7 @@ public enum StructureCreationErrors {
     TWO_CONTROL_BLOCK("Multiple control blocks of the same type found"),
     MISSING_BLOCK("This structure requires a component that was not found"),
     ALREADY_IN_STRUCTURE("This block is already in a structure"),
-    ADJACENT_MULTIBLOCK(
-            "Multiblock components of the same type cannot be adjascent"),
+    ADJACENT_MULTIBLOCK("Multiblock components of the same type cannot be adjascent"),
     INCORRECT_MULTIBLOCK("This multiblock is formed incorrectly"),
 
     OTHER("Unknown Error");
@@ -22,8 +21,7 @@ public enum StructureCreationErrors {
     }
 
     public void printError(int x, int y, int z) {
-        String error = "An error occured at" + x + ", " + y + ", " + z + ": "
-                + message;
+        String error = "An error occured at" + x + ", " + y + ", " + z + ": " + message;
         System.out.println(error);
     }
 

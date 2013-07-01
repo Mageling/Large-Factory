@@ -27,12 +27,9 @@ public class GrinderComponents extends ComponentDataClass {
      * @param timeIncreaseSet
      * @param slagErgCostSet
      */
-    public GrinderComponents(String nameSet, String recipeSet,
-            String dimensionsSet, String maxNumberSet, String diskSet,
-            String ergCostSet, String percentYieldIncreaceSet,
-            String ergCostReductionSet, String textureFileLocationSet,
-            String controlBlockSet, String timeIncreaseSet,
-            String slagErgCostSet) {
+    public GrinderComponents(String nameSet, String recipeSet, String dimensionsSet, String maxNumberSet,
+            String diskSet, String ergCostSet, String percentYieldIncreaceSet, String ergCostReductionSet,
+            String textureFileLocationSet, String controlBlockSet, String timeIncreaseSet, String slagErgCostSet) {
         structureType = StructureType.GRINDER;
         name = nameSet;
         if (nameSet.equals("grinder")) {
@@ -67,13 +64,10 @@ public class GrinderComponents extends ComponentDataClass {
     }
 
     @Override
-    public HashMap<String, Integer> provideInformation(
-            HashMap<String, Integer> current) {
+    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current) {
         current.put("ergcost", current.get("ergcost") + ergCost);
-        current.put("percentyield", current.get("percentyield")
-                + percentYieldIncreace);
-        current.put("ergcostreduction", current.get("ergcostreduction")
-                + ergCostReduction);
+        current.put("percentyield", current.get("percentyield") + percentYieldIncreace);
+        current.put("ergcostreduction", current.get("ergcostreduction") + ergCostReduction);
         current.put("slagergcost", current.get("slagergcost") + slagErgCost);
         current.put("timeincreace", current.get("timeincreace") + timeIncreace);
         return current;

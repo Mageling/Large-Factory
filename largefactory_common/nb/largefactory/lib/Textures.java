@@ -15,12 +15,10 @@ public class Textures {
     // Armor sprite sheets
 
     // GUI textures
-    public static final String GUI_SALT_CONDENSER = GUI_SHEET_LOCATION
-            + "guiSaltCondenser.png";
+    public static final String GUI_SALT_CONDENSER = GUI_SHEET_LOCATION + "guiSaltCondenser.png";
 
     // Model textures
-    public static final String SALT_CONDENSER = MODEL_SHEET_LOCATION
-            + "saltCondenser.png";
+    public static final String SALT_CONDENSER = MODEL_SHEET_LOCATION + "saltCondenser.png";
 
     // Effect textures
 

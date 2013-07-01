@@ -13,25 +13,21 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class CommonProxy implements IGuiHandler {
 
     @Override
-    public Object getServerGuiElement(int ID, EntityPlayer player, World world,
-            int x, int y, int z) {
+    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == GuiIDs.SALT_CONDENSER) {
-            TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world
-                    .getBlockTileEntity(x, y, z);
-            return new ContainerSaltCondenser(player.inventory,
-                    tileEntitySaltCondenser);
+            TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world.getBlockTileEntity(x, y,
+                    z);
+            return new ContainerSaltCondenser(player.inventory, tileEntitySaltCondenser);
         }
         return null;
     }
 
     @Override
-    public Object getClientGuiElement(int ID, EntityPlayer player, World world,
-            int x, int y, int z) {
+    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if (ID == GuiIDs.SALT_CONDENSER) {
-            TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world
-                    .getBlockTileEntity(x, y, z);
-            return new GuiSaltCondenser(player.inventory,
-                    tileEntitySaltCondenser);
+            TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world.getBlockTileEntity(x, y,
+                    z);
+            return new GuiSaltCondenser(player.inventory, tileEntitySaltCondenser);
         }
         return null;
     }
@@ -41,17 +37,15 @@ public class CommonProxy implements IGuiHandler {
     }
 
     public void registerTileEntities() {
-        GameRegistry.registerTileEntity(TileEntitySaltCondenser.class,
-                Strings.TE_SALT_CONDENSER_NAME);
+        GameRegistry.registerTileEntity(TileEntitySaltCondenser.class, Strings.TE_SALT_CONDENSER_NAME);
     }
 
     public void handleTileEntityPacket(int x, int y, int z, String customName) {
 
     }
 
-    public void handleTileWithItemPacket(int x, int y, int z,
-            String customName, int itemID, int metaData, int stackSize,
-            int color) {
+    public void handleTileWithItemPacket(int x, int y, int z, String customName, int itemID, int metaData,
+            int stackSize, int color) {
 
     }
 }

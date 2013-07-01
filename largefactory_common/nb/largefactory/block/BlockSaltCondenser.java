@@ -55,8 +55,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
         return false;
     }
 
-    public void dropItemStack(ItemStack itemstack, World world, int x, int y,
-            int z) {
+    public void dropItemStack(ItemStack itemstack, World world, int x, int y, int z) {
 
         if (itemstack != null) {
             float f = saltRand.nextFloat() * 0.8F + 0.1F;
@@ -71,19 +70,16 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
                 }
 
                 itemstack.stackSize -= k1;
-                EntityItem entityitem = new EntityItem(world, x + f, y + f1, z
-                        + f2, new ItemStack(itemstack.itemID, k1,
-                        itemstack.getItemDamage()));
+                EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.itemID,
+                        k1, itemstack.getItemDamage()));
 
                 if (itemstack.hasTagCompound()) {
-                    entityitem.getEntityItem().setTagCompound(
-                            (NBTTagCompound) itemstack.getTagCompound().copy());
+                    entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
                 }
 
                 float f3 = 0.05F;
                 entityitem.motionX = (float) saltRand.nextGaussian() * f3;
-                entityitem.motionY = (float) saltRand.nextGaussian() * f3
-                        + 0.2F;
+                entityitem.motionY = (float) saltRand.nextGaussian() * f3 + 0.2F;
                 entityitem.motionZ = (float) saltRand.nextGaussian() * f3;
                 world.spawnEntityInWorld(entityitem);
             }
@@ -91,23 +87,18 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     }
 
     @Override
-    public void breakBlock(World par1World, int par2, int par3, int par4,
-            int par5, int par6) {
+    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
 
-        dropItemStack(new ItemStack(Item.bucketEmpty, 1), par1World, par2,
+        dropItemStack(new ItemStack(Item.bucketEmpty, 1), par1World, par2, par3, par4);
+        dropItemStack(new ItemStack(Block.glass, 2), par1World, par2, par3, par4);
+        dropItemStack(new ItemStack(Block.chest, 1), par1World, par2, par3, par4);
+
+        TileEntitySaltCondenser tileentitysaltcondenser = (TileEntitySaltCondenser) par1World.getBlockTileEntity(par2,
                 par3, par4);
-        dropItemStack(new ItemStack(Block.glass, 2), par1World, par2, par3,
-                par4);
-        dropItemStack(new ItemStack(Block.chest, 1), par1World, par2, par3,
-                par4);
-
-        TileEntitySaltCondenser tileentitysaltcondenser = (TileEntitySaltCondenser) par1World
-                .getBlockTileEntity(par2, par3, par4);
 
         if (tileentitysaltcondenser != null) {
             for (int j1 = 0; j1 < tileentitysaltcondenser.getSizeInventory(); ++j1) {
-                ItemStack itemstack = tileentitysaltcondenser
-                        .getStackInSlot(j1);
+                ItemStack itemstack = tileentitysaltcondenser.getStackInSlot(j1);
 
                 dropItemStack(itemstack, par1World, par2, par3, par4);
 
@@ -119,19 +110,18 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z,
-            EntityPlayer player, int par6, float par7, float par8, float par9) {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7,
+            float par8, float par9) {
 
         if (player.isSneaking()) {
             return false;
         } else {
             if (!world.isRemote) {
-                TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world
-                        .getBlockTileEntity(x, y, z);
+                TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world.getBlockTileEntity(x,
+                        y, z);
 
                 if (tileEntitySaltCondenser != null) {
-                    player.openGui(LargeFactory.instance,
-                            GuiIDs.SALT_CONDENSER, world, x, y, z);
+                    player.openGui(LargeFactory.instance, GuiIDs.SALT_CONDENSER, world, x, y, z);
                 }
             }
 

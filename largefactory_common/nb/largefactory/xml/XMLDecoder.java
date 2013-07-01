@@ -19,17 +19,14 @@ public class XMLDecoder {
         try {
             File file = new File(Files.XML_FILE_LOCATION);
             if (file.exists()) {
-                DocumentBuilderFactory fact = DocumentBuilderFactory
-                        .newInstance();
+                DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse("test.xml");
                 node = doc.getElementsByTagName("*");
                 for (int i = 0; i < node.getLength(); i++) {
                     if (node.item(i).getNodeName().equals("component")) {
-                        ComponentFactory.createComponent(node.item(i)
-                                .getChildNodes(), StructureType
-                                .stringToStructureType(node.item(i)
-                                        .getParentNode().getNodeName()));
+                        ComponentFactory.createComponent(node.item(i).getChildNodes(),
+                                StructureType.stringToStructureType(node.item(i).getParentNode().getNodeName()));
                     }
                 }
             }

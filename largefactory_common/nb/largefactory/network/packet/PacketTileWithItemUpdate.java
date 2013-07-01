@@ -21,8 +21,7 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
         super(PacketTypeHandler.TILE_WITH_ITEM, true);
     }
 
-    public PacketTileWithItemUpdate(int x, int y, int z,
-            ForgeDirection orientation, byte state, String customName,
+    public PacketTileWithItemUpdate(int x, int y, int z, ForgeDirection orientation, byte state, String customName,
             int itemID, int metaData, int stackSize, int color) {
 
         super(PacketTypeHandler.TILE_WITH_ITEM, true);
@@ -65,8 +64,7 @@ public class PacketTileWithItemUpdate extends PacketLargeFactory {
     @Override
     public void execute(INetworkManager manager, Player player) {
 
-        LargeFactory.proxy.handleTileWithItemPacket(x, y, z, customName,
-                itemID, metaData, stackSize, color);
+        LargeFactory.proxy.handleTileWithItemPacket(x, y, z, customName, itemID, metaData, stackSize, color);
     }
 
 }

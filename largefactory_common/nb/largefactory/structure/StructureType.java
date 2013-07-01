@@ -31,8 +31,7 @@ public enum StructureType {
     private boolean isOutput;
     private boolean specialValidation;
 
-    private StructureType(boolean isInput, boolean isOutput,
-            boolean specialValidation) {
+    private StructureType(boolean isInput, boolean isOutput, boolean specialValidation) {
         this.isInput = isInput;
         this.isOutput = isOutput;
         this.specialValidation = specialValidation;
@@ -47,8 +46,7 @@ public enum StructureType {
     }
 
     public static StructureType stringToStructureType(String structureName) {
-        return StructureType.valueOf(structureName.toUpperCase().replace(" ",
-                "_"));
+        return StructureType.valueOf(structureName.toUpperCase().replace(" ", "_"));
     }
 
     public boolean validateStructure(String[] components, int x, int y, int z) {

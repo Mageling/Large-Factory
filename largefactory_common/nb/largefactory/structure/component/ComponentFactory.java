@@ -31,26 +31,19 @@ public class ComponentFactory {
 
     }
 
-    public static void createComponent(NodeList component,
-            StructureType strucType) {
+    public static void createComponent(NodeList component, StructureType strucType) {
         String compName = component.item(0).getTextContent();
 
         HashMap<String, String> xmlOutput = new HashMap<String, String>();
         for (int i = 0; i < component.getLength(); i++) {
-            xmlOutput.put(component.item(i).getNodeName(), component.item(i)
-                    .getTextContent());
+            xmlOutput.put(component.item(i).getNodeName(), component.item(i).getTextContent());
         }
         switch (strucType) {
             case GRINDER:
-                GrinderComponents foo = new GrinderComponents(compName,
-                        xmlOutput.get("recipe"), xmlOutput.get("dimensions"),
-                        xmlOutput.get("maxnumber"), xmlOutput.get("disk"),
-                        xmlOutput.get("ergcost"),
-                        xmlOutput.get("percentyield"),
-                        xmlOutput.get("ergcostreduction"),
-                        xmlOutput.get("texturefile"),
-                        xmlOutput.get("controlblock"),
-                        xmlOutput.get("timeincrease"),
+                GrinderComponents foo = new GrinderComponents(compName, xmlOutput.get("recipe"),
+                        xmlOutput.get("dimensions"), xmlOutput.get("maxnumber"), xmlOutput.get("disk"),
+                        xmlOutput.get("ergcost"), xmlOutput.get("percentyield"), xmlOutput.get("ergcostreduction"),
+                        xmlOutput.get("texturefile"), xmlOutput.get("controlblock"), xmlOutput.get("timeincrease"),
                         xmlOutput.get("slagergcost"));
                 componentList.put(compName, foo);
                 break;

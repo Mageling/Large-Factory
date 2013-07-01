@@ -26,8 +26,7 @@ public class ComponentDataClass {
      * 
      * this overridden always
      */
-    public HashMap<String, Integer> provideInformation(
-            HashMap<String, Integer> current) {
+    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current) {
         return null;
     }
 
