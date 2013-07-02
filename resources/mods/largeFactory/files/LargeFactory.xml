@@ -3,32 +3,32 @@
 	<crusher_components>
 		<component>
 			<name>crusher</name>
-			<recipie>null 2</recipie>
+			<recipe>null 2</recipe>
 			<effect>null 1</effect>
 		</component>
 		<component>
 			<name>power core</name>
-			<recipie>null</recipie>
+			<recipe>null</recipe>
 			<effect>null</effect>
 		</component>
 		<component>
 			<name>blade core</name>
-			<recipie>null</recipie>
+			<recipe>null</recipe>
 			<effect>null</effect>
 		</component>
 		<component>
 			<name>hydraulic piston</name>
-			<recipie>null</recipie>
+			<recipe>null</recipe>
 			<effect>null</effect>
 		</component>
 		<component>
 			<name>precision actuator</name>
-			<recipie>null</recipie>
+			<recipe>null</recipe>
 			<effect>null</effect>
 		</component>
 		<component>
 			<name>vibration chamber</name>
-			<recipie>null</recipie>
+			<recipe>null</recipe>
 			<effect>null</effect>
 		</component>
 	</crusher_components>
