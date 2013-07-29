@@ -1,7 +1,9 @@
 package nb.largefactory.structure.component;
 
 import java.util.HashMap;
+import java.util.Map;
 
+import nb.largefactory.lib.Files;
 import nb.largefactory.structure.StructureType;
 
 public class ComponentDataClass {
@@ -12,7 +14,33 @@ public class ComponentDataClass {
     int maxNumber = 1;
     boolean main = false;
     boolean controlBlock = false;
-    String textureFileLocation = null;
+    Map<String, String> information = new HashMap<String, String>();    
+    
+    public ComponentDataClass(String compname, StructureType structure_type) {
+        structureType = structure_type;
+        information.put("texturefilelocation", Files.DEFAULT_TEXTURE_FILE_LOCATION);
+    }
+    // TODO recipes and controlBlock
+    public void AddtoHash(String name, String data){
+        switch (name){
+            case "dimensions": 
+                String[] temp = data.split(",");
+                if(temp.length != 3)
+                    //ERROR not sure how to do this
+                dimensions[0] = Integer.parseInt(temp[0]);
+                dimensions[1] = Integer.parseInt(temp[1]);
+                dimensions[2] = Integer.parseInt(temp[2]);      
+                break;
+            case "maxNumber": maxNumber = Integer.parseInt(data);
+                break;
+            case "required": main = true;
+                break;
+            case "texturefile": information.put("texturefilelocation", data);
+                break;
+            default: information.put(name, data);
+                break;
+        }
+    }
 
     public StructureType getStructureType() {
         return structureType;
@@ -21,33 +49,32 @@ public class ComponentDataClass {
     public boolean isRequired() {
         return main;
     }
-
     /**
-     * 
-     * this overridden always
+     * This returns anything that is a string
+     * @return
      */
-    public HashMap<String, Integer> provideInformation(HashMap<String, Integer> current) {
+    public String provideInformation(String key) {
+        if(information.containsKey(key)){
+            return information.get(key);
+        }
         return null;
     }
 
     /**
      * This returns inner, multinner, control, casing
      */
-    public String getType() {
-        if (name.equals("casing")) {
+    public String getType(){
+        if (this.name.equals("casing")){
             return "casing";
-        } else if (controlBlock) {
+        }else if(this.controlBlock){
             return "control";
-        } else if (dimensions != null && dimensions != new int[] { 1, 1, 1 }) {
+        }else if(this.dimensions != null){
             return "multinner";
-        } else {
+        }else{
             return "inner";
         }
 
     }
-
-    // TODO I need a version for this that can be put into a switch statement
-    // (int, enum, or string)
     public int[] getMultiSize() {
         if (dimensions == null) {
             return new int[] { 1, 1, 1 };

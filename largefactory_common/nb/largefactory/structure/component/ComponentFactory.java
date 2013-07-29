@@ -21,6 +21,8 @@ import org.w3c.dom.NodeList;
  * controlblock
  * timeincrease
  * slagergcost
+ * required
+ * texturefile
  */
 
 public class ComponentFactory {
@@ -31,56 +33,12 @@ public class ComponentFactory {
 
     }
 
-    public static void createComponent(NodeList component, StructureType strucType) {
-        String compName = component.item(0).getTextContent();
-
-        HashMap<String, String> xmlOutput = new HashMap<String, String>();
-        for (int i = 0; i < component.getLength(); i++) {
-            xmlOutput.put(component.item(i).getNodeName(), component.item(i).getTextContent());
+    public static void createComponent(NodeList component, String structtype_string) {
+        StructureType structure_type = nb.largefactory.structure.StructureType.stringToStructureType(structtype_string);
+        ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent(), structure_type);
+        for(int k = 1; k < component.getLength(); k++){
+            a.AddtoHash(component.item(k).getNodeName(), component.item(k).getTextContent());
         }
-        switch (strucType) {
-            case GRINDER:
-                GrinderComponents foo = new GrinderComponents(compName, xmlOutput.get("recipe"),
-                        xmlOutput.get("dimensions"), xmlOutput.get("maxnumber"), xmlOutput.get("disk"),
-                        xmlOutput.get("ergcost"), xmlOutput.get("percentyield"), xmlOutput.get("ergcostreduction"),
-                        xmlOutput.get("texturefile"), xmlOutput.get("controlblock"), xmlOutput.get("timeincrease"),
-                        xmlOutput.get("slagergcost"));
-                componentList.put(compName, foo);
-                break;
-            case CRUSHER:
-                break;
-            case BLAST_INJECTOR:
-                break;
-            case CASING:
-                break;
-            case COAGULATOR:
-                break;
-            case COMPACTOR:
-                break;
-            case COOLER:
-                break;
-            case EXTRACTOR:
-                break;
-            case HEATED_STORAGE_UNIT:
-                break;
-            case LIQUID_SEPARATOR:
-                break;
-            case MELTER:
-                break;
-            case PURIFIER:
-                break;
-            case REFINER:
-                break;
-            case SCRAPER:
-                break;
-            case SKIMMER:
-                break;
-            case SMELTER:
-                break;
-            case SOLID_SEPARATOR:
-                break;
-            default:
-                break;
-        }
+        componentList.put(component.item(0).getTextContent(), a);
     }
 }
