@@ -175,7 +175,7 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
 
     @Override
     public String getInvName() {
-        return this.isInvNameLocalized() ? customName : "container.saltCondenser";
+        return this.isInvNameLocalized() ? customName : "Salt Condenser";
     }
 
     @Override
@@ -203,7 +203,7 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
     }
 
     @Override
-    public boolean isStackValidForSlot(int i, ItemStack itemstack) {
+    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
         return false;
     }
 

@@ -8,12 +8,8 @@ import nb.largefactory.network.PacketHandler;
 import nb.largefactory.proxy.CommonProxy;
 import nb.largefactory.xml.XMLDecoder;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.IMCCallback;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.Mod.ServerStarting;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
@@ -33,19 +29,19 @@ public class LargeFactory {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
 
-    @ServerStarting
+    @EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
 
     }
 
-    @PreInit
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         // Load the XML decoder
         XMLDecoder.instantiate();
 
         // Register Blocks and Items
-        ModItems.registerItems();
         ModBlocks.registerBlocks();
+        ModItems.registerItems();
 
         // Register crafting and smelting
         VanillaCrafting.registerVanillaCrafting();
@@ -53,7 +49,7 @@ public class LargeFactory {
 
     }
 
-    @Init
+    @EventHandler
     public void load(FMLInitializationEvent event) {
         // Register the GUI Handler
         NetworkRegistry.instance().registerGuiHandler(instance, proxy);
@@ -66,12 +62,12 @@ public class LargeFactory {
 
     }
 
-    @PostInit
+    @EventHandler
     public void modsLoaded(FMLPostInitializationEvent event) {
 
     }
 
-    @IMCCallback
+    @EventHandler
     public void handleIMCMessages(IMCEvent event) {
 
     }
