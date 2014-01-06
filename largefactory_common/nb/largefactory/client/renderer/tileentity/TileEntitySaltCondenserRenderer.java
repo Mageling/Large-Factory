@@ -28,7 +28,7 @@ public class TileEntitySaltCondenserRenderer extends TileEntitySpecialRenderer {
             GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
 
             // Bind Texture
-            FMLClientHandler.instance().getClient().renderEngine.func_110577_a(Textures.SALT_CONDENSER);
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
 
             modelSaltCondenser.render();
 

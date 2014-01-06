@@ -39,7 +39,7 @@ public class GuiSaltCondenser extends GuiContainer {
     protected void drawGuiContainerBackgroundLayer(float opacity, int x, int y) {
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        mc.func_110434_K().func_110577_a(Textures.GUI_SALT_CONDENSER);
+        mc.getTextureManager().bindTexture(Textures.GUI_SALT_CONDENSER);
         int xStart = (width - xSize) / 2;
         int yStart = (height - ySize) / 2;
         this.drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
