@@ -12,16 +12,21 @@ import java.util.Map;
 public class CycleData {
     Float timeRequired = new Float(null);
     
+    Map<String, Float> Blocks;
+    Map<String, Float> LiquidSlag1;
+    Map<String, Float> LiquidOre1;
+    Map<String, Float> GassSlag1;
+    Map<String, Float> GassOre1;
+    
     public CycleData(HashMap<String, Float> input){
-        Map<String, Float> Blocks = new HashMap<String, Float>();
-        Map<String, Float> LiquidSlag1 = new HashMap<String, Float>();
-        Map<String, Float> LiquidOre1 = new HashMap<String, Float>();
-        Map<String, Float> GassSlag1 = new HashMap<String, Float>();
-        Map<String, Float> GassOre1 = new HashMap<String, Float>();
+        LiquidSlag1 = new HashMap<String, Float>();
+        LiquidOre1 = new HashMap<String, Float>();
+        GassSlag1 = new HashMap<String, Float>();
+        GassOre1 = new HashMap<String, Float>();
         Blocks = input;
     }
     
     public HashMap GetBlocks(){
-        return Blocks;
+        return (HashMap) Blocks;
     }
 }
