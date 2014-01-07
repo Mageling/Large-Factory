@@ -38,14 +38,7 @@ public class XMLDecoder {
             }
         } catch (Exception e) {
         }
-        /*
-         * This does metals
-         * Yield is main
-         * Primary is 50%
-         * Secondary is 10%
-         * Tertiary is .2%
-         * Quartiary is .05%
-         */
+
         try {
             File file = new File(Files.XML_METAL_LOCATION);
             if (file.exists()) {
@@ -62,7 +55,7 @@ public class XMLDecoder {
                                 nodeinfo.item(k).getParentNode().removeChild(nodeinfo.item(k));
                             }
                         }
-                        nb.largefactory.structure.component.ComponentFactory.createComponent(nodeinfo, node.item(i).getParentNode().getNodeName().replaceAll("\\s+",""));
+                        nb.largefactory.structure.calculations.MetalFactory.learnMetal(nodeinfo);
                     }
                 }
             }

@@ -4,36 +4,38 @@ import java.util.HashMap;
 
 public class Crusher {
     
+    Float oreValue;
     Float mainOre;
     Float slag;
-    int slagPercentBonus;
-    int slagOre;
+    Float slagPercentBonus;
+    Float slagOre;
     Float ergCost;
     Float timeCost;
-    int timePercent;
-    int ergPercent;
+    Float timePercent;
+    Float ergPercent;
     String attuneMetal;
     int attuneValue;
     int attuneDisvalue;
     int secondaryBonus;
-    int secondaryPercentBonus;
+    Float secondaryPercentBonus;
     HashMap<String, Float> solid;
     HashMap<String, Float> waste;
     
     Crusher(){
+        Float oreValue = 120f;
         Float mainOre = 120f;
         Float slag = 880f;
-        int slagPercentBonus = 0;
-        int slagOre = 120;
+        Float slagPercentBonus = 0f;
+        Float slagOre = 120f;
         Float ergCost = 1000f;
         Float timeCost = 2000f;
-        int timePercent = 100;
-        int ergPercent = 100;
+        Float timePercent = 1f;
+        Float ergPercent = 1f;
         String attuneMetal = null;
         int attuneValue = 0;
         int attuneDisvalue = 0;
         int secondaryBonus = 0;
-        int secondaryPercentBonus = 0;
+        Float secondaryPercentBonus = 0f;
         //modify them
     }
     
@@ -42,12 +44,17 @@ public class Crusher {
         Float oreSlag = 0f;
         solid = new HashMap<String, Float>();
         waste = new HashMap<String, Float>();
-        if(start.getNameOfMaterial().equals(attuneMetal) || attuneMetal == null){
-            solid.put(start.getNameOfMaterial(), (mainOre + attuneValue) * numberOfBlocks);
-        }else{
-        solid.put(start.getNameOfMaterial(), (mainOre + attuneDisvalue) * numberOfBlocks);
+        MetalClass currentMetal = MetalFactory.metalList.get(start.getNameOfMaterial());
+        if(currentMetal.getYield() != null){
+            if(start.getNameOfMaterial().equals(attuneMetal) || attuneMetal == null){
+                solid.put(start.getNameOfMaterial(), (mainOre + attuneValue) * YieldValues.YIELD.percentYield() * numberOfBlocks);
+            }else{
+            solid.put(start.getNameOfMaterial(), (mainOre + attuneDisvalue) * YieldValues.YIELD.percentYield() * numberOfBlocks);
+            }
         }
-        waste.put(key, value)
+        if(currentMetal.getPrimary() != null){
+            waste.put(currentMetal.getPrimary(), (oreValue + secondaryBonus) * (secondaryPercentBonus + 1)* YieldValues.PRIMARY.percentYield() * numberOfBlocks);
+        }
         
         CycleData out = new CycleData(StateEnum.Solid, solid, waste, timeCost*timePercent, ergCost*ergPercent);
         return out;

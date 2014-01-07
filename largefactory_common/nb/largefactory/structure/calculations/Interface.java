@@ -7,7 +7,7 @@ public class Interface {
         return null;
     }
     
-    public ConvertBTM(){
+    //public ConvertBTM(){
         
-    }
+    //}
 }
