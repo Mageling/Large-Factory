@@ -1,7 +1,6 @@
 package nb.largefactory.util;
 
 import nb.largefactory.lib.Reference;
-
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceLocationHelper {

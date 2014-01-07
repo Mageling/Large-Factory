@@ -6,10 +6,10 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class ItemSaltChickenCooked extends ItemFoodLargeFactory {
 
-    public ItemSaltChickenCooked(int id) {
-        super(id, 7, 0.6f, true);
-        this.setUnlocalizedName(Strings.SALT_CHICKEN_COOKED_NAME);
-        this.setCreativeTab(CreativeTabs.tabFood);
-    }
+	public ItemSaltChickenCooked(int id) {
+		super(id, 7, 0.6f, true);
+		setUnlocalizedName(Strings.SALT_CHICKEN_COOKED_NAME);
+		setCreativeTab(CreativeTabs.tabFood);
+	}
 
 }
