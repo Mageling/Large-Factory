@@ -3,6 +3,7 @@ package nb.largefactory.structure.calculations;
 import java.util.ArrayList;
 import java.util.HashMap;
 import nb.largefactory.structure.calculations.StateEnum;
+import nb.largefactory.util.MathHelper;
 
 /*
  * some high level stuff right here
@@ -11,13 +12,15 @@ import nb.largefactory.structure.calculations.StateEnum;
  * 
  */
 public class CycleData {
-    HashMap<String, HashMap<String, Float>> Resources;
+    public HashMap<String, HashMap<String, Float>> Resources;
     ArrayList<Float> timeremaining;
+    Float powerUse;
 
-    public CycleData(StateEnum state, HashMap<String, Float> input, HashMap<String, Float> slag, Float time){
+    public CycleData(StateEnum state, HashMap<String, Float> input, HashMap<String, Float> slag, Float time, Float power){
         Resources = new HashMap<String, HashMap<String, Float>>();
         timeremaining = new ArrayList<Float>();
         timeremaining.set(0, time);
+        powerUse = power;
         switch(state){
             case Gas: Resources.put("MainGas",input);
                 Resources.put("MainGasSlag",slag);
@@ -33,21 +36,9 @@ public class CycleData {
                 break;
         }
     }
-    
-    public HashMap<String, Float> GetRecInfo(String name){
-        return Resources.get(name);
-    }
-    
-    public void SetRecInfo(String name, HashMap<String, Float> value){
-        Resources.put(name, value);
-    }
-    
-    public HashMap<String, HashMap<String, Float>> GetFullInfo(){
-        return Resources;
-    }
         
     public Float GetTimeRequired(){
-        return timeremaining;
+        return MathHelper.calcualteMaximumF(timeremaining);
     }
     
     public void AddTimeRequired(Float time, int number){
