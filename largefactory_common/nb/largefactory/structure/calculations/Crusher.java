@@ -36,7 +36,8 @@ public class Crusher {
     public CycleData RunCrusher(Imput start){
         
         
-        CycleData out = new CycleData(StateEnum.Solid, output, slag, timeCost*timePercent, ergCost*ergPercent)
-        return out;
+        //CycleData out = new CycleData(StateEnum.Solid, HashMap<>, slag, timeCost*timePercent, ergCost*ergPercent)
+        //return out;
+        return null;
     }
 }
