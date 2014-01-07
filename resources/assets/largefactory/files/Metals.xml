@@ -3,7 +3,7 @@
 		<Yield>iron</Yield>
 		<Primary>iron</Primary>
 		<Secondary>quartz</Secondary>
-		<Tertiary>aluminium</Tertiary>
+		<Tertiary></Tertiary>
 		<Quaternary>gold</Quaternary>
 	</iron>
 	<gold>
@@ -13,4 +13,51 @@
 		<Tertiary>platinum</Tertiary>
 		<Quaternary>iron</Quaternary>
 	</gold>
+	<coal>
+		<Yield>coal</Yield>
+		<Primary>coal</Primary>
+		<Secondary>coal</Secondary>
+		<Tertiary>coal</Tertiary>
+		<Quaternary>diamond</Quaternary>
+		<Dust>2</Dust>
+	</coal>
+	<quartz>
+		<Yield>quartz</Yield>
+		<Primary>quartz</Primary>
+		<Secondary>iron</Secondary>
+		<Tertiary></Tertiary>
+		<Quaternary></Quaternary>
+		<Dust>3</Dust>
+	</quartz>
+	<redstone>
+		<Yield>redstone</Yield>
+		<Primary>redstone</Primary>
+		<Secondary>redstone</Secondary>
+		<Tertiary></Tertiary>
+		<Quaternary></Quaternary>
+		<Dust>3</Dust>
+	</redstone>
+	<lapis>
+		<Yield>lapis</Yield>
+		<Primary></Primary>
+		<Secondary>lapis</Secondary>
+		<Tertiary></Tertiary>
+		<Quaternary>platinum</Quaternary>
+		<Dust>4</Dust>
+	</lapis>
+	<diamond>
+		<Yield>coal</Yield>
+		<Primary>diamond</Primary>
+		<Secondary>coal</Secondary>
+		<Tertiary>diamond</Tertiary>
+		<Quaternary></Quaternary>
+		<Dust>2</Dust>
+	</diamond>
+	<emerald>
+		<Yield></Yield>
+		<Primary>emerald</Primary>
+		<Secondary></Secondary>
+		<Tertiary></Tertiary>
+		<Quaternary></Quaternary>
+	</emerald>
 </metal>

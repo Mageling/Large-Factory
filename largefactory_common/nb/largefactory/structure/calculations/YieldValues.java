@@ -5,7 +5,7 @@ public enum YieldValues {
 	PRIMARY(.5f),
 	SECONDARY(.1f),
 	TERTIARY(.02f),
-	QUATERNARY(.005f)
+	QUATERNARY(.005f), DUST(0f)
 	;
 	private Float percent;
 

@@ -7,6 +7,7 @@ public class MetalClass {
 	String secondary = null;
 	String tertiary = null;
 	String quaternary = null;
+	Float dust = null;
 
 	public MetalClass(String metalname){
 		name = metalname;
@@ -35,6 +36,10 @@ public class MetalClass {
 	public String getQuaternary() {
 		return quaternary;
 	}
+	
+	public Float getDust(){
+	    return dust;
+	}
 
 	public void addSecondaries(YieldValues second, String data){
 		switch(second){
@@ -47,6 +52,8 @@ public class MetalClass {
 		case TERTIARY: tertiary = data;
 		break;
 		case YIELD: yield = data;
+		break;
+		case DUST: dust = Float.parseFloat(data);
 		break;
 		default: yield = data;
 		break;
