@@ -2,6 +2,7 @@ package nb.largefactory.item.crafting;
 
 import nb.largefactory.block.ModBlocks;
 import nb.largefactory.item.ModItems;
+import nb.largefactory.util.CraftingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,20 +11,20 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class VanillaCrafting {
 
     public static void registerVanillaCrafting() {
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltPorkRaw, 1), new Object[] { ModItems.salt,
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltPorkRaw, 1), new Object[] { "salt",
                 Item.porkRaw });
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltSteakRaw, 1), new Object[] { ModItems.salt,
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltSteakRaw, 1), new Object[] { "salt",
                 Item.beefRaw });
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltChickenRaw, 1), new Object[] { ModItems.salt,
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltChickenRaw, 1), new Object[] { "salt",
                 Item.chickenRaw });
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltFishRaw, 1), new Object[] { ModItems.salt,
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltFishRaw, 1), new Object[] { "salt",
                 Item.fishRaw });
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltFlesh, 1), new Object[] { ModItems.salt,
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltFlesh, 1), new Object[] { "salt",
                 ModItems.salt, Item.rottenFlesh });
         GameRegistry.addRecipe(new ItemStack(ModBlocks.saltCondenser, 1), new Object[] { "G G", "PBP", "PCP", 'G',
                 Block.glass, 'P', Block.planks, 'B', Item.bucketEmpty, 'C', Block.chest });
-        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltChunk), new Object[] { ModItems.salt, ModItems.salt,
-                ModItems.salt, ModItems.salt, ModItems.salt, ModItems.salt, ModItems.salt, ModItems.salt });
+        CraftingHelper.addShapelessOreRecipe(new ItemStack(ModItems.saltChunk), new Object[] { "salt", "salt",
+        	"salt", "salt", "salt", "salt", "salt", "salt" });
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.saltBlock), new Object[] { ModItems.saltChunk,
                 ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk,
                 ModItems.saltChunk, ModItems.saltChunk });

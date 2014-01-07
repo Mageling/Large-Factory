@@ -13,6 +13,7 @@ import nb.largefactory.item.salt.ItemSaltSteakCooked;
 import nb.largefactory.item.salt.ItemSaltSteakRaw;
 import nb.largefactory.lib.ItemIDs;
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems {
@@ -34,6 +35,7 @@ public class ModItems {
     public static void registerItems() {
         salt = new ItemSalt(ItemIDs.SALT);
         LanguageRegistry.addName(salt, "Salt");
+        OreDictionary.registerOre("salt", salt);
 
         saltChunk = new ItemSaltChunk(ItemIDs.SALT_CHUNK);
         LanguageRegistry.addName(saltChunk, "Salt Chunk");
