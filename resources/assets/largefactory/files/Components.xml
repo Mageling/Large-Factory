@@ -1,5 +1,5 @@
 <components>
-	<!--
+
 	<crusher_components>
 		<component>
 			<name>crusher</name>
@@ -32,7 +32,6 @@
 			<effect>null</effect>
 		</component>
 	</crusher_components>
-	-->
 	<grinder_components>
 		<component>
 			<name>grinder control</name>

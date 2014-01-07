@@ -1,6 +1,7 @@
 package nb.largefactory.lib;
 
 public class Files {
-    public static final String XML_FILE_LOCATION = "/mod/largefactory/files/LargeFactory.xml";
-
+    // TODO make these files
+    public static final String XML_COMPONENT_LOCATION = "/mod/largefactory/files/Components.xml";
+    public static final String XML_METAL_LOCATION = "/mod/largefactory/files/Metals.xml";
 }

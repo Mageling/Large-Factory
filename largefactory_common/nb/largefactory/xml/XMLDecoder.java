@@ -15,12 +15,13 @@ public class XMLDecoder {
     static NodeList node;
 
     public static void instantiate() {
+        //This does the components
         try {
-            File file = new File(Files.XML_FILE_LOCATION);
+            File file = new File(Files.XML_COMPONENT_LOCATION);
             if (file.exists()) {
                 DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = fact.newDocumentBuilder();
-                Document doc = builder.parse(Files.XML_FILE_LOCATION);
+                Document doc = builder.parse(Files.XML_COMPONENT_LOCATION);
                 node = doc.getElementsByTagName("*");
                 for (int i = 0; i < node.getLength(); i++) {
                     NodeList nodeinfo;
@@ -32,25 +33,43 @@ public class XMLDecoder {
                             }
                         }
                         nb.largefactory.structure.component.ComponentFactory.createComponent(nodeinfo, node.item(i).getParentNode().getNodeName().replaceAll("\\s+",""));
-                        /*
-                        System.out.println("Node info");
-                        System.out.println("number of nodes " + nodeinfo.getLength());
-                        for(int k = 0; k < nodeinfo.getLength(); k++){
-                            System.out.println(nodeinfo.item(k).getNodeName().replace("#text",""));
-                            System.out.println(nodeinfo.item(k).getTextContent());
-                        }
-                        System.out.println("Parent Node");
-                        System.out.println(node.item(i).getParentNode().getNodeName().replaceAll("\\s+",""));
-                        ComponentFactory.createComponent(node.item(i)
-                                .getChildNodes(), StructureType
-                                .stringToStructureType(node.item(i)
-                                        .getParentNode().getNodeName()));
-                                       */
                     }
                 }
             }
         } catch (Exception e) {
         }
+        /*
+         * This does metals
+         * Yield is main
+         * Primary is 50%
+         * Secondary is 10%
+         * Tertiary is .2%
+         * Quartiary is .05%
+         */
+        try {
+            File file = new File(Files.XML_METAL_LOCATION);
+            if (file.exists()) {
+                DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = fact.newDocumentBuilder();
+                Document doc = builder.parse(Files.XML_METAL_LOCATION);
+                node = doc.getElementsByTagName("*");
+                for (int i = 0; i < node.getLength(); i++) {
+                    NodeList nodeinfo;
+                    if (node.item(i).getParentNode().equals("metal")){
+                        nodeinfo = node.item(i).getChildNodes();
+                        for(int k = 0; k < nodeinfo.getLength(); k++){
+                            if(nodeinfo.item(k).getTextContent().trim().length() == 0){
+                                nodeinfo.item(k).getParentNode().removeChild(nodeinfo.item(k));
+                            }
+                        }
+                        nb.largefactory.structure.component.ComponentFactory.createComponent(nodeinfo, node.item(i).getParentNode().getNodeName().replaceAll("\\s+",""));
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        
+        
     }
 
 }

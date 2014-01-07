@@ -2,7 +2,12 @@ package nb.largefactory.structure.calculations;
 
 
 public class Interface {
-    public Imput Convert(){
+    // TODO MAKE SOMETHING ACUTALLY HAPPEN
+    public Imput ConvertMTB(){
         return null;
+    }
+    
+    public ConvertBTM(){
+        
     }
 }

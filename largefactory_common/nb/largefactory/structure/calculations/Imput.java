@@ -7,4 +7,18 @@ public class Imput {
             nameOfMaterial = name;
             numberOfItems = number;
         }
+        public String getNameOfMaterial() {
+            return nameOfMaterial;
+        }
+        public void setNameOfMaterial(String nameOfMaterial) {
+            this.nameOfMaterial = nameOfMaterial;
+        }
+        public int getNumberOfItems() {
+            return numberOfItems;
+        }
+        public void setNumberOfItems(int numberOfItems) {
+            this.numberOfItems = numberOfItems;
+        }
+        
+        
 }

@@ -1,0 +1,16 @@
+<metal>
+	<iron>
+		<Yield>iron</Yield>
+		<Primary>iron</Primary>
+		<Secondary>quartz</Secondary>
+		<Tertiary>aluminium</Tertiary>
+		<Quaternary>gold</Quaternary>
+	</iron>
+	<gold>
+		<Yield></Yield>
+		<Primary>gold</Primary>
+		<Secondary>gold</Secondary>
+		<Tertiary>platinum</Tertiary>
+		<Quaternary>iron</Quaternary>
+	</gold>
+</metal>
