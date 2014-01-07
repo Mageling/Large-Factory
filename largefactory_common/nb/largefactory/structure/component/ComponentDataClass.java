@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.lib.Files;
+import nb.largefactory.lib.Textures;
 import nb.largefactory.structure.StructureType;
 
 public class ComponentDataClass {
@@ -19,7 +20,7 @@ public class ComponentDataClass {
     public ComponentDataClass(String compname, StructureType structure_type) {
         name = compname;
         structureType = structure_type;
-        information.put("texturefilelocation", Files.DEFAULT_TEXTURE_FILE_LOCATION);
+        information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
     }
     // TODO recipes and controlBlock
     public void AddtoHash(String name, String data){

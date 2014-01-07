@@ -25,5 +25,8 @@ public class Textures {
     public static final ResourceLocation SALT_CONDENSER = ResourceLocationHelper.getResourceLocation(MODEL_SHEET_LOCATION + "saltCondenser.png");
 
     // Effect textures
+    
+    // Other
+    public static final String DEFAULT_TEXTURE_FILE_LOCATION = "textures/blocks/structureBlock.png";
 
 }
