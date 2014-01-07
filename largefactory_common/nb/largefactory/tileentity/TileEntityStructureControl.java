@@ -23,6 +23,8 @@ public class TileEntityStructureControl extends TileEntityStructure {
     protected int[][] casingBlocks = null;
     protected String[] componentList = null;
     protected boolean isNotified = false;
+    public String resourceLine = null;
+    public int timeLine = 0;
 
     @Override
     public boolean validateStructure(StructureType structureType) {
@@ -745,6 +747,10 @@ public class TileEntityStructureControl extends TileEntityStructure {
         par1NBTTagCompound.setTag("Casing Blocks", nbttaglist);
 
         par1NBTTagCompound.setBoolean("Is Notified", isNotified);
+        
+        par1NBTTagCompound.setString("Resource Line", resourceLine);
+        
+        par1NBTTagCompound.setInteger("Time Line", timeLine);
 
     }
 
@@ -785,6 +791,10 @@ public class TileEntityStructureControl extends TileEntityStructure {
         }
 
         casingBlocks = tempCasingBlocks.toArray(casingBlocks);
+        
+        resourceLine = par1NBTTagCompound.getString("Resource Line");
+        
+        timeLine = par1NBTTagCompound.getInteger("Time Line");
 
     }
 

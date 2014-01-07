@@ -36,7 +36,7 @@ public class ItemStructure extends ItemReedLargeFactory {
             case "control":
                 return new TileEntityStructureControl(nbtTagCompound.getString("Component Name"));
             case "casing":
-                return new TileEntityStructureCasing();
+                return new TileEntityStructureCasing("casing");
             case "inner":
                 return new TileEntityStructureInner(nbtTagCompound.getString("Component Name"));
             case "multinner":

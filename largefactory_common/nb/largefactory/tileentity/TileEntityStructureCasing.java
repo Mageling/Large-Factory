@@ -5,8 +5,8 @@ import nb.largefactory.structure.StructureType;
 
 public class TileEntityStructureCasing extends TileEntityStructure {
 
-    public TileEntityStructureCasing() {
-        super("casing");
+    public TileEntityStructureCasing(String componentName) {
+        super(componentName);
         controlBlockLocation = new int[0];
     }
 
