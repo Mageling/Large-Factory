@@ -1,24 +1,28 @@
-package nb.largefactory.structure.calculations;
+package nb.largefactory.structure.calculations.components;
 
 import java.util.ArrayList;
 import java.util.Map;
 
+import nb.largefactory.structure.calculations.CycleData;
+import nb.largefactory.structure.calculations.Imput;
+import nb.largefactory.structure.calculations.MetalClass;
+import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.util.DataMap;
 
 public class Crusher {
 
-    Float mainOreBonus;
-    Float slagPercentBonus;
-    Float slagBonus;
-    Float ergCost;
-    Float timeCost;
-    Float timePercent;
-    Float ergPercent;
+    float mainOreBonus;
+    float slagPercentBonus;
+    float slagBonus;
+    float ergCost;
+    float timeCost;
+    float timePercent;
+    float ergPercent;
     String attuneMetal;
     int attuneValue;
     int attuneDisvalue;
     int secondaryBonus;
-    Float secondaryPercentBonus;
+    float secondaryPercentBonus;
     DataMap<String, Float> solid;
     DataMap<String, Float> waste;
     CycleData out;
@@ -43,11 +47,11 @@ public class Crusher {
         solid = new DataMap<String, Float>();
         waste = new DataMap<String, Float>();
         for(Imput I : start){
-            int numberOfBlocks = I.numberOfItems;
+            int numberOfBlocks = I.getNumberOfItems();
             Float oreSlag = 0f;
             MetalClass currentMetal = MetalFactory.metalList.get(I.getNameOfMaterial());
 
-            if(attuneMetal == currentMetal.getName()){
+            if(attuneMetal == currentMetal.getName() || attuneMetal == null){
                 solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue) * numberOfBlocks);
             }else{
                 solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneDisvalue) * numberOfBlocks);
