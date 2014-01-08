@@ -10,57 +10,57 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityLargeFactory extends TileEntity {
 
-	protected String customName;
+    protected String customName;
 
-	public TileEntityLargeFactory() {
+    public TileEntityLargeFactory() {
 
-		customName = "";
-	}
+        customName = "";
+    }
 
-	public boolean hasCustomName() {
+    public boolean hasCustomName() {
 
-		return customName != null && customName.length() > 0;
-	}
+        return customName != null && customName.length() > 0;
+    }
 
-	public String getCustomName() {
+    public String getCustomName() {
 
-		return customName;
-	}
+        return customName;
+    }
 
-	public void setCustomName(String customName) {
+    public void setCustomName(String customName) {
 
-		this.customName = customName;
-	}
+        this.customName = customName;
+    }
 
-	public boolean isUseableByPlayer(EntityPlayer player) {
+    public boolean isUseableByPlayer(EntityPlayer player) {
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+    @Override
+    public void readFromNBT(NBTTagCompound nbtTagCompound) {
 
-		super.readFromNBT(nbtTagCompound);
+        super.readFromNBT(nbtTagCompound);
 
-		if (nbtTagCompound.hasKey(Strings.NBT_TE_CUSTOM_NAME)) {
-			customName = nbtTagCompound.getString(Strings.NBT_TE_CUSTOM_NAME);
-		}
-	}
+        if (nbtTagCompound.hasKey(Strings.NBT_TE_CUSTOM_NAME)) {
+            customName = nbtTagCompound.getString(Strings.NBT_TE_CUSTOM_NAME);
+        }
+    }
 
-	@Override
-	public void writeToNBT(NBTTagCompound nbtTagCompound) {
+    @Override
+    public void writeToNBT(NBTTagCompound nbtTagCompound) {
 
-		super.writeToNBT(nbtTagCompound);
+        super.writeToNBT(nbtTagCompound);
 
-		if (hasCustomName()) {
-			nbtTagCompound.setString(Strings.NBT_TE_CUSTOM_NAME, customName);
-		}
-	}
+        if (hasCustomName()) {
+            nbtTagCompound.setString(Strings.NBT_TE_CUSTOM_NAME, customName);
+        }
+    }
 
-	@Override
-	public Packet getDescriptionPacket() {
+    @Override
+    public Packet getDescriptionPacket() {
 
-		return PacketTypeHandler.populatePacket(new PacketTileUpdate(xCoord, yCoord, zCoord, customName));
-	}
+        return PacketTypeHandler.populatePacket(new PacketTileUpdate(xCoord, yCoord, zCoord, customName));
+    }
 
 }

@@ -9,15 +9,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemReedLargeFactory extends ItemReed {
 
-	public ItemReedLargeFactory(int id, Block par2Block) {
-		super(id - Reference.SHIFTED_ID_RANGE_CORRECTION, par2Block);
-	}
+    public ItemReedLargeFactory(int id, Block par2Block) {
+        super(id - Reference.SHIFTED_ID_RANGE_CORRECTION, par2Block);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister) {
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
 
-		itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
-	}
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+    }
 
 }

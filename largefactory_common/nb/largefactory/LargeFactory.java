@@ -23,53 +23,53 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 @NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class LargeFactory {
 
-	@Instance(Reference.MOD_ID)
-	public static LargeFactory instance;
+    @Instance(Reference.MOD_ID)
+    public static LargeFactory instance;
 
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-	public static CommonProxy proxy;
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
+    public static CommonProxy proxy;
 
-	@EventHandler
-	public void serverStarting(FMLServerStartingEvent event) {
+    @EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
 
-	}
+    }
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		// Load the XML decoder
-		XMLDecoder.instantiate();
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        // Load the XML decoder
+        XMLDecoder.instantiate();
 
-		// Register Blocks and Items
-		ModBlocks.registerBlocks();
-		ModItems.registerItems();
+        // Register Blocks and Items
+        ModBlocks.registerBlocks();
+        ModItems.registerItems();
 
-		// Register crafting and smelting
-		VanillaCrafting.registerVanillaCrafting();
-		VanillaCrafting.registerVanillaSmelting();
+        // Register crafting and smelting
+        VanillaCrafting.registerVanillaCrafting();
+        VanillaCrafting.registerVanillaSmelting();
 
-	}
+    }
 
-	@EventHandler
-	public void load(FMLInitializationEvent event) {
-		// Register the GUI Handler
-		NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+    @EventHandler
+    public void load(FMLInitializationEvent event) {
+        // Register the GUI Handler
+        NetworkRegistry.instance().registerGuiHandler(instance, proxy);
 
-		// Register Tile Entities
-		proxy.registerTileEntities();
+        // Register Tile Entities
+        proxy.registerTileEntities();
 
-		// Initialize custom renderers
-		proxy.initRenderingandTextures();
+        // Initialize custom renderers
+        proxy.initRenderingandTextures();
 
-	}
+    }
 
-	@EventHandler
-	public void modsLoaded(FMLPostInitializationEvent event) {
+    @EventHandler
+    public void modsLoaded(FMLPostInitializationEvent event) {
 
-	}
+    }
 
-	@EventHandler
-	public void handleIMCMessages(IMCEvent event) {
+    @EventHandler
+    public void handleIMCMessages(IMCEvent event) {
 
-	}
+    }
 
 }

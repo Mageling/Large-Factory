@@ -14,46 +14,46 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 
-	@Override
-	public void initRenderingandTextures() {
-		RenderIds.saltCondenserRenderId = RenderingRegistry.getNextAvailableRenderId();
-		MinecraftForgeClient.registerItemRenderer(BlockIDs.SALT_CONDENSER, new ItemSaltCondenserRenderer());
-	}
+    @Override
+    public void initRenderingandTextures() {
+        RenderIds.saltCondenserRenderId = RenderingRegistry.getNextAvailableRenderId();
+        MinecraftForgeClient.registerItemRenderer(BlockIDs.SALT_CONDENSER, new ItemSaltCondenserRenderer());
+    }
 
-	@Override
-	public void registerTileEntities() {
-		super.registerTileEntities();
+    @Override
+    public void registerTileEntities() {
+        super.registerTileEntities();
 
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySaltCondenser.class,
-				new TileEntitySaltCondenserRenderer());
-	}
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySaltCondenser.class,
+                new TileEntitySaltCondenserRenderer());
+    }
 
-	@Override
-	public void handleTileEntityPacket(int x, int y, int z, String customName) {
+    @Override
+    public void handleTileEntityPacket(int x, int y, int z, String customName) {
 
-		TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getBlockTileEntity(x, y, z);
+        TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getBlockTileEntity(x, y, z);
 
-		if (tileEntity != null) {
-			if (tileEntity instanceof TileEntityLargeFactory) {
-				((TileEntityLargeFactory) tileEntity).setCustomName(customName);
-			}
-		}
-	}
+        if (tileEntity != null) {
+            if (tileEntity instanceof TileEntityLargeFactory) {
+                ((TileEntityLargeFactory) tileEntity).setCustomName(customName);
+            }
+        }
+    }
 
-	@Override
-	public void handleTileWithItemPacket(int x, int y, int z, String customName, int itemID, int metaData,
-			int stackSize, int color) {
+    @Override
+    public void handleTileWithItemPacket(int x, int y, int z, String customName, int itemID, int metaData,
+            int stackSize, int color) {
 
-		// World world = FMLClientHandler.instance().getClient().theWorld;
-		// TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+        // World world = FMLClientHandler.instance().getClient().theWorld;
+        // TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
 
-		handleTileEntityPacket(x, y, z, customName);
-		/**
-		 * empty if for now if (tileEntity != null) { if(tileEntity instanceof
-		 * TileEntitySaltCondenser) {
-		 * 
-		 * } }
-		 **/
-	}
+        handleTileEntityPacket(x, y, z, customName);
+        /**
+         * empty if for now if (tileEntity != null) { if(tileEntity instanceof
+         * TileEntitySaltCondenser) {
+         * 
+         * } }
+         **/
+    }
 
 }

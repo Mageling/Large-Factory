@@ -18,57 +18,57 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems {
 
-	public static Item salt;
-	public static Item saltChunk;
-	public static Item saltFlesh;
-	public static Item saltPorkRaw;
-	public static Item saltPorkCooked;
-	public static Item saltSteakRaw;
-	public static Item saltSteakCooked;
-	public static Item saltChickenRaw;
-	public static Item saltChickenCooked;
-	public static Item saltFishRaw;
-	public static Item saltFishCooked;
+    public static Item salt;
+    public static Item saltChunk;
+    public static Item saltFlesh;
+    public static Item saltPorkRaw;
+    public static Item saltPorkCooked;
+    public static Item saltSteakRaw;
+    public static Item saltSteakCooked;
+    public static Item saltChickenRaw;
+    public static Item saltChickenCooked;
+    public static Item saltFishRaw;
+    public static Item saltFishCooked;
 
-	public static Item itemStructure;
+    public static Item itemStructure;
 
-	public static void registerItems() {
-		salt = new ItemSalt(ItemIDs.SALT);
-		LanguageRegistry.addName(salt, "Salt");
-		OreDictionary.registerOre("salt", salt);
+    public static void registerItems() {
+        salt = new ItemSalt(ItemIDs.SALT);
+        LanguageRegistry.addName(salt, "Salt");
+        OreDictionary.registerOre("salt", salt);
 
-		saltChunk = new ItemSaltChunk(ItemIDs.SALT_CHUNK);
-		LanguageRegistry.addName(saltChunk, "Salt Chunk");
+        saltChunk = new ItemSaltChunk(ItemIDs.SALT_CHUNK);
+        LanguageRegistry.addName(saltChunk, "Salt Chunk");
 
-		saltChickenRaw = new ItemSaltChickenRaw(ItemIDs.SALT_CHICKEN_RAW);
-		LanguageRegistry.addName(saltChickenRaw, "Salted Raw Chicken");
+        saltChickenRaw = new ItemSaltChickenRaw(ItemIDs.SALT_CHICKEN_RAW);
+        LanguageRegistry.addName(saltChickenRaw, "Salted Raw Chicken");
 
-		saltChickenCooked = new ItemSaltChickenCooked(ItemIDs.SALT_CHICKEN_COOKED);
-		LanguageRegistry.addName(saltChickenCooked, "Salted Chicken");
+        saltChickenCooked = new ItemSaltChickenCooked(ItemIDs.SALT_CHICKEN_COOKED);
+        LanguageRegistry.addName(saltChickenCooked, "Salted Chicken");
 
-		saltFlesh = new ItemSaltFlesh(ItemIDs.SALT_FLESH);
-		LanguageRegistry.addName(saltFlesh, "Salted Flesh");
+        saltFlesh = new ItemSaltFlesh(ItemIDs.SALT_FLESH);
+        LanguageRegistry.addName(saltFlesh, "Salted Flesh");
 
-		saltPorkRaw = new ItemSaltPorkRaw(ItemIDs.SALT_PORK_RAW);
-		LanguageRegistry.addName(saltPorkRaw, "Salted Raw Pork");
+        saltPorkRaw = new ItemSaltPorkRaw(ItemIDs.SALT_PORK_RAW);
+        LanguageRegistry.addName(saltPorkRaw, "Salted Raw Pork");
 
-		saltPorkCooked = new ItemSaltPorkCooked(ItemIDs.SALT_PORK_COOKED);
-		LanguageRegistry.addName(saltPorkCooked, "Salted Porkchop");
+        saltPorkCooked = new ItemSaltPorkCooked(ItemIDs.SALT_PORK_COOKED);
+        LanguageRegistry.addName(saltPorkCooked, "Salted Porkchop");
 
-		saltSteakRaw = new ItemSaltSteakRaw(ItemIDs.SALT_STEAK_RAW);
-		LanguageRegistry.addName(saltSteakRaw, "Salted Raw Steak");
+        saltSteakRaw = new ItemSaltSteakRaw(ItemIDs.SALT_STEAK_RAW);
+        LanguageRegistry.addName(saltSteakRaw, "Salted Raw Steak");
 
-		saltSteakCooked = new ItemSaltSteakCooked(ItemIDs.SALT_STEAK_COOKED);
-		LanguageRegistry.addName(saltSteakCooked, "Salted Steak");
+        saltSteakCooked = new ItemSaltSteakCooked(ItemIDs.SALT_STEAK_COOKED);
+        LanguageRegistry.addName(saltSteakCooked, "Salted Steak");
 
-		saltFishRaw = new ItemSaltFishRaw(ItemIDs.SALT_FISH_RAW);
-		LanguageRegistry.addName(saltFishRaw, "Salted Raw Fish");
+        saltFishRaw = new ItemSaltFishRaw(ItemIDs.SALT_FISH_RAW);
+        LanguageRegistry.addName(saltFishRaw, "Salted Raw Fish");
 
-		saltFishCooked = new ItemSaltFishCooked(ItemIDs.SALT_FISH_COOKED);
-		LanguageRegistry.addName(saltFishCooked, "Salted Fish");
+        saltFishCooked = new ItemSaltFishCooked(ItemIDs.SALT_FISH_COOKED);
+        LanguageRegistry.addName(saltFishCooked, "Salted Fish");
 
-		itemStructure = new ItemStructure(ItemIDs.ITEM_STRUCTURE);
-		LanguageRegistry.addName(itemStructure, "Structure Block");
-	}
+        itemStructure = new ItemStructure(ItemIDs.ITEM_STRUCTURE);
+        LanguageRegistry.addName(itemStructure, "Structure Block");
+    }
 
 }

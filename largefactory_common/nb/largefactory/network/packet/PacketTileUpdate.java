@@ -11,45 +11,45 @@ import cpw.mods.fml.common.network.Player;
 
 public class PacketTileUpdate extends PacketLargeFactory {
 
-	public int x, y, z;
-	public String customName;
+    public int x, y, z;
+    public String customName;
 
-	public PacketTileUpdate() {
+    public PacketTileUpdate() {
 
-		super(PacketTypeHandler.TILE, true);
-	}
+        super(PacketTypeHandler.TILE, true);
+    }
 
-	public PacketTileUpdate(int x, int y, int z, String customName) {
+    public PacketTileUpdate(int x, int y, int z, String customName) {
 
-		super(PacketTypeHandler.TILE, true);
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.customName = customName;
-	}
+        super(PacketTypeHandler.TILE, true);
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.customName = customName;
+    }
 
-	@Override
-	public void writeData(DataOutputStream data) throws IOException {
+    @Override
+    public void writeData(DataOutputStream data) throws IOException {
 
-		data.writeInt(x);
-		data.writeInt(y);
-		data.writeInt(z);
-		data.writeUTF(customName);
-	}
+        data.writeInt(x);
+        data.writeInt(y);
+        data.writeInt(z);
+        data.writeUTF(customName);
+    }
 
-	@Override
-	public void readData(DataInputStream data) throws IOException {
+    @Override
+    public void readData(DataInputStream data) throws IOException {
 
-		x = data.readInt();
-		y = data.readInt();
-		z = data.readInt();
-		customName = data.readUTF();
-	}
+        x = data.readInt();
+        y = data.readInt();
+        z = data.readInt();
+        customName = data.readUTF();
+    }
 
-	@Override
-	public void execute(INetworkManager manager, Player player) {
+    @Override
+    public void execute(INetworkManager manager, Player player) {
 
-		LargeFactory.proxy.handleTileEntityPacket(x, y, z, customName);
-	}
+        LargeFactory.proxy.handleTileEntityPacket(x, y, z, customName);
+    }
 
 }

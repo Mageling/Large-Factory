@@ -9,19 +9,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BlockLargeFactory extends Block {
 
-	public BlockLargeFactory(int id, Material material) {
-		super(id, material);
-	}
+    public BlockLargeFactory(int id, Material material) {
+        super(id, material);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister) {
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
 
-		blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(getUnlocalizedName())));
-	}
+        blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(getUnlocalizedName())));
+    }
 
-	protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
 
-		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-	}
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
 }

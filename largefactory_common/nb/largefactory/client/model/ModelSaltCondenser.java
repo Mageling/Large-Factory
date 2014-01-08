@@ -6,18 +6,18 @@ import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelSaltCondenser {
 
-	private IModelCustom modelSaltCondenser;
+    private IModelCustom modelSaltCondenser;
 
-	public ModelSaltCondenser() {
-		modelSaltCondenser = AdvancedModelLoader.loadModel(Models.SALT_CONDENSER);
-	}
+    public ModelSaltCondenser() {
+        modelSaltCondenser = AdvancedModelLoader.loadModel(Models.SALT_CONDENSER);
+    }
 
-	public void render() {
-		modelSaltCondenser.renderAll();
-	}
+    public void render() {
+        modelSaltCondenser.renderAll();
+    }
 
-	public void renderPart(String partName) {
-		modelSaltCondenser.renderPart(partName);
-	}
+    public void renderPart(String partName) {
+        modelSaltCondenser.renderPart(partName);
+    }
 
 }

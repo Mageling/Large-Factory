@@ -8,15 +8,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemLargeFactory extends Item {
 
-	public ItemLargeFactory(int id) {
-		super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
-	}
+    public ItemLargeFactory(int id) {
+        super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister) {
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister) {
 
-		itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
-	}
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+    }
 
 }
