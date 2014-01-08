@@ -4,19 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.lib.locations.Textures;
-import nb.largefactory.structure.StructureTypeFactory;
 
 public class ComponentDataClass {
     String name;
     String[] recipe;
-    StructureTypeFactory structureType;
+    String structureType;
     int[] dimensions;
     int maxNumber;
     boolean main;
     boolean controlBlock;
     Map<String, String> information;
 
-    public ComponentDataClass(String compname, StructureTypeFactory structure_type) {
+    public ComponentDataClass(String compname, String structure_type) {
         name = compname;
         structureType = structure_type;
         information = new HashMap<String, String>();
@@ -46,7 +45,7 @@ public class ComponentDataClass {
         }
     }
 
-    public StructureTypeFactory getStructureType() {
+    public String getStructureType() {
         return structureType;
     }
 

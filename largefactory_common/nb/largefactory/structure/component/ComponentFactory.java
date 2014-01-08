@@ -34,8 +34,7 @@ public class ComponentFactory {
     }
 
     public static void createComponent(NodeList component, String structtype_string) {
-        StructureTypeFactory structure_type = nb.largefactory.structure.StructureTypeFactory.stringToStructureType(structtype_string);
-        ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent(), structure_type);
+        ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent(), structtype_string);
         for(int k = 1; k < component.getLength(); k++){
             a.AddtoHash(component.item(k).getNodeName(), component.item(k).getTextContent());
         }

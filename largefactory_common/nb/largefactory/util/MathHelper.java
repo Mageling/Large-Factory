@@ -1,6 +1,5 @@
 package nb.largefactory.util;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MathHelper {

@@ -7,4 +7,5 @@ public class Files {
     // TODO make these files
     public static final String XML_COMPONENT_LOCATION = FILE_LOCATION + "Components.xml";
     public static final String XML_METAL_LOCATION = FILE_LOCATION + "Metals.xml";
+    public static final String XML_STRUCTURE_LOCATION = FILE_LOCATION + "Structure.xml";
 }

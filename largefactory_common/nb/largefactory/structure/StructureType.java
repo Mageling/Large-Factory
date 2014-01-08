@@ -3,6 +3,8 @@ package nb.largefactory.structure;
 import java.util.ArrayList;
 import java.util.List;
 
+import nb.largefactory.structure.component.ComponentFactory;
+
 public class StructureType {
     String name;
     boolean isInput;
@@ -53,4 +55,20 @@ public class StructureType {
     public void setSpecialValidation(){
         specialValidation = true;
     }
+    
+    public boolean validateStructure(String[] components, int x, int y, int z) {
+        if (specialValidation) {
+            if (SpecialValidationHandler.validateStructure(this, components))
+                return true;
+            StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
+            return false;
+        }
+        for (String component : components) {
+            if (ComponentFactory.componentList.get(component).isRequired())
+                return true;
+        }
+        StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
+        return false;
+    }
+
 }

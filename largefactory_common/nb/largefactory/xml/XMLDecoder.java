@@ -60,6 +60,30 @@ public class XMLDecoder {
             }
         } catch (Exception e) {
         }
+        
+        try {
+            File file = new File(Files.XML_STRUCTURE_LOCATION);
+            if (file.exists()) {
+                DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = fact.newDocumentBuilder();
+                Document doc = builder.parse(Files.XML_STRUCTURE_LOCATION);
+                node = doc.getElementsByTagName("*");
+                for (int i = 0; i < node.getLength(); i++) {
+                    NodeList nodeinfo;
+                    if (node.item(i).getParentNode().equals("structure")){
+                        nodeinfo = node.item(i).getChildNodes();
+                        for(int k = 0; k < nodeinfo.getLength(); k++){
+                            if(nodeinfo.item(k).getTextContent().trim().length() == 0){
+                                nodeinfo.item(k).getParentNode().removeChild(nodeinfo.item(k));
+                            }
+                        }
+                        nb.largefactory.structure.StructureTypeFactory.createStructureType(nodeinfo);
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+
 
 
     }
