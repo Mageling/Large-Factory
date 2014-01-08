@@ -3,8 +3,6 @@ package nb.largefactory.structure.component;
 import java.util.HashMap;
 import java.util.Map;
 
-import nb.largefactory.structure.StructureTypeFactory;
-
 import org.w3c.dom.NodeList;
 
 /*  This is a list of every allowed entry in a XMl component
