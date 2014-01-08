@@ -3,7 +3,7 @@ package nb.largefactory.tileentity.structure;
 import java.util.ArrayList;
 
 import nb.largefactory.structure.StructureCreationErrors;
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.component.ComponentFactory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -27,7 +27,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
     public int timeLine = 0;
 
     @Override
-    public boolean validateStructure(StructureType structureType) {
+    public boolean validateStructure(StructureTypeFactory structureType) {
         if (inStructure) {
             StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord, yCoord, zCoord);
             return false;
@@ -175,17 +175,17 @@ public class TileEntityStructureControl extends TileEntityStructure {
     }
 
     @Override
-    public StructureType getStructureType() {
+    public StructureTypeFactory getStructureType() {
         return ComponentFactory.componentList.get(componentName).getStructureType();
     }
 
     @Override
-    public boolean isFace(StructureType structureType) {
+    public boolean isFace(StructureTypeFactory structureType) {
         return getStructureType() == structureType;
     }
 
     public void createStructure() {
-        StructureType structureType = getStructureType();
+        StructureTypeFactory structureType = getStructureType();
         ArrayList<int[]> arrayListInner = new ArrayList<int[]>(12);
         ArrayList<int[]> arrayListCasing = new ArrayList<int[]>(12);
         TileEntity te;

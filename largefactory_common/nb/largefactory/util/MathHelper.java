@@ -1,13 +1,14 @@
 package nb.largefactory.util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MathHelper {
 
-    public static Float calcualteMaximumF(ArrayList <Float> input){
+    public static Float calcualteMaximumF(List<Float> timeRemaining){
         Float max = 0.0f;
-        if(!input.isEmpty()){
-            for(Float mark: input){
+        if(!timeRemaining.isEmpty()){
+            for(Float mark: timeRemaining){
                 if(mark > max){
                     max = mark;
                 }

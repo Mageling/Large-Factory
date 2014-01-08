@@ -2,6 +2,7 @@ package nb.largefactory.structure.calculations;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import nb.largefactory.util.DataMap;
 import nb.largefactory.util.MathHelper;
@@ -16,7 +17,7 @@ public class CycleData {
     public HashMap<String, DataMap<String, Float>> SolidResources;
     public HashMap<String, DataMap<String, Float>> LiquidResources;
     public HashMap<String, DataMap<String, Float>> GasResources;
-    ArrayList<Float> timeRemaining;
+    List<Float> timeRemaining;
     Float powerUse;
 
     public CycleData(HashMap<String, Float> input, HashMap<String, Float> slag, Float time, Float power){

@@ -1,7 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
 import nb.largefactory.structure.StructureCreationErrors;
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.StructureTypeFactory;
 
 public class TileEntityStructureMultiblock extends TileEntityStructureInner {
 
@@ -10,7 +10,7 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
     }
 
     @Override
-    public boolean validateStructure(StructureType structureType) {
+    public boolean validateStructure(StructureTypeFactory structureType) {
         if (!super.validateStructure(structureType))
             return false;
         int multiblockType = 0; // TODO function to get the multiblock size and

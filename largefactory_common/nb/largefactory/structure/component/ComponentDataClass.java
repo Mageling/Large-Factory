@@ -4,22 +4,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.lib.locations.Textures;
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.StructureTypeFactory;
 
 public class ComponentDataClass {
-    String name = null;
-    String[] recipe = null;
-    StructureType structureType = null;
-    int[] dimensions = null;
-    int maxNumber = 1;
-    boolean main = false;
-    boolean controlBlock = false;
-    Map<String, String> information = new HashMap<String, String>();
+    String name;
+    String[] recipe;
+    StructureTypeFactory structureType;
+    int[] dimensions;
+    int maxNumber;
+    boolean main;
+    boolean controlBlock;
+    Map<String, String> information;
 
-    public ComponentDataClass(String compname, StructureType structure_type) {
+    public ComponentDataClass(String compname, StructureTypeFactory structure_type) {
         name = compname;
         structureType = structure_type;
+        information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
+        
     }
     // TODO recipes and controlBlock
     public void AddtoHash(String name, String data){
@@ -34,17 +36,17 @@ public class ComponentDataClass {
             dimensions[2] = Integer.parseInt(temp[2]);
             break;
         case "maxNumber": maxNumber = Integer.parseInt(data);
-        break;
+            break;
         case "required": main = true;
-        break;
+            break;
         case "texturefile": information.put("texturefilelocation", data);
-        break;
+            break;
         default: information.put(name, data);
-        break;
+            break;
         }
     }
 
-    public StructureType getStructureType() {
+    public StructureTypeFactory getStructureType() {
         return structureType;
     }
 

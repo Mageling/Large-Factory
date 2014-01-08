@@ -1,7 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
 import nb.largefactory.structure.StructureCreationErrors;
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.StructureTypeFactory;
 
 public class TileEntityStructureCasing extends TileEntityStructure {
 
@@ -11,7 +11,7 @@ public class TileEntityStructureCasing extends TileEntityStructure {
     }
 
     @Override
-    public boolean validateStructure(StructureType structureType) {
+    public boolean validateStructure(StructureTypeFactory structureType) {
         if (numAdjacentInner(structureType) >= 2)
             return numAdjacent(structureType) == 6;
         if (numAdjacentInner(structureType) == 1) {
@@ -224,7 +224,7 @@ public class TileEntityStructureCasing extends TileEntityStructure {
     }
 
     @Override
-    public boolean isFace(StructureType structureType) {
+    public boolean isFace(StructureTypeFactory structureType) {
         return numAdjacentInner(structureType) == 1;
     }
 
@@ -234,8 +234,8 @@ public class TileEntityStructureCasing extends TileEntityStructure {
     }
 
     @Override
-    public StructureType getStructureType() {
-        return StructureType.CASING;
+    public StructureTypeFactory getStructureType() {
+        return StructureTypeFactory.CASING;
     }
 
     @Override

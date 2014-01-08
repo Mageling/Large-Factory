@@ -3,7 +3,7 @@ package nb.largefactory.structure.component;
 import java.util.HashMap;
 import java.util.Map;
 
-import nb.largefactory.structure.StructureType;
+import nb.largefactory.structure.StructureTypeFactory;
 
 import org.w3c.dom.NodeList;
 
@@ -28,13 +28,13 @@ import org.w3c.dom.NodeList;
 public class ComponentFactory {
     public static Map<String, ComponentDataClass> componentList;
 
-    public static void instantiate() {
+    public void instantiate() {
         componentList = new HashMap<String, ComponentDataClass>();
 
     }
 
     public static void createComponent(NodeList component, String structtype_string) {
-        StructureType structure_type = nb.largefactory.structure.StructureType.stringToStructureType(structtype_string);
+        StructureTypeFactory structure_type = nb.largefactory.structure.StructureTypeFactory.stringToStructureType(structtype_string);
         ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent(), structure_type);
         for(int k = 1; k < component.getLength(); k++){
             a.AddtoHash(component.item(k).getNodeName(), component.item(k).getTextContent());
