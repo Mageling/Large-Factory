@@ -1,6 +1,6 @@
 package nb.largefactory.client.model;
 
-import nb.largefactory.lib.Models;
+import nb.largefactory.lib.locations.Models;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 

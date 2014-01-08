@@ -1,4 +1,4 @@
-package nb.largefactory.lib;
+package nb.largefactory.lib.locations;
 
 import nb.largefactory.util.ResourceLocationHelper;
 import net.minecraft.client.renderer.texture.TextureMap;

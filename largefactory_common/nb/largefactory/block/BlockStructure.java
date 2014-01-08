@@ -1,7 +1,7 @@
 package nb.largefactory.block;
 
 import nb.largefactory.lib.Strings;
-import nb.largefactory.tileentity.TileEntityStructureCasing;
+import nb.largefactory.tileentity.structure.TileEntityStructureCasing;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;

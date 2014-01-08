@@ -1,4 +1,4 @@
-package nb.largefactory.tileentity;
+package nb.largefactory.tileentity.structure;
 
 import java.util.ArrayList;
 

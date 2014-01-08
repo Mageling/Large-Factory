@@ -1,7 +1,7 @@
 package nb.largefactory.client.renderer.tileentity;
 
 import nb.largefactory.client.model.ModelSaltCondenser;
-import nb.largefactory.lib.Textures;
+import nb.largefactory.lib.locations.Textures;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

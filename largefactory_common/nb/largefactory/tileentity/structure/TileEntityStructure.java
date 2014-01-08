@@ -1,6 +1,7 @@
-package nb.largefactory.tileentity;
+package nb.largefactory.tileentity.structure;
 
 import nb.largefactory.structure.StructureType;
+import nb.largefactory.tileentity.TileEntityLargeFactory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 

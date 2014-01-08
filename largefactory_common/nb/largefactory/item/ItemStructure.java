@@ -2,11 +2,11 @@ package nb.largefactory.item;
 
 import nb.largefactory.block.ModBlocks;
 import nb.largefactory.structure.component.ComponentFactory;
-import nb.largefactory.tileentity.TileEntityStructure;
-import nb.largefactory.tileentity.TileEntityStructureCasing;
-import nb.largefactory.tileentity.TileEntityStructureControl;
-import nb.largefactory.tileentity.TileEntityStructureInner;
-import nb.largefactory.tileentity.TileEntityStructureMultiblock;
+import nb.largefactory.tileentity.structure.TileEntityStructure;
+import nb.largefactory.tileentity.structure.TileEntityStructureCasing;
+import nb.largefactory.tileentity.structure.TileEntityStructureControl;
+import nb.largefactory.tileentity.structure.TileEntityStructureInner;
+import nb.largefactory.tileentity.structure.TileEntityStructureMultiblock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

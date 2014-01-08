@@ -2,7 +2,7 @@ package nb.largefactory.client.gui.inventory;
 
 import nb.largefactory.inventory.ContainerSaltCondenser;
 import nb.largefactory.lib.Strings;
-import nb.largefactory.lib.Textures;
+import nb.largefactory.lib.locations.Textures;
 import nb.largefactory.tileentity.TileEntitySaltCondenser;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

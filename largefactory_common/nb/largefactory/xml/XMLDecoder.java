@@ -5,7 +5,7 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import nb.largefactory.lib.Files;
+import nb.largefactory.lib.locations.Files;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;

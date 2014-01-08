@@ -1,4 +1,4 @@
-package nb.largefactory.lib;
+package nb.largefactory.lib.locations;
 
 public class Files {
 

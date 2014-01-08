@@ -1,7 +1,7 @@
 package nb.largefactory.client.renderer.item;
 
 import nb.largefactory.client.model.ModelSaltCondenser;
-import nb.largefactory.lib.Textures;
+import nb.largefactory.lib.locations.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 

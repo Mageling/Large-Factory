@@ -3,7 +3,7 @@ package nb.largefactory.structure.component;
 import java.util.HashMap;
 import java.util.Map;
 
-import nb.largefactory.lib.Textures;
+import nb.largefactory.lib.locations.Textures;
 import nb.largefactory.structure.StructureType;
 
 public class ComponentDataClass {
