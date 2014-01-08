@@ -45,6 +45,8 @@ public class CycleData {
             case LIQUID: LiquidResources.put(pathName, input.combine(SolidResources.get(pathName)));
             LiquidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
                 break;
+            default: //nothing
+                break;
         }
 
     }
