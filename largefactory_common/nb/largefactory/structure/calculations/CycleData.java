@@ -3,6 +3,7 @@ package nb.largefactory.structure.calculations;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import nb.largefactory.util.DataMap;
 import nb.largefactory.util.MathHelper;
 
 /*
@@ -12,38 +13,46 @@ import nb.largefactory.util.MathHelper;
  * 
  */
 public class CycleData {
-    public HashMap<String, HashMap<String, Float>> Resources;
-    ArrayList<Float> timeremaining;
+    public HashMap<String, DataMap<String, Float>> SolidResources;
+    public HashMap<String, DataMap<String, Float>> LiquidResources;
+    public HashMap<String, DataMap<String, Float>> GasResources;
+    ArrayList<Float> timeRemaining;
     Float powerUse;
 
-    public CycleData(StateEnum state, HashMap<String, Float> input, HashMap<String, Float> slag, Float time, Float power){
-        Resources = new HashMap<String, HashMap<String, Float>>();
-        timeremaining = new ArrayList<Float>();
-        timeremaining.set(0, time);
+    public CycleData(HashMap<String, Float> input, HashMap<String, Float> slag, Float time, Float power){
+        SolidResources = new HashMap<String, DataMap<String, Float>>();
+        LiquidResources = new HashMap<String, DataMap<String, Float>>();
+        GasResources = new HashMap<String, DataMap<String, Float>>();
+        timeRemaining = new ArrayList<Float>();
+        timeRemaining.set(0, time);
         powerUse = power;
-        switch(state){
-        case Gas: Resources.put("MainGas",input);
-        Resources.put("MainGasSlag",slag);
-        break;
-        case Liquid: Resources.put("MainLiquid",input);
-        Resources.put("MainLiquidSlag",slag);
-        break;
-        case Solid: Resources.put("MainSolid",input);
-        Resources.put("MainSolidSlag",slag);
-        break;
-        default:    Resources.put("UNKNOWNSTATE", input);
-        Resources.put("UNKNOWNSTATESlag", input);
-        break;
+    }
+    
+    public void addImput(StateEnum state, DataMap<String, Float> input, DataMap<String, Float> slag, String pathName, String slagPathName, Float time, int timeSpace, Float power){
+        while(timeRemaining.size() < timeSpace){
+            timeRemaining.add(0.0f);
         }
-    }
+        timeRemaining.set(timeSpace, time);
+        powerUse += power;
+        
+        switch(state){
+            case SOLID: SolidResources.put(pathName, input.combine(SolidResources.get(pathName)));
+            SolidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+                break;
+            case GAS: GasResources.put(pathName, input.combine(SolidResources.get(pathName)));
+            GasResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+                break;
+            case LIQUID: LiquidResources.put(pathName, input.combine(SolidResources.get(pathName)));
+            LiquidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+                break;
+        }
 
+    }
+    
     public Float GetTimeRequired(){
-        return MathHelper.calcualteMaximumF(timeremaining);
+        return MathHelper.calcualteMaximumF(timeRemaining);
     }
 
-    public void AddTimeRequired(Float time, int number){
-        timeremaining.set(number, time);
-    }
 }
 
 

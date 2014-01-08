@@ -1,5 +1,6 @@
 package nb.largefactory.structure.calculations;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import nb.largefactory.util.DataMap;
@@ -38,13 +39,13 @@ public class Crusher {
         //modify them
     }
 
-    public CycleData RunCrusher(Imput start){
+    public CycleData RunCrusher(ArrayList<Imput> start){
         solid = new DataMap<String, Float>();
         waste = new DataMap<String, Float>();
-        for(int i = 0; i < 5; i++/*some stuff */){
-            int numberOfBlocks = start.numberOfItems;
+        for(Imput I : start){
+            int numberOfBlocks = I.numberOfItems;
             Float oreSlag = 0f;
-            MetalClass currentMetal = MetalFactory.metalList.get(start.getNameOfMaterial());
+            MetalClass currentMetal = MetalFactory.metalList.get(I.getNameOfMaterial());
 
             if(attuneMetal == currentMetal.getName()){
                 solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue) * numberOfBlocks);
@@ -61,7 +62,7 @@ public class Crusher {
                 }
             }
         }
-        out = new CycleData(StateEnum.Solid, solid, waste, timeCost * timePercent, ergCost * ergPercent);
+        out = new CycleData(solid, waste, timeCost * timePercent, ergCost * ergPercent);
         return out;
 
     }

@@ -11,6 +11,12 @@ public class MetalFactory {
     public static void instantiate(){
         metalList = new HashMap<String, MetalClass>();
     }
+    /*
+     * possible tags
+     * required states
+     * forge ore dictionary
+     * melting point
+     */
 
     public static void learnMetal(NodeList metal){
         MetalClass a = new MetalClass(metal.item(0).getTextContent());
