@@ -7,9 +7,8 @@ import nb.largefactory.util.DataMap;
 public class Crusher {
 
 	Float mainOreBonus;
-	Float slag;
 	Float slagPercentBonus;
-	Float slagOre;
+	Float slagBonus;
 	Float ergCost;
 	Float timeCost;
 	Float timePercent;
@@ -26,7 +25,7 @@ public class Crusher {
 	Crusher(){
 		mainOreBonus = 0f;
 		slagPercentBonus = 0f;
-		slagOre = 120f;
+		slagBonus = 0f;
 		ergCost = 1000f;
 		timeCost = 2000f;
 		timePercent = 1f;
@@ -57,6 +56,8 @@ public class Crusher {
 		            Float tmp = (currentMetal.getYieldValue(entry.getKey()) + secondaryBonus) * secondaryPercentBonus * numberOfBlocks;
 		            waste.add(currentMetal.getName(), tmp);
 		            oreSlag += tmp;
+		        }else{
+		            waste.add("slag", ((currentMetal.getYieldValue(entry.getKey()) + slagBonus) * slagPercentBonus * numberOfBlocks));
 		        }
 		    }
 	    }
