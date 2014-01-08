@@ -27,7 +27,7 @@ public class Strings {
     public static final String SALT_FISH_RAW_NAME = "saltFishRaw";
     public static final String SALT_FISH_COOKED_NAME = "saltFishCooked";
     public static final String ITEM_STRUCTURE_NAME = "itemStructure";
-    
+
     /* TileEntity name constants */
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";
 

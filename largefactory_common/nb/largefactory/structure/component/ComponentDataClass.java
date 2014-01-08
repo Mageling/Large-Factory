@@ -27,7 +27,7 @@ public class ComponentDataClass {
         case "dimensions":
             String[] temp = data.split(",");
             if(temp.length != 3) {
-                //ERROR not sure how to do this                
+                //ERROR not sure how to do this
             }
             dimensions[0] = Integer.parseInt(temp[0]);
             dimensions[1] = Integer.parseInt(temp[1]);

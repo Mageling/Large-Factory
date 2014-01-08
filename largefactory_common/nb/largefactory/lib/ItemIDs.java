@@ -14,7 +14,7 @@ public class ItemIDs {
     public static int SALT_PORK_RAW_DEFAULT = 7772;
     public static int SALT_STEAK_COOKED_DEFAULT = 7775;
     public static int SALT_STEAK_RAW_DEFAULT = 7774;
-    
+
     public static int ITEM_STRUCTURE;
     public static int SALT;
     public static int SALT_CHICKEN_COOKED;
