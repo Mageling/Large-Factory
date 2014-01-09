@@ -28,30 +28,30 @@ public class CycleData {
         timeRemaining.set(0, time);
         powerUse = power;
     }
-    
+
     public void addImput(StateEnum state, DataMap<String, Float> input, DataMap<String, Float> slag, String pathName, String slagPathName, Float time, int timeSpace, Float power){
         while(timeRemaining.size() < timeSpace){
             timeRemaining.add(0.0f);
         }
         timeRemaining.set(timeSpace, time);
         powerUse += power;
-        
+
         switch(state){
-            case SOLID: SolidResources.put(pathName, input.combine(SolidResources.get(pathName)));
-            SolidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
-                break;
-            case GAS: GasResources.put(pathName, input.combine(SolidResources.get(pathName)));
-            GasResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
-                break;
-            case LIQUID: LiquidResources.put(pathName, input.combine(SolidResources.get(pathName)));
-            LiquidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
-                break;
-            default: //nothing
-                break;
+        case SOLID: SolidResources.put(pathName, input.combine(SolidResources.get(pathName)));
+        SolidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+        break;
+        case GAS: GasResources.put(pathName, input.combine(SolidResources.get(pathName)));
+        GasResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+        break;
+        case LIQUID: LiquidResources.put(pathName, input.combine(SolidResources.get(pathName)));
+        LiquidResources.put(slagPathName, slag.combine(SolidResources.get(slagPathName)));
+        break;
+        default: //nothing
+        break;
         }
 
     }
-    
+
     public Float GetTimeRequired(){
         return MathHelper.calcualteMaximumF(timeRemaining);
     }

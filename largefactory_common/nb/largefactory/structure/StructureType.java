@@ -11,7 +11,7 @@ public class StructureType {
     boolean isOutput;
     boolean specialValidation;
     List<String> requiredComponents;
-    
+
     public StructureType(String n) {
         name = n;
         isInput = false;
@@ -23,11 +23,11 @@ public class StructureType {
     public List<String> getRequiredComponents(){
         return requiredComponents;
     }
-    
+
     public void addRequiredComponent(String comp){
         requiredComponents.add(comp);
     }
-    
+
     public String getName() {
         return name;
     }
@@ -43,19 +43,19 @@ public class StructureType {
     public boolean isSpecialValidation() {
         return specialValidation;
     }
-    
+
     public void setIsInput(){
         isInput = true;
     }
-    
+
     public void setIsOutput(){
         isOutput = true;
     }
-    
+
     public void setSpecialValidation(){
         specialValidation = true;
     }
-    
+
     public boolean validateStructure(String[] components, int x, int y, int z) {
         if (specialValidation) {
             if (SpecialValidationHandler.validateStructure(this, components))

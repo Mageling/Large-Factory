@@ -19,7 +19,7 @@ public class Smelter {
     float attuneValue;
     float attuneDisvalue;
     ArrayList<Imput> output;
-    
+
     Smelter(){
         orePerIngot = 120;
         ergPerSlag = 2;
@@ -33,14 +33,14 @@ public class Smelter {
         attuneDisvalue = 0;
         //modify
     }
-    
+
     //nothing about time right now
     public ArrayList<Imput> RunSmelter(DataMap<String, Float> data, DataMap<String, Float> slag){
         for(Map.Entry<String, Float> entry : slag.entrySet()){
-            ergCost += (entry.getValue() * ergPerSlag);
+            ergCost += entry.getValue() * ergPerSlag;
         }
         if(ergCost == 0.0){
-           oreIsPure = true; 
+            oreIsPure = true;
         }
         for(Map.Entry<String, Float> entry : data.entrySet()){
             if(attuneMetal == entry.getKey() || attuneMetal == null){
@@ -48,7 +48,7 @@ public class Smelter {
                 Imput a = new Imput(entry.getKey(), tmp );
                 output.add(a);
                 if(oreIsPure){
-                    ergCost += (tmp * ergPerIngot) / 2;
+                    ergCost += tmp * ergPerIngot / 2;
                 }else{
                     ergCost += tmp * ergPerIngot;
                 }
@@ -57,7 +57,7 @@ public class Smelter {
                 Imput a = new Imput(entry.getKey(), tmp );
                 output.add(a);
                 if(oreIsPure){
-                    ergCost += (tmp * ergPerIngot) / 2;
+                    ergCost += tmp * ergPerIngot / 2;
                 }else{
                     ergCost += tmp * ergPerIngot;
                 }
@@ -65,5 +65,5 @@ public class Smelter {
         }
         return output;
     }
-    
+
 }

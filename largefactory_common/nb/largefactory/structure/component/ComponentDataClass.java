@@ -20,7 +20,7 @@ public class ComponentDataClass {
         structureType = structure_type;
         information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
-        
+
     }
     // TODO recipes and controlBlock
     public void AddtoHash(String name, String data){
@@ -35,13 +35,13 @@ public class ComponentDataClass {
             dimensions[2] = Integer.parseInt(temp[2]);
             break;
         case "maxNumber": maxNumber = Integer.parseInt(data);
-            break;
+        break;
         case "required": main = true;
-            break;
+        break;
         case "texturefile": information.put("texturefilelocation", data);
-            break;
+        break;
         default: information.put(name, data);
-            break;
+        break;
         }
     }
 

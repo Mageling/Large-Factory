@@ -60,7 +60,7 @@ public class XMLDecoder {
             }
         } catch (Exception e) {
         }
-        
+
         try {
             File file = new File(Files.XML_STRUCTURE_LOCATION);
             if (file.exists()) {
