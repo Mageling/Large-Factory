@@ -26,7 +26,7 @@ import org.w3c.dom.NodeList;
 public class ComponentFactory {
     public static Map<String, ComponentDataClass> componentList;
 
-    public void instantiate() {
+    public static void instantiate() {
         componentList = new HashMap<String, ComponentDataClass>();
 
     }

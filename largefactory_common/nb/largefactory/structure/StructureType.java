@@ -58,7 +58,7 @@ public class StructureType {
 
     public boolean validateStructure(String[] components, int x, int y, int z) {
         if (specialValidation) {
-            if (SpecialValidationHandler.validateStructure(this, components))
+            if (SpecialValidationHandler.validateStructure(name, components))
                 return true;
             StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
             return false;
