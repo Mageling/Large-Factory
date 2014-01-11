@@ -1,14 +1,12 @@
 package nb.largefactory.config;
 
 import java.io.File;
-import java.util.logging.Level;
 
 import nb.largefactory.lib.BlockIDs;
 import nb.largefactory.lib.ItemIDs;
-import nb.largefactory.lib.Reference;
 import nb.largefactory.lib.Strings;
+import nb.largefactory.util.errors.ConfigurationErrors;
 import net.minecraftforge.common.Configuration;
-import cpw.mods.fml.common.FMLLog;
 
 public class IDConfiguration {
 
@@ -52,7 +50,7 @@ public class IDConfiguration {
 
         } catch (Exception e) {
 
-            FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + "has had a problem loading its IDs configuration");
+            ConfigurationErrors.ID_FAIL.printError(e);
 
         } finally {
 

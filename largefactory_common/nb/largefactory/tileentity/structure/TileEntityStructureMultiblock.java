@@ -1,5 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
+import java.util.logging.Level;
+
 import nb.largefactory.util.errors.StructureCreationErrors;
 
 public class TileEntityStructureMultiblock extends TileEntityStructureInner {
@@ -22,7 +24,7 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
         case 2:
             return validate2x1x1Multiblock();
         default:
-            StructureCreationErrors.OTHER.printError(xCoord, yCoord, zCoord);
+            StructureCreationErrors.OTHER.printError(Level.SEVERE, xCoord, yCoord, zCoord);
             return false;
         }
     }
@@ -274,7 +276,7 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
                 return true;
             }
         }
-        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord);
+        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord, componentName);
         return false;
     }
 
@@ -651,7 +653,7 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
                 }
             }
         }
-        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord);
+        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord, componentName);
         return false;
     }
 
@@ -833,7 +835,7 @@ public class TileEntityStructureMultiblock extends TileEntityStructureInner {
             }
         }
 
-        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord);
+        StructureCreationErrors.INCORRECT_MULTIBLOCK.printError(xCoord, yCoord, zCoord, componentName);
         return false;
     }
 

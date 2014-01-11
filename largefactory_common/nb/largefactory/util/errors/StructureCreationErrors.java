@@ -2,6 +2,7 @@ package nb.largefactory.util.errors;
 
 import java.util.logging.Level;
 
+import nb.largefactory.lib.DefaultErrorLevels;
 import cpw.mods.fml.common.FMLLog;
 
 public enum StructureCreationErrors {
@@ -15,7 +16,8 @@ public enum StructureCreationErrors {
     ALREADY_IN_STRUCTURE("This block is already in a structure", ""),
     TYPE_ALREADY_EXISTS("There is already a ", " in the structure"),
     INCORRECT_MULTIBLOCK("The multiblock ", " was formed incorrectly"),
-    NO_TYPE("There is not component of ","  type"),
+    NO_TYPE("There is not a component of ", "  type"),
+    ADJACENT_MULTIBLOCK("Two of the same multiblock may not touch", ""),
 
     OTHER("Unknown Error", "");
 
@@ -32,8 +34,16 @@ public enum StructureCreationErrors {
     }
 
     public void printError(int x, int y, int z, String s) {
+        printError(DefaultErrorLevels.STRUCTURE, x, y, z, s);
+    }
+
+    public void printError(Level level, int x, int y, int z) {
+        printError(level, x, y, z, "");
+    }
+
+    public void printError(Level level, int x, int y, int z, String s) {
         String error = "An error occured at" + x + ", " + y + ", " + z + ": " + part1 + s + part2;
-        FMLLog.log(Level.WARNING, error);
+        FMLLog.log(level, error);
     }
 
 }

@@ -3,6 +3,7 @@ package nb.largefactory.structure;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.util.errors.StructureCreationErrors;
@@ -51,15 +52,16 @@ public class StructureTypeFactory {
         // components are of correct structure
         for (String c : tempComponentList) {
             if (ComponentFactory.componentList.get(c).getStructureType() != structureType) {
-                StructureCreationErrors.MISSING_BLOCK.printError(xCoord, yCoord, zCoord);
+                StructureCreationErrors.OTHER.printError(Level.SEVERE, xCoord, yCoord, zCoord);
                 return false;
             }
         }
         // has required components
         for (String s : q.getRequiredComponents()) {
-            if (!Arrays.asList(tempComponentList).contains(s))
+            if (!Arrays.asList(tempComponentList).contains(s)) {
                 StructureCreationErrors.MISSING_BLOCK.printError(xCoord, yCoord, zCoord, s);
-                return false;
+            }
+            return false;
         }
         // has a component of correct type and only 1
         if (structureList.get(structureType).getRequiredType() != null) {
@@ -75,7 +77,7 @@ public class StructureTypeFactory {
                     }
                 }
             }
-            if (!found){
+            if (!found) {
                 StructureCreationErrors.NO_TYPE.printError(xCoord, yCoord, zCoord, q.getRequiredType());
                 return false;
             }

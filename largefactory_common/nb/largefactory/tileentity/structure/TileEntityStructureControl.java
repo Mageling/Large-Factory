@@ -1,6 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.component.ComponentFactory;
@@ -138,7 +139,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
                 }
             }
         }
-        StructureCreationErrors.OTHER.printError(xCoord, yCoord, zCoord);
+        StructureCreationErrors.OTHER.printError(Level.SEVERE, xCoord, yCoord, zCoord);
         return false;
     }
 

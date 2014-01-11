@@ -1,5 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
+import java.util.logging.Level;
+
 import nb.largefactory.util.errors.StructureCreationErrors;
 
 public class TileEntityStructureCasing extends TileEntityStructure {
@@ -206,7 +208,7 @@ public class TileEntityStructureCasing extends TileEntityStructure {
             }
             return true;
         }
-        StructureCreationErrors.OTHER.printError(xCoord, yCoord, zCoord);
+        StructureCreationErrors.OTHER.printError(Level.SEVERE, xCoord, yCoord, zCoord);
         return false;
     }
 
