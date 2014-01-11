@@ -3,14 +3,13 @@ package nb.largefactory.structure;
 import java.util.ArrayList;
 import java.util.List;
 
-import nb.largefactory.structure.component.ComponentFactory;
-
 public class StructureType {
     String name;
     boolean isInput;
     boolean isOutput;
     boolean specialValidation;
     List<String> requiredComponents;
+   String requiredType;
 
     public StructureType(String n) {
         name = n;
@@ -18,6 +17,7 @@ public class StructureType {
         isOutput = false;
         specialValidation = false;
         requiredComponents = new ArrayList<String>();
+        requiredType = null;
     }
 
     public List<String> getRequiredComponents(){
@@ -26,6 +26,14 @@ public class StructureType {
 
     public void addRequiredComponent(String comp){
         requiredComponents.add(comp);
+    }
+    
+    public String getRequiredType(){
+        return requiredType;
+    }
+    
+    public void addRequiredType(String type){
+        requiredType = type;
     }
 
     public String getName() {
@@ -54,21 +62,6 @@ public class StructureType {
 
     public void setSpecialValidation(){
         specialValidation = true;
-    }
-
-    public boolean validateStructure(String[] components, int x, int y, int z) {
-        if (specialValidation) {
-            if (SpecialValidationHandler.validateStructure(name, components))
-                return true;
-            StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
-            return false;
-        }
-        for (String component : components) {
-            if (ComponentFactory.componentList.get(component).isRequired())
-                return true;
-        }
-        StructureCreationErrors.MISSING_BLOCK.printError(x, y, z);
-        return false;
     }
 
 }

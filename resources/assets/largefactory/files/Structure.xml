@@ -1,8 +1,10 @@
-<Structure>
+<structure>
 	<crusher>
 		<location>input</location>
+		<component>crusher</component>
 	</crusher>
 	<smelter>
 		<location>output</location>
+		<component>smelter</component>
 	</smelter>
-</Structure>
+</structure>

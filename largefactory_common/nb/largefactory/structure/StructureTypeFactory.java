@@ -1,7 +1,10 @@
 package nb.largefactory.structure;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import nb.largefactory.structure.component.ComponentFactory;
 
 import org.w3c.dom.NodeList;
 
@@ -25,6 +28,8 @@ public class StructureTypeFactory {
             break;
             case "special": a.setSpecialValidation();
             break;
+            case "type": a.addRequiredType(type);
+            break;
             default: a.addRequiredComponent(type);
             break;
             }
@@ -34,8 +39,23 @@ public class StructureTypeFactory {
 
     public static boolean validateStructure(String structureType,
             String[] tempComponentList, int xCoord, int yCoord, int zCoord) {
-        // TODO Auto-generated method stub
-        return false;
+        for (String s : structureList.get(structureType).getRequiredComponents()){
+            if(!Arrays.asList(tempComponentList).contains(s)){
+                return false;
+            }
+        }
+        if(structureList.get(structureType).getRequiredType() != null){
+            boolean found = false;
+            for(String t : tempComponentList){
+                if(ComponentFactory.componentList.get(t).provideInformation("type") == structureList.get(structureType).getRequiredType()){
+                   found = true;
+                }
+            }
+            if(!found){
+                return false;
+            }
+        }
+        return true;
     }
 
 }

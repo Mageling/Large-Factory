@@ -11,7 +11,6 @@ public class ComponentDataClass {
     String structureType;
     int[] dimensions;
     int maxNumber;
-    boolean main;
     boolean controlBlock;
     Map<String, String> information;
 
@@ -36,8 +35,6 @@ public class ComponentDataClass {
             break;
         case "max": maxNumber = Integer.parseInt(data);
         break;
-        case "required": main = true;
-        break;
         case "texturefile": information.put("texturefilelocation", data);
         break;
         default: information.put(name, data);
@@ -49,9 +46,6 @@ public class ComponentDataClass {
         return structureType;
     }
 
-    public boolean isRequired() {
-        return main;
-    }
     /**
      * This returns anything that is a string
      * @return

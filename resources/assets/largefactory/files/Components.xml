@@ -2,8 +2,7 @@
 
 	<crusher_components>
 		<component>
-			<name>crusher</name>
-			<required>true</required>			
+			<name>crusher</name>		
 		</component>
 		<component>
 			<name>power core</name>
@@ -44,7 +43,6 @@
 	<smelter_components>
 		<component>
 			<name>smelter</name>
-			<required>true</required>
 		</component>
 		<component>
 			<name>incinerator</name>
@@ -58,7 +56,7 @@
 			<ergcost>15</ergcost>
 		</component>
 		<component>
-			<name>internal_recycling</name>
+			<name>internal recycling</name>
 			<max>10</max>
 			<oreperingot>-2</oreperingot>
 			<ergperingot>2</ergperingot>
