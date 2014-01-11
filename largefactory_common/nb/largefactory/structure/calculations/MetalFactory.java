@@ -3,6 +3,8 @@ package nb.largefactory.structure.calculations;
 import java.util.HashMap;
 import java.util.Map;
 
+import nb.largefactory.util.errors.XMLErrors;
+
 import org.w3c.dom.NodeList;
 
 public class MetalFactory {
@@ -29,7 +31,7 @@ public class MetalFactory {
                         Float.parseFloat(metal.item(k).getTextContent()));
                 // error catch
             } else {
-                System.out.println("The material " + metal.item(0).getTextContent() + " has an improper yield");
+                XMLErrors.METAL_INVALID.printError(a.getName());
             }
         }
         metalList.put(metal.item(0).getTextContent(), a);

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.lib.locations.Textures;
+import nb.largefactory.util.errors.XMLErrors;
 
 public class ComponentDataClass {
     String              name;
@@ -28,7 +29,7 @@ public class ComponentDataClass {
         case "dimensions":
             String[] temp = data.split(",");
             if (temp.length != 3) {
-                // ERROR not sure how to do this
+                XMLErrors.INVALID_DIMENSIONS.printError(name);
             }
             dimensions[0] = Integer.parseInt(temp[0]);
             dimensions[1] = Integer.parseInt(temp[1]);
