@@ -1,9 +1,11 @@
 <structure>
 	<crusher>
+		<name>crusher</name>
 		<location>input</location>
 		<component>crusher</component>
 	</crusher>
-	<smelter
+	<smelter>
+		<name>smelter</name>
 		<location>output</location>
 		<component>smelter</component>
 	</smelter>
