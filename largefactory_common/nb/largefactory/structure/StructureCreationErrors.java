@@ -8,9 +8,10 @@ public enum StructureCreationErrors {
     EDGE_CASING_BLOCK("Corners expected",""),
     TWO_CONTROL_BLOCK("Multiple control blocks of the same type found",""),
     MISSING_BLOCK("This structure requires a component that was not found",""),
-    ALREADY_IN_STRUCTURE("There is already a "," type component in this structure"),
+    ALREADY_IN_STRUCTURE("This block is already in a structure",""),
+    TYPE_ALREADY_EXISTS("There is already a ", " in the structure"),
     ADJACENT_MULTIBLOCK("Multiblock components of the same type cannot be adjascent",""),
-    INCORRECT_MULTIBLOCK("This multiblock ", " was formed incorrectly"),
+    INCORRECT_MULTIBLOCK("The multiblock ", " was formed incorrectly"),
 
     OTHER("Unknown Error","");
 

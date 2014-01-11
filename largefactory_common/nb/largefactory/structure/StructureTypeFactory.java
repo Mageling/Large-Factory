@@ -65,7 +65,7 @@ public class StructureTypeFactory {
             for (String t : tempComponentList) {
                 if (ComponentFactory.componentList.get(t).provideInformation("type") == q.getRequiredType()) {
                     if (found){
-                        StructureCreationErrors.ALREADY_IN_STRUCTURE.printErrorExtraInformation(xCoord, yCoord, zCoord, t);
+                        StructureCreationErrors.TYPE_ALREADY_EXISTS.printErrorExtraInformation(xCoord, yCoord, zCoord, t);
                         return false;
                     }else {
                         found = true;
