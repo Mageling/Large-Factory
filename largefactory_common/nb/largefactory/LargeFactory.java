@@ -21,17 +21,15 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME,
-version = Reference.VERSION)
-@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true,
-serverSideRequired = false, packetHandler = PacketHandler.class)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false,
+        packetHandler = PacketHandler.class)
 public class LargeFactory {
 
     @Instance(Reference.MOD_ID)
     public static LargeFactory instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS,
-            serverSide = Reference.SERVER_PROXY_CLASS)
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy  proxy;
 
     @EventHandler

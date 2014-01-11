@@ -17,8 +17,7 @@ public abstract class BlockLargeFactory extends Block {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
 
-        blockIcon = iconRegister.registerIcon(String.format("%s:%s",
-                Reference.MOD_ID.toLowerCase(),
+        blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
                 getUnwrappedUnlocalizedName(getUnlocalizedName())));
     }
 

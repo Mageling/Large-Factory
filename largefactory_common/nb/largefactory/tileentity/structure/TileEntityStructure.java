@@ -33,38 +33,32 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
     public int numAdjacentInner(String structureType) {
         int i = 0;
         if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                    xCoord + 1, yCoord, zCoord)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == structureType) {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(
-                    xCoord - 1, yCoord, zCoord)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).getStructureType() == structureType) {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord,
-                    yCoord + 1, zCoord)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).getStructureType() == structureType) {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord,
-                    yCoord - 1, zCoord)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).getStructureType() == structureType) {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord,
-                    yCoord, zCoord + 1)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).getStructureType() == structureType) {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructureInner) {
-            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord,
-                    yCoord, zCoord - 1)).getStructureType() == structureType) {
+            if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).getStructureType() == structureType) {
                 i++;
             }
         }
@@ -74,50 +68,44 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
     public int numAdjacent(String structureType) {
         int i = 0;
         if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1,
-                    yCoord, zCoord)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord + 1, yCoord, zCoord)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord - 1,
-                    yCoord, zCoord)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord - 1, yCoord, zCoord)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
-                    yCoord + 1, zCoord)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord, yCoord + 1, zCoord)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
-                    yCoord - 1, zCoord)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord, yCoord - 1, zCoord)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
-                    yCoord, zCoord + 1)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord, yCoord, zCoord + 1)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure) {
-            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord,
-                    yCoord, zCoord - 1)).getStructureType() == structureType
-                    || ((TileEntityStructure) worldObj.getBlockTileEntity(
-                            xCoord, yCoord, zCoord - 1)).getStructureType() == "casing") {
+            if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).getStructureType() == structureType
+                    || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1))
+                            .getStructureType() == "casing") {
                 i++;
             }
         }
@@ -133,8 +121,7 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
 
         for (int i = 0; i < controlBlockLocation.length; ++i) {
             NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-            nbttagcompound1.setInteger("Control Block Location:" + i,
-                    controlBlockLocation[i]);
+            nbttagcompound1.setInteger("Control Block Location:" + i, controlBlockLocation[i]);
             nbttaglist.appendTag(nbttagcompound1);
         }
 
@@ -145,15 +132,12 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);
-        NBTTagList nbttaglist = par1NBTTagCompound
-                .getTagList("Control Block Location");
+        NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Control Block Location");
         controlBlockLocation = new int[nbttaglist.tagCount()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
-            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist
-                    .tagAt(i);
-            controlBlockLocation[i] = nbttagcompound1
-                    .getInteger("Control Block Location:" + i);
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.tagAt(i);
+            controlBlockLocation[i] = nbttagcompound1.getInteger("Control Block Location:" + i);
 
         }
         componentName = par1NBTTagCompound.getString("Component Name");

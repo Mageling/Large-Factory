@@ -14,8 +14,7 @@ public class PacketLargeFactory {
     public PacketTypeHandler packetType;
     public boolean           isChunkDataPacket;
 
-    public PacketLargeFactory(PacketTypeHandler packetType,
-            boolean isChunkDataPacket) {
+    public PacketLargeFactory(PacketTypeHandler packetType, boolean isChunkDataPacket) {
 
         this.packetType = packetType;
         this.isChunkDataPacket = isChunkDataPacket;

@@ -49,37 +49,28 @@ public class Crusher {
         for (Imput I : start) {
             int numberOfBlocks = I.getNumberOfItems();
             Float oreSlag = 0f;
-            MetalClass currentMetal = MetalFactory.metalList.get(I
-                    .getNameOfMaterial());
+            MetalClass currentMetal = MetalFactory.metalList.get(I.getNameOfMaterial());
 
             if (attuneMetal == currentMetal.getName() || attuneMetal == null) {
-                solid.add(
-                        currentMetal.getName(),
-                        (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue)
+                solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue)
                         * numberOfBlocks);
             } else {
-                solid.add(
-                        currentMetal.getName(),
-                        (currentMetal.getPrimaryValue() + mainOreBonus + attuneDisvalue)
+                solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneDisvalue)
                         * numberOfBlocks);
             }
-            for (Map.Entry<String, Float> entry : currentMetal
-                    .getAllYieldValue().entrySet()) {
+            for (Map.Entry<String, Float> entry : currentMetal.getAllYieldValue().entrySet()) {
                 if (entry.getKey() != "slag") {
-                    Float tmp = (currentMetal.getYieldValue(entry.getKey()) + secondaryBonus)
-                            * secondaryPercentBonus * numberOfBlocks;
+                    Float tmp = (currentMetal.getYieldValue(entry.getKey()) + secondaryBonus) * secondaryPercentBonus
+                            * numberOfBlocks;
                     waste.add(currentMetal.getName(), tmp);
                     oreSlag += tmp;
                 } else {
-                    waste.add(
-                            "slag",
-                            (currentMetal.getYieldValue(entry.getKey()) + slagBonus)
-                            * slagPercentBonus * numberOfBlocks);
+                    waste.add("slag", (currentMetal.getYieldValue(entry.getKey()) + slagBonus) * slagPercentBonus
+                            * numberOfBlocks);
                 }
             }
         }
-        out = new CycleData(solid, waste, timeCost * timePercent, ergCost
-                * ergPercent);
+        out = new CycleData(solid, waste, timeCost * timePercent, ergCost * ergPercent);
         return out;
 
     }

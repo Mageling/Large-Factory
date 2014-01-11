@@ -32,8 +32,7 @@ public class BlockTea extends BlockFlower {
     }
 
     @Override
-    public void updateTick(World par1World, int par2, int par3, int par4,
-            Random par5Random) {
+    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
         super.updateTick(par1World, par2, par3, par4, par5Random);
 
         if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9) {
@@ -44,8 +43,7 @@ public class BlockTea extends BlockFlower {
 
                 if (par5Random.nextInt((int) (25.0F / f) + 1) == 0) {
                     ++l;
-                    par1World
-                    .setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
                 }
             }
         }
@@ -86,16 +84,13 @@ public class BlockTea extends BlockFlower {
     }
 
     @Override
-    public void dropBlockAsItemWithChance(World par1World, int par2, int par3,
-            int par4, int par5, float par6, int par7) {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5,
-                par6, 0);
+    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7) {
+        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, 0);
     }
 
     @Override
-    public boolean onBlockActivated(World par1World, int par2, int par3,
-            int par4, EntityPlayer par5EntityPlayer, int par6, float par7,
-            float par8, float par9) {
+    public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer,
+            int par6, float par7, float par8, float par9) {
         int l = par1World.getBlockMetadata(par2, par3, par4);
 
         if (l <= 2)
@@ -110,11 +105,9 @@ public class BlockTea extends BlockFlower {
         return true;
     }
 
-    public boolean onBlockClicked(World par1World, int par2, int par3,
-            int par4, EntityPlayer par5EntityPlayer, int par6, float par7,
-            float par8, float par9) {
-        return onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer,
-                par6, par7, par8, par9);
+    public boolean onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer,
+            int par6, float par7, float par8, float par9) {
+        return onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);
     }
 
     @Override
@@ -123,8 +116,7 @@ public class BlockTea extends BlockFlower {
         iconArray = new Icon[8];
 
         for (int i = 0; i < iconArray.length; ++i) {
-            iconArray[i] = par1IconRegister.registerIcon(getTextureName()
-                    + "_stage_" + i);
+            iconArray[i] = par1IconRegister.registerIcon(getTextureName() + "_stage_" + i);
         }
     }
 

@@ -12,13 +12,11 @@ public class TileEntityStructureInner extends TileEntityStructure {
     @Override
     public boolean validateStructure(String structureType) {
         if (inStructure) {
-            StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord,
-                    yCoord, zCoord);
+            StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord, yCoord, zCoord);
             return false;
         }
         if (getStructureType() != structureType) {
-            StructureCreationErrors.INNER_BLOCK.printError(xCoord, yCoord,
-                    zCoord);
+            StructureCreationErrors.INNER_BLOCK.printError(xCoord, yCoord, zCoord);
             return false;
         }
         if (numAdjacent(getStructureType()) == 6)
@@ -49,16 +47,14 @@ public class TileEntityStructureInner extends TileEntityStructure {
 
     @Override
     protected void notifyControlBlock() {
-        ((TileEntityStructureControl) worldObj.getBlockTileEntity(
-                controlBlockLocation[0], controlBlockLocation[1],
+        ((TileEntityStructureControl) worldObj.getBlockTileEntity(controlBlockLocation[0], controlBlockLocation[1],
                 controlBlockLocation[2])).onNotified();
 
     }
 
     @Override
     public String getStructureType() {
-        return ComponentFactory.componentList.get(componentName)
-                .getStructureType();
+        return ComponentFactory.componentList.get(componentName).getStructureType();
     }
 
     @Override

@@ -17,10 +17,8 @@ public class ItemReedLargeFactory extends ItemReed {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
 
-        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase()
-                + ":"
-                + this.getUnlocalizedName().substring(
-                        this.getUnlocalizedName().indexOf(".") + 1));
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
+                + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 
 }

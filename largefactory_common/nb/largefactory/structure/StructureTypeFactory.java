@@ -42,31 +42,29 @@ public class StructureTypeFactory {
         structureList.put(structure.item(0).getTextContent(), a);
     }
 
-    public static boolean validateStructure(String structureType,
-            String[] tempComponentList, World world, int xCoord, int yCoord,
-            int zCoord) {
+    public static boolean validateStructure(String structureType, String[] tempComponentList, World world, int xCoord,
+            int yCoord, int zCoord) {
         StructureType q = structureList.get(structureType);
-        //components are of correct structure
-        for(String c : tempComponentList){
-            if(ComponentFactory.componentList.get(c).getStructureType() != structureType){
+        // components are of correct structure
+        for (String c : tempComponentList) {
+            if (ComponentFactory.componentList.get(c).getStructureType() != structureType) {
                 System.out.println(StructureCreationErrors.MISSING_BLOCK);
                 return false;
             }
         }
-        //has required components
+        // has required components
         for (String s : q.getRequiredComponents()) {
             if (!Arrays.asList(tempComponentList).contains(s))
                 return false;
         }
-        //has a component of correct type and only 1
+        // has a component of correct type and only 1
         if (structureList.get(structureType).getRequiredType() != null) {
             boolean found = false;
             for (String t : tempComponentList) {
                 if (ComponentFactory.componentList.get(t).provideInformation("type") == q.getRequiredType()) {
-                    if(found){
-                        
+                    if (found)
                         return false;
-                    }else{
+                    else {
                         found = true;
                     }
                 }
@@ -74,9 +72,9 @@ public class StructureTypeFactory {
             if (!found)
                 return false;
         }
-        //special validation
-        if(q.isSpecialValidation()){
-            //something
+        // special validation
+        if (q.isSpecialValidation()) {
+            // something
         }
         return true;
     }

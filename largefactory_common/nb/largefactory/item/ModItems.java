@@ -43,8 +43,7 @@ public class ModItems {
         saltChickenRaw = new ItemSaltChickenRaw(ItemIDs.SALT_CHICKEN_RAW);
         LanguageRegistry.addName(saltChickenRaw, "Salted Raw Chicken");
 
-        saltChickenCooked = new ItemSaltChickenCooked(
-                ItemIDs.SALT_CHICKEN_COOKED);
+        saltChickenCooked = new ItemSaltChickenCooked(ItemIDs.SALT_CHICKEN_COOKED);
         LanguageRegistry.addName(saltChickenCooked, "Salted Chicken");
 
         saltFlesh = new ItemSaltFlesh(ItemIDs.SALT_FLESH);

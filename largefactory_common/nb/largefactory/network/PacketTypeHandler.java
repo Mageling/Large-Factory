@@ -11,7 +11,8 @@ import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet250CustomPayload;
 
 public enum PacketTypeHandler {
-    TILE(PacketTileUpdate.class), TILE_WITH_ITEM(PacketTileWithItemUpdate.class);
+    TILE(PacketTileUpdate.class),
+    TILE_WITH_ITEM(PacketTileWithItemUpdate.class);
 
     private Class<? extends PacketLargeFactory> clazz;
 

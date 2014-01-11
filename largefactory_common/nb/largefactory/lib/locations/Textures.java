@@ -20,13 +20,13 @@ public class Textures {
 
     // GUI textures
     public static final ResourceLocation GUI_SALT_CONDENSER            = ResourceLocationHelper
-            .getResourceLocation(GUI_SHEET_LOCATION
-                    + "guiSaltCondenser.png");
+                                                                               .getResourceLocation(GUI_SHEET_LOCATION
+                                                                                       + "guiSaltCondenser.png");
 
     // Model textures
     public static final ResourceLocation SALT_CONDENSER                = ResourceLocationHelper
-            .getResourceLocation(MODEL_SHEET_LOCATION
-                    + "saltCondenser.png");
+                                                                               .getResourceLocation(MODEL_SHEET_LOCATION
+                                                                                       + "saltCondenser.png");
 
     // Effect textures
 

@@ -18,8 +18,7 @@ public class GuiSaltCondenser extends GuiContainer {
 
     private TileEntitySaltCondenser saltCondenser;
 
-    public GuiSaltCondenser(InventoryPlayer player,
-            TileEntitySaltCondenser saltCondenser) {
+    public GuiSaltCondenser(InventoryPlayer player, TileEntitySaltCondenser saltCondenser) {
         super(new ContainerSaltCondenser(player, saltCondenser));
         ySize = 166;
         this.saltCondenser = saltCondenser;
@@ -29,15 +28,11 @@ public class GuiSaltCondenser extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int x, int y) {
 
-        String containerName = saltCondenser.isInvNameLocalized() ? saltCondenser
-                .getInvName() : StatCollector.translateToLocal(saltCondenser
-                        .getInvName());
-                fontRenderer.drawString(containerName,
-                        xSize / 2 - fontRenderer.getStringWidth(containerName) / 2, 6,
-                        4210752);
-                fontRenderer.drawString(
-                        StatCollector.translateToLocal(Strings.CONTAINER_INVENTORY), 8,
-                        ySize - 96 + 2, 4210752);
+        String containerName = saltCondenser.isInvNameLocalized() ? saltCondenser.getInvName() : StatCollector
+                .translateToLocal(saltCondenser.getInvName());
+        fontRenderer.drawString(containerName, xSize / 2 - fontRenderer.getStringWidth(containerName) / 2, 6, 4210752);
+        fontRenderer
+                .drawString(StatCollector.translateToLocal(Strings.CONTAINER_INVENTORY), 8, ySize - 96 + 2, 4210752);
     }
 
     @Override

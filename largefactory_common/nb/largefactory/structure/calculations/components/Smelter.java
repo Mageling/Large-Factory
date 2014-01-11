@@ -35,8 +35,7 @@ public class Smelter {
     }
 
     // nothing about time right now
-    public ArrayList<Imput> RunSmelter(DataMap<String, Float> data,
-            DataMap<String, Float> slag) {
+    public ArrayList<Imput> RunSmelter(DataMap<String, Float> data, DataMap<String, Float> slag) {
         for (Map.Entry<String, Float> entry : slag.entrySet()) {
             ergCost += entry.getValue() * ergPerSlag;
         }

@@ -18,8 +18,7 @@ public class ComponentDataClass {
         name = compname;
         structureType = structure_type;
         information = new HashMap<String, String>();
-        information.put("texturefilelocation",
-                Textures.DEFAULT_TEXTURE_FILE_LOCATION);
+        information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
 
     }
 
