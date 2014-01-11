@@ -1,5 +1,8 @@
 <Structure>
-	<Crusher>
+	<crusher>
 		<location>input</location>
-	</Crusher>
+	</crusher>
+	<smelter>
+		<location>output</location>
+	</smelter>
 </Structure>

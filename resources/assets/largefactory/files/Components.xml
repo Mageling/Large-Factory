@@ -3,96 +3,66 @@
 	<crusher_components>
 		<component>
 			<name>crusher</name>
-			<recipe>null 2</recipe>
-			<effect>null 1</effect>
+			<required>true</required>			
 		</component>
 		<component>
 			<name>power core</name>
-			<recipe>null</recipe>
-			<effect>null</effect>
+			<max>4</max>
+			<ergpercent>-10</ergpercent>
+			<timepercetn>15</timepercetn>
 		</component>
 		<component>
 			<name>blade core</name>
-			<recipe>null</recipe>
-			<effect>null</effect>
+			<max>4</max>
+			<ergpercent>15</ergpercent>
+			<timepercetn>-10</timepercetn>
 		</component>
 		<component>
 			<name>hydraulic piston</name>
-			<recipe>null</recipe>
-			<effect>null</effect>
+			<max>10</max>
+			<mainorebonus>2</mainorebonus>
+			<slagbonus>-2</slagbonus>
+			<ergcost>4</ergcost>
+			<ergcoststack>1</ergcoststack>
 		</component>
 		<component>
 			<name>precision actuator</name>
-			<recipe>null</recipe>
-			<effect>null</effect>
+			<max>5</max>
+			<attunemetal>true</attunemetal>
+			<attunevalue>2</attunevalue>
+			<attunedisvalue>3</attunedisvalue>
+			<ergcost>3</ergcost>
+			<ergcoststack>1</ergcoststack>
 		</component>
 		<component>
 			<name>vibration chamber</name>
-			<recipe>null</recipe>
-			<effect>null</effect>
+			<max>1</max>
+			<dimensions>2,2,2</dimensions>
+			<secondarypercentbonus>50</secondarypercentbonus>
 		</component>
 	</crusher_components>
-	<grinder_components>
+	<smelter_components>
 		<component>
-			<name>grinder control</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<controlblock>true</controlblock>
+			<name>smelter</name>
+			<required>true</required>
 		</component>
 		<component>
-			<name>grinder</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
+			<name>incinerator</name>
+			<dimensions>2,2,2</dimensions>
+			<ergperslag>-1</ergperslag>
 		</component>
 		<component>
-			<name>iron disk</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<disk>true</disk>
+			<name>bellows</name>
+			<max>4</max>
+			<timecost>-10</timecost>
+			<ergcost>15</ergcost>
 		</component>
 		<component>
-			<name>gem disk</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<disk>true</disk>
-			<percentyield>5</percentyield>
-			<ergcost>.5</ergcost>
+			<name>internal_recycling</name>
+			<max>10</max>
+			<oreperingot>-2</oreperingot>
+			<ergperingot>2</ergperingot>
+			<ergperingotstack>2</ergperingotstack>
 		</component>
-		<component>
-			<name>diamond disk</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<disk>true</disk>
-			<percentyield>10</percentyield>
-			<ergcost>1</ergcost>
-		</component>
-		<component>
-			<name>mithril disk</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<disk>true</disk>
-			<percentyield>10</percentyield>
-			<ergcost>.75</ergcost>
-		</component>
-		<component>
-			<name>AI grinder control</name>
-			<recipe></recipe>
-			<dimensions>1,1,1</dimensions>
-			<maxnumber>2</maxnumber>
-			<!-- 50% other liter erg +25% time -->
-		</component>
-		<component>
-			<name>liquid cooling</name>
-			<recipe></recipe>
-			<dimensions>2,2,1</dimensions>
-			<maxnumber>1</maxnumber>
-			<ergcostreduction>25</ergcostreduction>
-		</component>
-	</grinder_components>
+	</smelter_components>
 </components>

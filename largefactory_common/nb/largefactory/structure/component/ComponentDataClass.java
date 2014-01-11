@@ -34,7 +34,7 @@ public class ComponentDataClass {
             dimensions[1] = Integer.parseInt(temp[1]);
             dimensions[2] = Integer.parseInt(temp[2]);
             break;
-        case "maxNumber": maxNumber = Integer.parseInt(data);
+        case "max": maxNumber = Integer.parseInt(data);
         break;
         case "required": main = true;
         break;
