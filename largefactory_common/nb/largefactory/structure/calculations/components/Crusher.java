@@ -11,21 +11,21 @@ import nb.largefactory.util.DataMap;
 
 public class Crusher {
 
-    float                  mainOreBonus;
-    float                  slagPercentBonus;
-    float                  slagBonus;
-    float                  ergCost;
-    float                  timeCost;
-    float                  timePercent;
-    float                  ergPercent;
-    String                 attuneMetal;
-    int                    attuneValue;
-    int                    attuneDisvalue;
-    int                    secondaryBonus;
-    float                  secondaryPercentBonus;
+    float mainOreBonus;
+    float slagPercentBonus;
+    float slagBonus;
+    float ergCost;
+    float timeCost;
+    float timePercent;
+    float ergPercent;
+    String attuneMetal;
+    int attuneValue;
+    int attuneDisvalue;
+    int secondaryBonus;
+    float secondaryPercentBonus;
     DataMap<String, Float> solid;
     DataMap<String, Float> waste;
-    CycleData              out;
+    CycleData out;
 
     Crusher() {
         mainOreBonus = 0f;

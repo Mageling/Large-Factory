@@ -12,7 +12,7 @@ import cpw.mods.fml.common.network.Player;
 public class PacketLargeFactory {
 
     public PacketTypeHandler packetType;
-    public boolean           isChunkDataPacket;
+    public boolean isChunkDataPacket;
 
     public PacketLargeFactory(PacketTypeHandler packetType, boolean isChunkDataPacket) {
 

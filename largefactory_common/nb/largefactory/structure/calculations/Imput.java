@@ -2,7 +2,7 @@ package nb.largefactory.structure.calculations;
 
 public class Imput {
     String nameOfMaterial;
-    int    numberOfItems;
+    int numberOfItems;
 
     public Imput(String name, int number) {
         nameOfMaterial = name;

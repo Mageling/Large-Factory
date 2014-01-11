@@ -11,14 +11,14 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class TileEntitySaltCondenser extends TileEntityLargeFactory implements IInventory {
 
-    public static final int INVENTORY_SIZE             = 1;
-    public static final int OUTPUT_INVENTORY_INDEX     = 0;
+    public static final int INVENTORY_SIZE = 1;
+    public static final int OUTPUT_INVENTORY_INDEX = 0;
 
-    private ItemStack[]     saltCondenserItemStacks;
-    public int              saltCondenserTimeRemaining = 1152000; // ticks in 16
+    private ItemStack[] saltCondenserItemStacks;
+    public int saltCondenserTimeRemaining = 1152000; // ticks in 16
     // hours
-    public int              saltProgress               = 0;
-    public boolean          ceaseFunction              = false;
+    public int saltProgress = 0;
+    public boolean ceaseFunction = false;
 
     public TileEntitySaltCondenser() {
         saltCondenserItemStacks = new ItemStack[INVENTORY_SIZE];

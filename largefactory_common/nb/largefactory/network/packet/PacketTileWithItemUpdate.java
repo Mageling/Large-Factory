@@ -12,9 +12,9 @@ import cpw.mods.fml.common.network.Player;
 
 public class PacketTileWithItemUpdate extends PacketLargeFactory {
 
-    public int    x, y, z;
+    public int x, y, z;
     public String customName;
-    public int    itemID, metaData, stackSize, color;
+    public int itemID, metaData, stackSize, color;
 
     public PacketTileWithItemUpdate() {
 

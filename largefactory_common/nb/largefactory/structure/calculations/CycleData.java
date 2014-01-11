@@ -17,8 +17,8 @@ public class CycleData {
     public HashMap<String, DataMap<String, Float>> SolidResources;
     public HashMap<String, DataMap<String, Float>> LiquidResources;
     public HashMap<String, DataMap<String, Float>> GasResources;
-    List<Float>                                    timeRemaining;
-    Float                                          powerUse;
+    List<Float> timeRemaining;
+    Float powerUse;
 
     public CycleData(HashMap<String, Float> input, HashMap<String, Float> slag, Float time, Float power) {
         SolidResources = new HashMap<String, DataMap<String, Float>>();

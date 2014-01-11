@@ -8,16 +8,16 @@ import nb.largefactory.util.DataMap;
 
 public class Smelter {
 
-    float            orePerIngot;
-    float            ergPerSlag;
-    float            ergPerIngot;
-    float            timeCost;
-    float            ergCost;
-    boolean          outPutBlocks;
-    boolean          oreIsPure;
-    String           attuneMetal;
-    float            attuneValue;
-    float            attuneDisvalue;
+    float orePerIngot;
+    float ergPerSlag;
+    float ergPerIngot;
+    float timeCost;
+    float ergCost;
+    boolean outPutBlocks;
+    boolean oreIsPure;
+    String attuneMetal;
+    float attuneValue;
+    float attuneDisvalue;
     ArrayList<Imput> output;
 
     Smelter() {

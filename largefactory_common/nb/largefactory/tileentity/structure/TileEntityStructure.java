@@ -10,8 +10,8 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
         this.componentName = componentName;
     }
 
-    protected String  componentName;
-    protected int[]   controlBlockLocation;
+    protected String componentName;
+    protected int[] controlBlockLocation;
     protected boolean inStructure = false;
 
     public abstract void onNotified();

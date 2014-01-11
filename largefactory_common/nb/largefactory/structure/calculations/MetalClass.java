@@ -3,11 +3,11 @@ package nb.largefactory.structure.calculations;
 import java.util.HashMap;
 
 public class MetalClass {
-    String                 name;
+    String name;
     // don't know if we need this
-    String                 forgeOreName;
-    String                 primary;
-    Float                  primaryYield;
+    String forgeOreName;
+    String primary;
+    Float primaryYield;
     HashMap<String, Float> yields;
 
     public MetalClass(String metalname) {

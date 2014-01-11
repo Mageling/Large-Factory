@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StructureType {
-    String       name;
-    boolean      isInput;
-    boolean      isOutput;
-    boolean      specialValidation;
+    String name;
+    boolean isInput;
+    boolean isOutput;
+    boolean specialValidation;
     List<String> requiredComponents;
-    String       requiredType;
+    String requiredType;
 
     public StructureType(String n) {
         name = n;

@@ -7,12 +7,12 @@ import nb.largefactory.lib.locations.Textures;
 import nb.largefactory.util.errors.XMLErrors;
 
 public class ComponentDataClass {
-    String              name;
-    String[]            recipe;
-    String              structureType;
-    int[]               dimensions;
-    int                 maxNumber;
-    boolean             controlBlock;
+    String name;
+    String[] recipe;
+    String structureType;
+    int[] dimensions;
+    int maxNumber;
+    boolean controlBlock;
     Map<String, String> information;
 
     public ComponentDataClass(String compname, String structure_type) {

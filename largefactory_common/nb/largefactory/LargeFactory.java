@@ -34,7 +34,7 @@ public class LargeFactory {
     public static LargeFactory instance;
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-    public static CommonProxy  proxy;
+    public static CommonProxy proxy;
 
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
@@ -44,9 +44,9 @@ public class LargeFactory {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         // Initialize configs
-        ConfigurationHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
+        ConfigurationHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator
+                + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
 
-        
         // Load the XML decoder
         XMLDecoder.instantiate();
 

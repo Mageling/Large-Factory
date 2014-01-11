@@ -20,12 +20,12 @@ public class TileEntityStructureControl extends TileEntityStructure {
         controlBlockLocation[2] = zCoord;
     }
 
-    protected int[][]  innerBlocks   = null;
-    protected int[][]  casingBlocks  = null;
+    protected int[][] innerBlocks = null;
+    protected int[][] casingBlocks = null;
     protected String[] componentList = null;
-    protected boolean  isNotified    = false;
-    public String      resourceLine  = null;
-    public int         timeLine      = 0;
+    protected boolean isNotified = false;
+    public String resourceLine = null;
+    public int timeLine = 0;
 
     @Override
     public boolean validateStructure(String structureType) {
