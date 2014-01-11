@@ -2,9 +2,9 @@ package nb.largefactory.tileentity.structure;
 
 import java.util.ArrayList;
 
-import nb.largefactory.structure.StructureCreationErrors;
 import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.component.ComponentFactory;
+import nb.largefactory.util.errors.StructureCreationErrors;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;

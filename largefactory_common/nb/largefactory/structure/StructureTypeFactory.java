@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.structure.component.ComponentFactory;
+import nb.largefactory.util.errors.StructureCreationErrors;
 import net.minecraft.world.World;
 
 import org.w3c.dom.NodeList;
@@ -37,7 +38,7 @@ public class StructureTypeFactory {
             case "required":
                 a.addRequiredComponent(type);
             default:
-                //nothing
+                // nothing
                 break;
             }
         }
@@ -64,16 +65,16 @@ public class StructureTypeFactory {
             boolean found = false;
             for (String t : tempComponentList) {
                 if (ComponentFactory.componentList.get(t).provideInformation("type") == q.getRequiredType()) {
-                    if (found){
-                        StructureCreationErrors.TYPE_ALREADY_EXISTS.printErrorExtraInformation(xCoord, yCoord, zCoord, t);
+                    if (found) {
+                        StructureCreationErrors.TYPE_ALREADY_EXISTS.printError(xCoord, yCoord, zCoord, t);
                         return false;
-                    }else {
+                    } else {
                         found = true;
-                    
+
                     }
-            }
-            if (!found)
-                return false;
+                }
+                if (!found)
+                    return false;
             }
         }
         // special validation
@@ -81,8 +82,6 @@ public class StructureTypeFactory {
             // something
         }
         return true;
-        
 
     }
 }
-    
