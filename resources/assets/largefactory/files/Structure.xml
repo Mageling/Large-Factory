@@ -3,7 +3,7 @@
 		<location>input</location>
 		<component>crusher</component>
 	</crusher>
-	<smelter>
+	<smelter
 		<location>output</location>
 		<component>smelter</component>
 	</smelter>

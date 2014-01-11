@@ -45,22 +45,38 @@ public class StructureTypeFactory {
     public static boolean validateStructure(String structureType,
             String[] tempComponentList, World world, int xCoord, int yCoord,
             int zCoord) {
-        for (String s : structureList.get(structureType)
-                .getRequiredComponents()) {
+        StructureType q = structureList.get(structureType);
+        //components are of correct structure
+        for(String c : tempComponentList){
+            if(ComponentFactory.componentList.get(c).getStructureType() != structureType){
+                System.out.println(StructureCreationErrors.MISSING_BLOCK);
+                return false;
+            }
+        }
+        //has required components
+        for (String s : q.getRequiredComponents()) {
             if (!Arrays.asList(tempComponentList).contains(s))
                 return false;
         }
+        //has a component of correct type and only 1
         if (structureList.get(structureType).getRequiredType() != null) {
             boolean found = false;
             for (String t : tempComponentList) {
-                if (ComponentFactory.componentList.get(t).provideInformation(
-                        "type") == structureList.get(structureType)
-                        .getRequiredType()) {
-                    found = true;
+                if (ComponentFactory.componentList.get(t).provideInformation("type") == q.getRequiredType()) {
+                    if(found){
+                        
+                        return false;
+                    }else{
+                        found = true;
+                    }
                 }
             }
             if (!found)
                 return false;
+        }
+        //special validation
+        if(q.isSpecialValidation()){
+            //something
         }
         return true;
     }
