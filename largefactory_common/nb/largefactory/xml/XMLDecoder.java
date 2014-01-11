@@ -6,6 +6,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import nb.largefactory.lib.locations.Files;
+import nb.largefactory.util.errors.XMLErrors;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -37,6 +38,7 @@ public class XMLDecoder {
                 }
             }
         } catch (Exception e) {
+            XMLErrors.COMPONENT_MISSING.printError();
         }
 
         try {
@@ -60,6 +62,7 @@ public class XMLDecoder {
                 }
             }
         } catch (Exception e) {
+            XMLErrors.METAL_MISSING.printError();
         }
 
         try {
@@ -83,6 +86,7 @@ public class XMLDecoder {
                 }
             }
         } catch (Exception e) {
+            XMLErrors.STRUCTURE_MISSING.printError();
         }
 
     }
