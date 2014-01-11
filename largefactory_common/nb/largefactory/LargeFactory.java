@@ -1,6 +1,9 @@
 package nb.largefactory;
 
+import java.io.File;
+
 import nb.largefactory.block.ModBlocks;
+import nb.largefactory.config.ConfigurationHandler;
 import nb.largefactory.item.ModItems;
 import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
@@ -40,6 +43,10 @@ public class LargeFactory {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        // Initialize configs
+        ConfigurationHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
+
+        
         // Load the XML decoder
         XMLDecoder.instantiate();
 
