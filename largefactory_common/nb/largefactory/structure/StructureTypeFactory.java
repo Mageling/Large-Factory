@@ -58,6 +58,7 @@ public class StructureTypeFactory {
         // has required components
         for (String s : q.getRequiredComponents()) {
             if (!Arrays.asList(tempComponentList).contains(s))
+                StructureCreationErrors.MISSING_BLOCK.printError(xCoord, yCoord, zCoord, s);
                 return false;
         }
         // has a component of correct type and only 1
@@ -73,8 +74,10 @@ public class StructureTypeFactory {
 
                     }
                 }
-                if (!found)
-                    return false;
+            }
+            if (!found){
+                StructureCreationErrors.NO_TYPE.printError(xCoord, yCoord, zCoord, q.getRequiredType());
+                return false;
             }
         }
         // special validation

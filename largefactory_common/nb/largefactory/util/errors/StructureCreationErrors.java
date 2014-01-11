@@ -14,8 +14,8 @@ public enum StructureCreationErrors {
     MISSING_BLOCK("This structure requires a component that was not found:", ""),
     ALREADY_IN_STRUCTURE("This block is already in a structure", ""),
     TYPE_ALREADY_EXISTS("There is already a ", " in the structure"),
-    ADJACENT_MULTIBLOCK("Multiblock components of the same type cannot be adjascent", ""),
     INCORRECT_MULTIBLOCK("The multiblock ", " was formed incorrectly"),
+    NO_TYPE("There is not component of ","  type"),
 
     OTHER("Unknown Error", "");
 
