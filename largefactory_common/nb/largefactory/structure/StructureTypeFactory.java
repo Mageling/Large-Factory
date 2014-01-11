@@ -32,4 +32,10 @@ public class StructureTypeFactory {
         structureList.put(structure.item(0).getTextContent(), a);
     }
 
+    public static boolean validateStructure(String structureType,
+            String[] tempComponentList, int xCoord, int yCoord, int zCoord) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }

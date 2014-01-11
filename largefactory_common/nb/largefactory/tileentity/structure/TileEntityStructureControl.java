@@ -27,7 +27,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
     public int timeLine = 0;
 
     @Override
-    public boolean validateStructure(StructureTypeFactory structureType) {
+    public boolean validateStructure(String structureType) {
         if (inStructure) {
             StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord, yCoord, zCoord);
             return false;
@@ -175,17 +175,17 @@ public class TileEntityStructureControl extends TileEntityStructure {
     }
 
     @Override
-    public StructureTypeFactory getStructureType() {
+    public String getStructureType() {
         return ComponentFactory.componentList.get(componentName).getStructureType();
     }
 
     @Override
-    public boolean isFace(StructureTypeFactory structureType) {
+    public boolean isFace(String structureType) {
         return getStructureType() == structureType;
     }
 
     public void createStructure() {
-        StructureTypeFactory structureType = getStructureType();
+        String structureType = getStructureType();
         ArrayList<int[]> arrayListInner = new ArrayList<int[]>(12);
         ArrayList<int[]> arrayListCasing = new ArrayList<int[]>(12);
         TileEntity te;
@@ -644,7 +644,7 @@ public class TileEntityStructureControl extends TileEntityStructure {
             tempComponentList[i] = ((TileEntityStructure) worldObj.getBlockTileEntity(tempArrayInner[i][0],
                     tempArrayInner[i][1], tempArrayInner[i][2])).getComponentName();
         }
-        if (!structureType.validateStructure(tempComponentList, xCoord, yCoord, zCoord))
+        if (!StructureTypeFactory.validateStructure(structureType, tempComponentList, xCoord, yCoord, zCoord))
             return;
 
         arrayListCasing.trimToSize();

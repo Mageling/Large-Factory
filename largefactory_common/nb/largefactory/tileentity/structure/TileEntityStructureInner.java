@@ -1,7 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
 import nb.largefactory.structure.StructureCreationErrors;
-import nb.largefactory.structure.StructureTypeFactory;
+
 import nb.largefactory.structure.component.ComponentFactory;
 
 public class TileEntityStructureInner extends TileEntityStructure {
@@ -11,7 +11,7 @@ public class TileEntityStructureInner extends TileEntityStructure {
     }
 
     @Override
-    public boolean validateStructure(StructureTypeFactory structureType) {
+    public boolean validateStructure(String structureType) {
         if (inStructure) {
             StructureCreationErrors.ALREADY_IN_STRUCTURE.printError(xCoord, yCoord, zCoord);
             return false;
@@ -54,12 +54,12 @@ public class TileEntityStructureInner extends TileEntityStructure {
     }
 
     @Override
-    public StructureTypeFactory getStructureType() {
+    public String getStructureType() {
         return ComponentFactory.componentList.get(componentName).getStructureType();
     }
 
     @Override
-    public boolean isFace(StructureTypeFactory structureType) {
+    public boolean isFace(String structureType) {
         return false;
     }
 

@@ -1,6 +1,6 @@
 package nb.largefactory.tileentity.structure;
 
-import nb.largefactory.structure.StructureTypeFactory;
+
 import nb.largefactory.tileentity.TileEntityLargeFactory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -17,21 +17,21 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
 
     public abstract void onNotified();
 
-    public abstract boolean validateStructure(StructureTypeFactory structureType);
+    public abstract boolean validateStructure(String structureType);
 
     public abstract boolean setControlBlockLocation(int x, int y, int z);
 
-    public abstract boolean isFace(StructureTypeFactory structureType);
+    public abstract boolean isFace(String structureType);
 
     public abstract void onBlockBreak();
 
-    public abstract StructureTypeFactory getStructureType();
+    public abstract String getStructureType();
 
     protected abstract void notifyControlBlock();
 
     protected abstract void removeFromStructure();
 
-    public int numAdjacentInner(StructureTypeFactory structureType) {
+    public int numAdjacentInner(String structureType) {
         int i = 0;
         if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructureInner) {
             if (((TileEntityStructureInner) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == structureType) {
@@ -66,47 +66,47 @@ public abstract class TileEntityStructure extends TileEntityLargeFactory {
         return i;
     }
 
-    public int numAdjacent(StructureTypeFactory structureType) {
+    public int numAdjacent(String structureType) {
         int i = 0;
         if (worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord + 1, yCoord, zCoord))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord - 1, yCoord, zCoord))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord + 1, zCoord))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord - 1, zCoord))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord + 1))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
         if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1) instanceof TileEntityStructure) {
             if (((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1)).getStructureType() == structureType
                     || ((TileEntityStructure) worldObj.getBlockTileEntity(xCoord, yCoord, zCoord - 1))
-                    .getStructureType() == StructureTypeFactory.CASING) {
+                    .getStructureType() == "casing") {
                 i++;
             }
         }
