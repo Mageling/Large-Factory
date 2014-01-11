@@ -1,5 +1,9 @@
 package nb.largefactory.util.errors;
 
+import java.util.logging.Level;
+
+import cpw.mods.fml.common.FMLLog;
+
 public enum StructureCreationErrors {
     CONTROL_BLOCK("The control block failed to validate", ""),
     INNER_BLOCK("Exposed component", ""),
@@ -7,7 +11,7 @@ public enum StructureCreationErrors {
     FACE_CASING_BLOCK("Edges expected", ""),
     EDGE_CASING_BLOCK("Corners expected", ""),
     TWO_CONTROL_BLOCK("Multiple control blocks of the same type found", ""),
-    MISSING_BLOCK("This structure requires a component that was not found", ""),
+    MISSING_BLOCK("This structure requires a component that was not found:", ""),
     ALREADY_IN_STRUCTURE("This block is already in a structure", ""),
     TYPE_ALREADY_EXISTS("There is already a ", " in the structure"),
     ADJACENT_MULTIBLOCK("Multiblock components of the same type cannot be adjascent", ""),
@@ -29,7 +33,7 @@ public enum StructureCreationErrors {
 
     public void printError(int x, int y, int z, String s) {
         String error = "An error occured at" + x + ", " + y + ", " + z + ": " + part1 + s + part2;
-        System.out.println(error);
+        FMLLog.log(Level.WARNING, error);
     }
 
 }
