@@ -6,6 +6,7 @@ import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
 import nb.largefactory.network.PacketHandler;
 import nb.largefactory.proxy.CommonProxy;
+import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.xml.XMLDecoder;
@@ -67,6 +68,7 @@ public class LargeFactory {
 
     @EventHandler
     public void modsLoaded(FMLPostInitializationEvent event) {
+        StructureTypeFactory.instantiate();
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
 

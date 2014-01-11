@@ -13,7 +13,7 @@ public class StructureTypeFactory {
 
     public static Map<String, StructureType> structureList;
 
-    public void instantiate() {
+    public static void instantiate() {
         structureList = new HashMap<String, StructureType>();
     }
 
@@ -34,8 +34,10 @@ public class StructureTypeFactory {
             case "type":
                 a.addRequiredType(type);
                 break;
-            default:
+            case "required":
                 a.addRequiredComponent(type);
+            default:
+                //nothing
                 break;
             }
         }
@@ -48,7 +50,7 @@ public class StructureTypeFactory {
         // components are of correct structure
         for (String c : tempComponentList) {
             if (ComponentFactory.componentList.get(c).getStructureType() != structureType) {
-                System.out.println(StructureCreationErrors.MISSING_BLOCK);
+                StructureCreationErrors.MISSING_BLOCK.printError(xCoord, yCoord, zCoord);
                 return false;
             }
         }
@@ -62,21 +64,25 @@ public class StructureTypeFactory {
             boolean found = false;
             for (String t : tempComponentList) {
                 if (ComponentFactory.componentList.get(t).provideInformation("type") == q.getRequiredType()) {
-                    if (found)
+                    if (found){
+                        StructureCreationErrors.ALREADY_IN_STRUCTURE.printErrorExtraInformation(xCoord, yCoord, zCoord, t);
                         return false;
-                    else {
+                    }else {
                         found = true;
+                    
                     }
-                }
             }
             if (!found)
                 return false;
+            }
         }
         // special validation
         if (q.isSpecialValidation()) {
             // something
         }
         return true;
-    }
+        
 
+    }
 }
+    
