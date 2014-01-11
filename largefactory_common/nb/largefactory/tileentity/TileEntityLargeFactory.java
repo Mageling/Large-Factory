@@ -60,7 +60,8 @@ public class TileEntityLargeFactory extends TileEntity {
     @Override
     public Packet getDescriptionPacket() {
 
-        return PacketTypeHandler.populatePacket(new PacketTileUpdate(xCoord, yCoord, zCoord, customName));
+        return PacketTypeHandler.populatePacket(new PacketTileUpdate(xCoord,
+                yCoord, zCoord, customName));
     }
 
 }

@@ -11,23 +11,23 @@ import nb.largefactory.util.DataMap;
 
 public class Crusher {
 
-    float mainOreBonus;
-    float slagPercentBonus;
-    float slagBonus;
-    float ergCost;
-    float timeCost;
-    float timePercent;
-    float ergPercent;
-    String attuneMetal;
-    int attuneValue;
-    int attuneDisvalue;
-    int secondaryBonus;
-    float secondaryPercentBonus;
+    float                  mainOreBonus;
+    float                  slagPercentBonus;
+    float                  slagBonus;
+    float                  ergCost;
+    float                  timeCost;
+    float                  timePercent;
+    float                  ergPercent;
+    String                 attuneMetal;
+    int                    attuneValue;
+    int                    attuneDisvalue;
+    int                    secondaryBonus;
+    float                  secondaryPercentBonus;
     DataMap<String, Float> solid;
     DataMap<String, Float> waste;
-    CycleData out;
+    CycleData              out;
 
-    Crusher(){
+    Crusher() {
         mainOreBonus = 0f;
         slagPercentBonus = 0f;
         slagBonus = 0f;
@@ -40,33 +40,46 @@ public class Crusher {
         attuneDisvalue = 0;
         secondaryBonus = 0;
         secondaryPercentBonus = 0f;
-        //modify them
+        // modify them
     }
 
-    public CycleData RunCrusher(ArrayList<Imput> start){
+    public CycleData RunCrusher(ArrayList<Imput> start) {
         solid = new DataMap<String, Float>();
         waste = new DataMap<String, Float>();
-        for(Imput I : start){
+        for (Imput I : start) {
             int numberOfBlocks = I.getNumberOfItems();
             Float oreSlag = 0f;
-            MetalClass currentMetal = MetalFactory.metalList.get(I.getNameOfMaterial());
+            MetalClass currentMetal = MetalFactory.metalList.get(I
+                    .getNameOfMaterial());
 
-            if(attuneMetal == currentMetal.getName() || attuneMetal == null){
-                solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue) * numberOfBlocks);
-            }else{
-                solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneDisvalue) * numberOfBlocks);
+            if (attuneMetal == currentMetal.getName() || attuneMetal == null) {
+                solid.add(
+                        currentMetal.getName(),
+                        (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue)
+                        * numberOfBlocks);
+            } else {
+                solid.add(
+                        currentMetal.getName(),
+                        (currentMetal.getPrimaryValue() + mainOreBonus + attuneDisvalue)
+                        * numberOfBlocks);
             }
-            for (Map.Entry<String, Float> entry : currentMetal.getAllYieldValue().entrySet()){
-                if(entry.getKey() != "slag"){
-                    Float tmp = (currentMetal.getYieldValue(entry.getKey()) + secondaryBonus) * secondaryPercentBonus * numberOfBlocks;
+            for (Map.Entry<String, Float> entry : currentMetal
+                    .getAllYieldValue().entrySet()) {
+                if (entry.getKey() != "slag") {
+                    Float tmp = (currentMetal.getYieldValue(entry.getKey()) + secondaryBonus)
+                            * secondaryPercentBonus * numberOfBlocks;
                     waste.add(currentMetal.getName(), tmp);
                     oreSlag += tmp;
-                }else{
-                    waste.add("slag", (currentMetal.getYieldValue(entry.getKey()) + slagBonus) * slagPercentBonus * numberOfBlocks);
+                } else {
+                    waste.add(
+                            "slag",
+                            (currentMetal.getYieldValue(entry.getKey()) + slagBonus)
+                            * slagPercentBonus * numberOfBlocks);
                 }
             }
         }
-        out = new CycleData(solid, waste, timeCost * timePercent, ergCost * ergPercent);
+        out = new CycleData(solid, waste, timeCost * timePercent, ergCost
+                * ergPercent);
         return out;
 
     }

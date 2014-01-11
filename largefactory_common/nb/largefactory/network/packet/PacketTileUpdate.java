@@ -11,7 +11,7 @@ import cpw.mods.fml.common.network.Player;
 
 public class PacketTileUpdate extends PacketLargeFactory {
 
-    public int x, y, z;
+    public int    x, y, z;
     public String customName;
 
     public PacketTileUpdate() {

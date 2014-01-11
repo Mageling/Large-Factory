@@ -9,7 +9,8 @@ public class ModelSaltCondenser {
     private IModelCustom modelSaltCondenser;
 
     public ModelSaltCondenser() {
-        modelSaltCondenser = AdvancedModelLoader.loadModel(Models.SALT_CONDENSER);
+        modelSaltCondenser = AdvancedModelLoader
+                .loadModel(Models.SALT_CONDENSER);
     }
 
     public void render() {

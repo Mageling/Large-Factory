@@ -15,7 +15,8 @@ public class TileEntitySaltCondenserRenderer extends TileEntitySpecialRenderer {
     private ModelSaltCondenser modelSaltCondenser = new ModelSaltCondenser();
 
     @Override
-    public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float tick) {
+    public void renderTileEntityAt(TileEntity tileentity, double x, double y,
+            double z, float tick) {
 
         if (tileentity instanceof TileEntitySaltCondenser) {
             // TileEntitySaltCondenser tileentitysaltcondenser =
@@ -25,10 +26,12 @@ public class TileEntitySaltCondenserRenderer extends TileEntitySpecialRenderer {
             GL11.glDisable(GL11.GL_LIGHTING);
 
             GL11.glScalef(1.0F, 1.0F, 1.0F);
-            GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
+            GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F,
+                    (float) z + 0.5F);
 
             // Bind Texture
-            FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.SALT_CONDENSER);
+            FMLClientHandler.instance().getClient().renderEngine
+            .bindTexture(Textures.SALT_CONDENSER);
 
             modelSaltCondenser.render();
 

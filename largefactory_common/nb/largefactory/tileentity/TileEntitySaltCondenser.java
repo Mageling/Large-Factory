@@ -9,15 +9,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class TileEntitySaltCondenser extends TileEntityLargeFactory implements IInventory {
+public class TileEntitySaltCondenser extends TileEntityLargeFactory implements
+IInventory {
 
-    public static final int INVENTORY_SIZE = 1;
-    public static final int OUTPUT_INVENTORY_INDEX = 0;
+    public static final int INVENTORY_SIZE             = 1;
+    public static final int OUTPUT_INVENTORY_INDEX     = 0;
 
-    private ItemStack[] saltCondenserItemStacks;
-    public int saltCondenserTimeRemaining = 1152000; // ticks in 16 hours
-    public int saltProgress = 0;
-    public boolean ceaseFunction = false;
+    private ItemStack[]     saltCondenserItemStacks;
+    public int              saltCondenserTimeRemaining = 1152000; // ticks in 16
+    // hours
+    public int              saltProgress               = 0;
+    public boolean          ceaseFunction              = false;
 
     public TileEntitySaltCondenser() {
         saltCondenserItemStacks = new ItemStack[INVENTORY_SIZE];
@@ -51,7 +53,8 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
         } else {
             if (saltCondenserItemStacks[0].itemID == ModItems.salt.itemID) {
                 if (saltCondenserItemStacks[0].stackSize < 64) {
-                    saltCondenserItemStacks[0] = new ItemStack(ModItems.salt, saltCondenserItemStacks[0].stackSize + 1);
+                    saltCondenserItemStacks[0] = new ItemStack(ModItems.salt,
+                            saltCondenserItemStacks[0].stackSize + 1);
                     return;
                 }
             }
@@ -80,15 +83,18 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
         saltCondenserItemStacks = new ItemStack[getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
-            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.tagAt(i);
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist
+                    .tagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
 
             if (b0 >= 0 && b0 < saltCondenserItemStacks.length) {
-                saltCondenserItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+                saltCondenserItemStacks[b0] = ItemStack
+                        .loadItemStackFromNBT(nbttagcompound1);
             }
         }
 
-        saltCondenserTimeRemaining = par1NBTTagCompound.getInteger("TimeRemaining");
+        saltCondenserTimeRemaining = par1NBTTagCompound
+                .getInteger("TimeRemaining");
         saltProgress = par1NBTTagCompound.getInteger("SaltProgress");
         ceaseFunction = par1NBTTagCompound.getBoolean("CeaseFunction");
 
@@ -97,7 +103,8 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
     @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeToNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setInteger("TimeRemaining", saltCondenserTimeRemaining);
+        par1NBTTagCompound.setInteger("TimeRemaining",
+                saltCondenserTimeRemaining);
         par1NBTTagCompound.setInteger("SaltProgress", saltProgress);
         par1NBTTagCompound.setBoolean("CeaseFunction", ceaseFunction);
         NBTTagList nbttaglist = new NBTTagList();
@@ -161,7 +168,8 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
         saltCondenserItemStacks[par1] = par2ItemStack;
 
-        if (par2ItemStack != null && par2ItemStack.stackSize > getInventoryStackLimit()) {
+        if (par2ItemStack != null
+                && par2ItemStack.stackSize > getInventoryStackLimit()) {
             par2ItemStack.stackSize = getInventoryStackLimit();
         }
     }
@@ -183,8 +191,9 @@ public class TileEntitySaltCondenser extends TileEntityLargeFactory implements I
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-        return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this ? false : par1EntityPlayer.getDistanceSq(
-                xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64.0D;
+        return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this ? false
+                : par1EntityPlayer.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D,
+                        zCoord + 0.5D) <= 64.0D;
     }
 
     @Override

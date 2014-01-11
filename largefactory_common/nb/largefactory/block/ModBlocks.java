@@ -22,7 +22,8 @@ public class ModBlocks {
         LanguageRegistry.addName(saltBlock, "Salt Block");
 
         structureComponent = new BlockStructure(BlockIDs.STRUCTURE_BLOCK);
-        GameRegistry.registerBlock(structureComponent, Strings.STRUCTURE_BLOCK_NAME);
+        GameRegistry.registerBlock(structureComponent,
+                Strings.STRUCTURE_BLOCK_NAME);
         LanguageRegistry.addName(structureComponent, "Structure Component");
     }
 
