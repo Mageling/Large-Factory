@@ -59,11 +59,11 @@ public class BlockTea extends BlockCrops {
     }
 
     public float getGrowthRate(World par1World, int par2, int par3, int par4) {
-        int l = par1World.getBlockMetadata(par2,  par3, par4);
-        
+        int l = par1World.getBlockMetadata(par2, par3, par4);
+
         float base;
-        
-        switch(l) {
+
+        switch (l) {
         case 0:
             base = 1.5f;
             break;
@@ -82,12 +82,12 @@ public class BlockTea extends BlockCrops {
         default:
             return 0f;
         }
-        
+
         float f1 = par1World.getBiomeGenForCoords(par2, par4).temperature;
-        float f2 = par1World.getBiomeGenForCoords(par2,par4).rainfall;
-        float f3 = (float)Scalables.TEA_GROWTH_FACTOR/100F;
-        
-        return base*f1*f2*f3;
+        float f2 = par1World.getBiomeGenForCoords(par2, par4).rainfall;
+        float f3 = (float) Scalables.TEA_GROWTH_FACTOR / 100F;
+
+        return base * f1 * f2 * f3;
     }
 
     public void fertilize(World par1World, int par2, int par3, int par4) {
@@ -103,7 +103,7 @@ public class BlockTea extends BlockCrops {
 
         par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 3);
     }
-    
+
     public int idDropped(int par1, Random par2Random, int par3) {
         return blockID;
     }
@@ -114,9 +114,9 @@ public class BlockTea extends BlockCrops {
         if (par2 < 0 || par2 > 5) {
             par2 = 5;
         }
-        
-        if (par2==3) {
-            switch(par1) {
+
+        if (par2 == 3) {
+            switch (par1) {
             case 1:
                 return iconArray[6];
             case 0:
@@ -128,12 +128,8 @@ public class BlockTea extends BlockCrops {
 
         return iconArray[par2];
     }
-    
-    
-    
 
-
-@Override
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
         iconArray = new Icon[8];
@@ -142,115 +138,112 @@ public class BlockTea extends BlockCrops {
             iconArray[i] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
                     getUnwrappedUnlocalizedName(getUnlocalizedName()) + "_stage_" + i));
         }
-        
+
         iconArray[6] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
                 getUnwrappedUnlocalizedName(getUnlocalizedName()) + "_stage_3_top"));
     }
 
-protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
 
-    return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-}
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
 
     public int getRenderType() {
         return 0;
     }
 
-    
-
     @Override
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer,
             int par6, float par7, float par8, float par9) {
-        if(par1World.isRemote) return false;
-        
-        if(par5EntityPlayer.getCurrentEquippedItem() != null) return false;
-        
-        
+        if (par1World.isRemote)
+            return false;
+
+        if (par5EntityPlayer.getCurrentEquippedItem() != null)
+            return false;
+
         int l = par1World.getBlockMetadata(par2, par3, par4);
 
         if (l <= 2)
             return false;
         else if (l == 3) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l == 4) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l <= 5) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3, 0));
             par1World.spawnEntityInWorld(entityitem);
         }
-        par1World.setBlock(par2, par3, par4, blockID, 2,3);
+        par1World.setBlock(par2, par3, par4, blockID, 2, 3);
         return true;
     }
 
     public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
-        if(par1World.isRemote) return;
-        
-        if(par5EntityPlayer.getCurrentEquippedItem() != null) return;
-        
+        if (par1World.isRemote)
+            return;
+
+        if (par5EntityPlayer.getCurrentEquippedItem() != null)
+            return;
+
         int l = par1World.getBlockMetadata(par2, par3, par4);
 
         if (l <= 2)
             return;
         else if (l == 3) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l == 4) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l <= 5) {
-            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3,0));
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3, 0));
             par1World.spawnEntityInWorld(entityitem);
         }
-        par1World.setBlock(par2, par3, par4, blockID, 2,3);
+        par1World.setBlock(par2, par3, par4, blockID, 2, 3);
         return;
     }
-    
+
     @Override
-    public int damageDropped (int metadata)
-    {
+    public int damageDropped(int metadata) {
         return 0;
     }
-    
+
     @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool (World world, int x, int y, int z)
-    {
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
-        if (l < 1)
-        {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
-        }
-        else if (l < 2)
-        {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 0.75D, (double) z + 0.875D);
-        }
-        else
-        {
+        if (l < 1) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D,
+                    (double) y + 0.5D, (double) z + 0.75D);
+        } else if (l < 2) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D,
+                    (double) y + 0.75D, (double) z + 0.875D);
+        } else {
             return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
         }
     }
 
-    public AxisAlignedBB getSelectedBoundingBoxFromPool (World world, int x, int y, int z)
-    {
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
-        if (l < 1)
-        {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
-        }
-        else if (l < 2)
-        {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 0.75D, (double) z + 0.875D);
-        }
-        else
-        {
+        if (l < 1) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D,
+                    (double) y + 0.5D, (double) z + 0.75D);
+        } else if (l < 2) {
+            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D,
+                    (double) y + 0.75D, (double) z + 0.875D);
+        } else {
             return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
         }
     }
-    
+
     @Override
-    public void setBlockBoundsBasedOnState (IBlockAccess iblockaccess, int x, int y, int z)
-    {
+    public void setBlockBoundsBasedOnState(IBlockAccess iblockaccess, int x, int y, int z) {
         int md = iblockaccess.getBlockMetadata(x, y, z);
 
         float minX;
@@ -260,31 +253,25 @@ protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
         float maxY;
         float maxZ;
 
-        if (md < 1)
-        {
+        if (md < 1) {
             minX = minZ = 0.25F;
             maxX = maxZ = 0.75F;
             maxY = 0.5F;
-        }
-        else
+        } else
 
-        if (md < 2)
-        {
+        if (md < 2) {
             minX = minZ = 0.125F;
             maxX = maxZ = 0.875F;
             maxY = 0.75F;
         }
 
-        else
-        {
+        else {
             minX = minZ = 0.0F;
             maxX = maxZ = 1.0F;
             maxY = 1.0F;
         }
         setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
     }
-
-    
 
     @Override
     public EnumPlantType getPlantType(World world, int x, int y, int z) {

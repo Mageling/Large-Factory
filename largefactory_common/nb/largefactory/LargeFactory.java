@@ -7,6 +7,7 @@ import nb.largefactory.config.ConfigurationHandler;
 import nb.largefactory.item.ModItems;
 import nb.largefactory.item.crafting.VanillaCrafting;
 import nb.largefactory.lib.Reference;
+import nb.largefactory.lib.locations.Files;
 import nb.largefactory.network.PacketHandler;
 import nb.largefactory.proxy.CommonProxy;
 import nb.largefactory.structure.StructureTypeFactory;
@@ -46,8 +47,9 @@ public class LargeFactory {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         // Initialize configs
-        ConfigurationHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator
-                + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
+        Files.CONFIG_LOCATION = event.getModConfigurationDirectory().getAbsolutePath() + File.separator
+                + Reference.CHANNEL_NAME.toLowerCase() + File.separator;
+        ConfigurationHandler.init(Files.CONFIG_LOCATION);
 
         // Register Blocks and Items
         ModBlocks.registerBlocks();
@@ -74,12 +76,12 @@ public class LargeFactory {
 
     @EventHandler
     public void modsLoaded(FMLPostInitializationEvent event) {
-        //xml loading
+        // xml loading
         StructureTypeFactory.instantiate();
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
         XMLDecoder.instantiate();
-        if(Reference.DEBUG_MODE){
+        if (Reference.DEBUG_MODE) {
             XMLTestCode.TestComponents();
         }
 

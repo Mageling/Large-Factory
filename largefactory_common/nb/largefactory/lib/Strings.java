@@ -34,16 +34,15 @@ public class Strings {
     public static final String WHITE_TEA_BASKET_NAME = "basketTeaWhite";
     public static final String GREEN_TEA_BASKET_NAME = "basketTeaGreen";
     public static final String BLACK_TEA_BASKET_NAME = "basketTeaBlack";
-    
+
     /* TileEntity name constants */
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";
 
     /* Container related constants */
     public static final String CONTAINER_INVENTORY = "container.inventory";
-    
+
     /* Config Names */
     public static final String CONFIG_GENERAL_CATEGORY = "General";
     public static final String CONFIG_TEA_GROWTH = "Tea Growth Rate";
-    
 
 }

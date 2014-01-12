@@ -29,7 +29,7 @@ public class ModItems {
     public static Item saltChickenCooked;
     public static Item saltFishRaw;
     public static Item saltFishCooked;
-    
+
     public static Item teaWhite;
     public static Item teaGreen;
     public static Item teaBlack;
@@ -73,22 +73,22 @@ public class ModItems {
 
         saltFishCooked = new ItemSaltFishCooked(ItemIDs.SALT_FISH_COOKED);
         LanguageRegistry.addName(saltFishCooked, "Salted Fish");
-        
+
         teaWhite = new ItemTeaWhite(ItemIDs.WHITE_TEA);
         LanguageRegistry.addName(teaWhite, "White Tea Leaf");
-        
+
         teaGreen = new ItemTeaGreen(ItemIDs.GREEN_TEA);
         LanguageRegistry.addName(teaGreen, "Green Tea Leaf");
-        
+
         teaBlack = new ItemTeaBlack(ItemIDs.BLACK_TEA);
         LanguageRegistry.addName(teaBlack, "Black Tea Leaf");
-        
+
         basketTeaWhite = new ItemBasketTeaWhite(ItemIDs.WHITE_TEA_BASKET);
         LanguageRegistry.addName(basketTeaWhite, "Basket of White Tea");
-        
+
         basketTeaGreen = new ItemBasketTeaGreen(ItemIDs.GREEN_TEA_BASKET);
         LanguageRegistry.addName(basketTeaGreen, "Basket of Green Tea");
-        
+
         basketTeaBlack = new ItemBasketTeaBlack(ItemIDs.BLACK_TEA_BASKET);
         LanguageRegistry.addName(basketTeaBlack, "Basket of Black Tea");
 

@@ -25,7 +25,7 @@ public class ModBlocks {
         structureComponent = new BlockStructure(BlockIDs.STRUCTURE_BLOCK);
         GameRegistry.registerBlock(structureComponent, Strings.STRUCTURE_BLOCK_NAME);
         LanguageRegistry.addName(structureComponent, "Structure Component");
-        
+
         teaPlant = new BlockTea(BlockIDs.TEA_PLANT);
         GameRegistry.registerBlock(teaPlant, Strings.TEA_PLANT_NAME);
         LanguageRegistry.addName(teaPlant, "Tea Plant");

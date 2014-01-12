@@ -24,8 +24,8 @@ public class IDConfiguration {
                     BlockIDs.SALT_CONDENSER_DEFAULT).getInt(BlockIDs.SALT_CONDENSER_DEFAULT);
             BlockIDs.STRUCTURE_BLOCK = idConfiguration.getBlock(Strings.STRUCTURE_BLOCK_NAME,
                     BlockIDs.STRUCTURE_BLOCK_DEFAULT).getInt(BlockIDs.STRUCTURE_BLOCK_DEFAULT);
-            BlockIDs.TEA_PLANT = idConfiguration.getBlock(Strings.TEA_PLANT_NAME,
-                    BlockIDs.TEA_PLANT_DEFAULT).getInt(BlockIDs.TEA_PLANT_DEFAULT);
+            BlockIDs.TEA_PLANT = idConfiguration.getBlock(Strings.TEA_PLANT_NAME, BlockIDs.TEA_PLANT_DEFAULT).getInt(
+                    BlockIDs.TEA_PLANT_DEFAULT);
 
             ItemIDs.ITEM_STRUCTURE = idConfiguration.getItem(Strings.ITEM_STRUCTURE_NAME,
                     ItemIDs.ITEM_STRUCTURE_DEFAULT).getInt(ItemIDs.ITEM_STRUCTURE_DEFAULT);
@@ -55,12 +55,12 @@ public class IDConfiguration {
                     ItemIDs.GREEN_TEA_DEFAULT);
             ItemIDs.BLACK_TEA = idConfiguration.getItem(Strings.BLACK_TEA_NAME, ItemIDs.BLACK_TEA_DEFAULT).getInt(
                     ItemIDs.BLACK_TEA_DEFAULT);
-            ItemIDs.WHITE_TEA_BASKET = idConfiguration.getItem(Strings.WHITE_TEA_BASKET_NAME, ItemIDs.WHITE_TEA_BASKET_DEFAULT).getInt(
-                    ItemIDs.WHITE_TEA_BASKET_DEFAULT);
-            ItemIDs.GREEN_TEA_BASKET = idConfiguration.getItem(Strings.GREEN_TEA_BASKET_NAME, ItemIDs.GREEN_TEA_BASKET_DEFAULT).getInt(
-                    ItemIDs.GREEN_TEA_BASKET_DEFAULT);
-            ItemIDs.BLACK_TEA_BASKET = idConfiguration.getItem(Strings.BLACK_TEA_BASKET_NAME, ItemIDs.BLACK_TEA_BASKET_DEFAULT).getInt(
-                    ItemIDs.BLACK_TEA_BASKET_DEFAULT);
+            ItemIDs.WHITE_TEA_BASKET = idConfiguration.getItem(Strings.WHITE_TEA_BASKET_NAME,
+                    ItemIDs.WHITE_TEA_BASKET_DEFAULT).getInt(ItemIDs.WHITE_TEA_BASKET_DEFAULT);
+            ItemIDs.GREEN_TEA_BASKET = idConfiguration.getItem(Strings.GREEN_TEA_BASKET_NAME,
+                    ItemIDs.GREEN_TEA_BASKET_DEFAULT).getInt(ItemIDs.GREEN_TEA_BASKET_DEFAULT);
+            ItemIDs.BLACK_TEA_BASKET = idConfiguration.getItem(Strings.BLACK_TEA_BASKET_NAME,
+                    ItemIDs.BLACK_TEA_BASKET_DEFAULT).getInt(ItemIDs.BLACK_TEA_BASKET_DEFAULT);
 
         } catch (Exception e) {
 

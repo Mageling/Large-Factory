@@ -20,7 +20,7 @@ public class ComponentDataClass {
         name = compname;
         information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
-        dimensions =  new int[3];
+        dimensions = new int[3];
         Arrays.fill(dimensions, 1);
 
     }
@@ -69,7 +69,7 @@ public class ComponentDataClass {
      */
     public String getType() {
         int[] test = new int[3];
-        Arrays.fill(test,1);
+        Arrays.fill(test, 1);
         if (name.equals("casing"))
             return "casing";
         else if (controlBlock)
@@ -85,18 +85,17 @@ public class ComponentDataClass {
         return dimensions;
 
     }
-    
-    public String informationAsString(){
+
+    public String informationAsString() {
         String output = "";
-        for(Map.Entry<String, String> entry: information.entrySet()){
+        for (Map.Entry<String, String> entry : information.entrySet()) {
             output = output + " " + entry.getKey() + ": " + entry.getValue();
         }
         return output;
     }
-    
-    public String toString(){
-        return "Name: "+ name +" Type: " + getType() + " Structure Type: " + getStructureType();
+
+    public String toString() {
+        return "Name: " + name + " Type: " + getType() + " Structure Type: " + getStructureType();
     }
-    
-    
+
 }

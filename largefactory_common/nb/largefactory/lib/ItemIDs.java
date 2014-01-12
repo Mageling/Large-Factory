@@ -14,13 +14,13 @@ public class ItemIDs {
     public static int SALT_PORK_RAW_DEFAULT = 7772;
     public static int SALT_STEAK_COOKED_DEFAULT = 7775;
     public static int SALT_STEAK_RAW_DEFAULT = 7774;
-    public static int WHITE_TEA_DEFAULT=7782;
-    public static int GREEN_TEA_DEFAULT=7783;
-    public static int BLACK_TEA_DEFAULT=7784;
-    public static int WHITE_TEA_BASKET_DEFAULT=7785;
-    public static int GREEN_TEA_BASKET_DEFAULT=7786;
-    public static int BLACK_TEA_BASKET_DEFAULT=7787;
-    
+    public static int WHITE_TEA_DEFAULT = 7782;
+    public static int GREEN_TEA_DEFAULT = 7783;
+    public static int BLACK_TEA_DEFAULT = 7784;
+    public static int WHITE_TEA_BASKET_DEFAULT = 7785;
+    public static int GREEN_TEA_BASKET_DEFAULT = 7786;
+    public static int BLACK_TEA_BASKET_DEFAULT = 7787;
+
     public static int ITEM_STRUCTURE;
     public static int SALT;
     public static int SALT_CHICKEN_COOKED;

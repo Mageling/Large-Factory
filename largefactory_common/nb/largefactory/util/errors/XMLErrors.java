@@ -11,12 +11,12 @@ public enum XMLErrors {
     STRUCTURE_MISSING("The XML file for structures is missing", "", DefaultErrorLevels.XML),
     METAL_INVALID("The metal ", " has an invalid XML entry called", DefaultErrorLevels.XML),
     INVALID_DIMENSIONS("The component ", " has invalid dimensions", DefaultErrorLevels.XML),
-    ADDED_ENTRY("Added ","", DefaultErrorLevels.INFO),
+    ADDED_ENTRY("Added ", "", DefaultErrorLevels.INFO),
     LOADED_METAL("The XML metal file is loaded", "", DefaultErrorLevels.INFO),
     LOADED_COMPONENTS("The XML component file is loaded", "", DefaultErrorLevels.INFO),
     LOADED_STRUCTURE("The XML structure file is loaded", "", DefaultErrorLevels.INFO),
-    
-    UNKNOWN_ERROR("THIS IS VERY BAD/TESTING PURPOSE","", DefaultErrorLevels.XML);
+
+    UNKNOWN_ERROR("THIS IS VERY BAD/TESTING PURPOSE", "", DefaultErrorLevels.XML);
 
     private String part1;
     private String part2;
