@@ -41,5 +41,9 @@ public class Strings {
     /* Container related constants */
     public static final String CONTAINER_INVENTORY = "container.inventory";
     
+    /* Config Names */
+    public static final String CONFIG_GENERAL_CATEGORY = "General";
+    public static final String CONFIG_TEA_GROWTH = "Tea Growth Rate";
+    
 
 }

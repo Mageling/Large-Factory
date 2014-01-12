@@ -4,6 +4,7 @@ import java.util.Random;
 
 import nb.largefactory.item.ModItems;
 import nb.largefactory.lib.Reference;
+import nb.largefactory.lib.Scalables;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFlower;
@@ -46,7 +47,7 @@ public class BlockTea extends BlockCrops {
         if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9) {
             int l = par1World.getBlockMetadata(par2, par3, par4);
 
-            if (l < 7) {
+            if (l < 5) {
                 float f = getGrowthRate(par1World, par2, par3, par4);
 
                 if (par5Random.nextInt((int) (25.0F / f) + 1) == 0) {
@@ -58,8 +59,35 @@ public class BlockTea extends BlockCrops {
     }
 
     public float getGrowthRate(World par1World, int par2, int par3, int par4) {
-        return 1.0F;
-        // TODO Growth rate code
+        int l = par1World.getBlockMetadata(par2,  par3, par4);
+        
+        float base;
+        
+        switch(l) {
+        case 0:
+            base = 1.5f;
+            break;
+        case 1:
+            base = 1.5f;
+            break;
+        case 2:
+            base = 1.0f;
+            break;
+        case 3:
+            base = 3.0f;
+            break;
+        case 4:
+            base = 0.5f;
+            break;
+        default:
+            return 0f;
+        }
+        
+        float f1 = par1World.getBiomeGenForCoords(par2, par4).temperature;
+        float f2 = par1World.getBiomeGenForCoords(par2,par4).rainfall;
+        float f3 = (float)Scalables.TEA_GROWTH_FACTOR/100F;
+        
+        return base*f1*f2*f3;
     }
 
     public void fertilize(World par1World, int par2, int par3, int par4) {
