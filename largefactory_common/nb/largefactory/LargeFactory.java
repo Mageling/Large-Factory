@@ -12,6 +12,7 @@ import nb.largefactory.proxy.CommonProxy;
 import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.structure.component.ComponentFactory;
+import nb.largefactory.util.errors.XMLErrors;
 import nb.largefactory.xml.XMLDecoder;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -47,9 +48,6 @@ public class LargeFactory {
         ConfigurationHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator
                 + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
 
-        // Load the XML decoder
-        XMLDecoder.instantiate();
-
         // Register Blocks and Items
         ModBlocks.registerBlocks();
         ModItems.registerItems();
@@ -75,9 +73,11 @@ public class LargeFactory {
 
     @EventHandler
     public void modsLoaded(FMLPostInitializationEvent event) {
+        //xml loading
         StructureTypeFactory.instantiate();
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
+        XMLDecoder.instantiate();
 
     }
 

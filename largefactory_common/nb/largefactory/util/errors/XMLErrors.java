@@ -11,6 +11,7 @@ public enum XMLErrors {
     STRUCTURE_MISSING("The XML file for structures is missing", null),
     METAL_INVALID("The metal ", " has an invalid XML entry called"),
     INVALID_DIMENSIONS("The component ", " has invalid dimensions"),
+    ADDED_ENTRY("Added",null),
     LOADED_METAL("The XML metal file is loaded", null),
     LOADED_COMPONENTS("The XML component file is loaded", null),
     LOADED_STRUCTURE("The XML structure file is loaded", null);

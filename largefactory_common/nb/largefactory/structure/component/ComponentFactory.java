@@ -3,6 +3,8 @@ package nb.largefactory.structure.component;
 import java.util.HashMap;
 import java.util.Map;
 
+import nb.largefactory.util.errors.XMLErrors;
+
 import org.w3c.dom.NodeList;
 
 /*  This is a list of every allowed entry in a XMl component
@@ -37,5 +39,6 @@ public class ComponentFactory {
             a.AddtoHash(component.item(k).getNodeName(), component.item(k).getTextContent());
         }
         componentList.put(component.item(0).getTextContent(), a);
+        XMLErrors.ADDED_ENTRY.printError(a.name);
     }
 }
