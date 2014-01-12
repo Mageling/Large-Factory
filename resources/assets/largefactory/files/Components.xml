@@ -1,5 +1,4 @@
 <components>
-	<crusher_components>
 		<component>
 			<name>crusher</name>		
 		</component>
@@ -38,8 +37,6 @@
 			<dimensions>2,2,2</dimensions>
 			<secondarypercentbonus>50</secondarypercentbonus>
 		</component>
-	</crusher_components>
-	<smelter_components>
 		<component>
 			<name>smelter</name>
 		</component>
@@ -50,6 +47,7 @@
 		</component>
 		<component>
 			<name>bellows</name>
+			<type>smelter</type>
 			<max>4</max>
 			<timecost>-10</timecost>
 			<ergcost>15</ergcost>
@@ -61,5 +59,4 @@
 			<ergperingot>2</ergperingot>
 			<ergperingotstack>2</ergperingotstack>
 		</component>
-	</smelter_components>
 </components>
