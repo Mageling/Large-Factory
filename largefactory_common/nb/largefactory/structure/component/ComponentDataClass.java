@@ -16,9 +16,8 @@ public class ComponentDataClass {
     boolean controlBlock;
     Map<String, String> information;
 
-    public ComponentDataClass(String compname, String structure_type) {
+    public ComponentDataClass(String compname) {
         name = compname;
-        structureType = structure_type;
         information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
         dimensions =  new int[3];

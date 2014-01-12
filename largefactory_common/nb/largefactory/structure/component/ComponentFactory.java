@@ -33,8 +33,8 @@ public class ComponentFactory {
 
     }
 
-    public static void createComponent(NodeList component, String structtype_string) {
-        ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent(), structtype_string);
+    public static void createComponent(NodeList component) {
+        ComponentDataClass a = new ComponentDataClass(component.item(0).getTextContent());
         for (int k = 1; k < component.getLength(); k++) {
             a.AddtoHash(component.item(k).getNodeName(), component.item(k).getTextContent());
         }
