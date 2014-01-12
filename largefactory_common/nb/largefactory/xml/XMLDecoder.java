@@ -15,10 +15,13 @@ public class XMLDecoder {
     static NodeList node;
 
     public static void instantiate() {
+        XMLErrors.UNKNOWN_ERROR.printError(Files.XML_COMPONENT_LOCATION);
+
         // This does the components
         try {
             File file = new File(Files.XML_COMPONENT_LOCATION);
             if (file.exists()) {
+                XMLErrors.UNKNOWN_ERROR.printError();
                 DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse(Files.XML_COMPONENT_LOCATION);
@@ -37,9 +40,11 @@ public class XMLDecoder {
                     }
                 }
                 XMLErrors.LOADED_COMPONENTS.printError();
+            }else{
+                XMLErrors.COMPONENT_MISSING.printError();
             }
         } catch (Exception e) {
-            XMLErrors.COMPONENT_MISSING.printError();
+
         }
 
         try {

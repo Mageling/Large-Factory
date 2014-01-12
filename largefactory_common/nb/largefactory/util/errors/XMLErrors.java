@@ -11,10 +11,12 @@ public enum XMLErrors {
     STRUCTURE_MISSING("The XML file for structures is missing", null),
     METAL_INVALID("The metal ", " has an invalid XML entry called"),
     INVALID_DIMENSIONS("The component ", " has invalid dimensions"),
-    ADDED_ENTRY("Added",null),
+    ADDED_ENTRY("Added ",null),
     LOADED_METAL("The XML metal file is loaded", null),
     LOADED_COMPONENTS("The XML component file is loaded", null),
-    LOADED_STRUCTURE("The XML structure file is loaded", null);
+    LOADED_STRUCTURE("The XML structure file is loaded", null),
+    
+    UNKNOWN_ERROR("THIS IS VERY BAD/TESTING PURPOSE",null);
 
     private String part1;
     private String part2;
@@ -25,7 +27,7 @@ public enum XMLErrors {
     }
 
     public void printError() {
-        printError("");
+        FMLLog.log(DefaultErrorLevels.XML, part1);
     }
 
     public void printError(String s) {
