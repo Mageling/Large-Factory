@@ -10,7 +10,10 @@ public enum XMLErrors {
     COMPONENT_MISSING("The XML file for components is missing", null),
     STRUCTURE_MISSING("The XML file for structures is missing", null),
     METAL_INVALID("The metal ", " has an invalid XML entry called"),
-    INVALID_DIMENSIONS("The component ", " has invalid dimensions");
+    INVALID_DIMENSIONS("The component ", " has invalid dimensions"),
+    LOADED_METAL("The XML metal file is loaded", null),
+    LOADED_COMPONENTS("The XML component file is loaded", null),
+    LOADED_STRUCTURE("The XML structure file is loaded", null);
 
     private String part1;
     private String part2;

@@ -36,6 +36,7 @@ public class XMLDecoder {
                                 .getParentNode().getNodeName().replaceAll("\\s+", ""));
                     }
                 }
+                XMLErrors.LOADED_COMPONENTS.printError();
             }
         } catch (Exception e) {
             XMLErrors.COMPONENT_MISSING.printError();
@@ -60,6 +61,7 @@ public class XMLDecoder {
                         nb.largefactory.structure.calculations.MetalFactory.learnMetal(nodeinfo);
                     }
                 }
+                XMLErrors.LOADED_METAL.printError();
             }
         } catch (Exception e) {
             XMLErrors.METAL_MISSING.printError();
@@ -84,6 +86,7 @@ public class XMLDecoder {
                         nb.largefactory.structure.StructureTypeFactory.createStructureType(nodeinfo);
                     }
                 }
+                XMLErrors.LOADED_STRUCTURE.printError();
             }
         } catch (Exception e) {
             XMLErrors.STRUCTURE_MISSING.printError();
