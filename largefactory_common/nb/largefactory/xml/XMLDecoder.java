@@ -1,6 +1,7 @@
 package nb.largefactory.xml;
 
 import java.io.File;
+import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -10,6 +11,8 @@ import nb.largefactory.util.errors.XMLErrors;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
+import cpw.mods.fml.common.FMLLog;
 
 public class XMLDecoder {
     static NodeList node;
@@ -42,7 +45,7 @@ public class XMLDecoder {
                 XMLErrors.COMPONENT_MISSING.printError();
             }
         } catch (Exception e) {
-            XMLErrors.ADDED_ENTRY.printError(e.getMessage());
+            FMLLog.log(Level.SEVERE,e.getMessage());
         }
 
         try {
@@ -54,14 +57,16 @@ public class XMLDecoder {
                 node = doc.getElementsByTagName("*");
                 for (int i = 0; i < node.getLength(); i++) {
                     NodeList nodeinfo;
-                    if (node.item(i).getParentNode().equals("metal")) {
-                        nodeinfo = node.item(i).getChildNodes();
-                        for (int k = 0; k < nodeinfo.getLength(); k++) {
-                            if (nodeinfo.item(k).getTextContent().trim().length() == 0) {
-                                nodeinfo.item(k).getParentNode().removeChild(nodeinfo.item(k));
+                    if (!node.item(i).getNodeName().equals("metal")){
+                        if (node.item(i).getParentNode().getNodeName().equals("metal")) {
+                            nodeinfo = node.item(i).getChildNodes();
+                            for (int k = 0; k < nodeinfo.getLength(); k++) {
+                                if (nodeinfo.item(k).getTextContent().trim().length() == 0) {
+                                    nodeinfo.item(k).getParentNode().removeChild(nodeinfo.item(k));
+                                }
                             }
+                            nb.largefactory.structure.calculations.MetalFactory.learnMetal(nodeinfo);
                         }
-                        nb.largefactory.structure.calculations.MetalFactory.learnMetal(nodeinfo);
                     }
                 }
                 XMLErrors.LOADED_METAL.printError();
@@ -69,7 +74,7 @@ public class XMLDecoder {
                 XMLErrors.METAL_MISSING.printError();
             }
         } catch (Exception e) {
-            
+            FMLLog.log(Level.SEVERE,e.getMessage());
         }
 
         try {
@@ -79,9 +84,9 @@ public class XMLDecoder {
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse(Files.XML_STRUCTURE_LOCATION);
                 node = doc.getElementsByTagName("*");
-                for (int i = 0; i < node.getLength(); i++) {
+                for (int i = 1; i < node.getLength(); i++) {
                     NodeList nodeinfo;
-                    if (node.item(i).getParentNode().equals("structure")) {
+                    if (node.item(i).getParentNode().getNodeName().equals("structure")) {
                         nodeinfo = node.item(i).getChildNodes();
                         for (int k = 0; k < nodeinfo.getLength(); k++) {
                             if (nodeinfo.item(k).getTextContent().trim().length() == 0) {
@@ -96,6 +101,7 @@ public class XMLDecoder {
                 XMLErrors.STRUCTURE_MISSING.printError();
             }
         } catch (Exception e) {
+            FMLLog.log(Level.SEVERE,e.getMessage());
         }
 
     }

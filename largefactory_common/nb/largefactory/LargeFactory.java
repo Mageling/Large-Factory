@@ -14,6 +14,7 @@ import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.util.errors.XMLErrors;
 import nb.largefactory.xml.XMLDecoder;
+import nb.largefactory.xml.XMLTestCode;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -78,6 +79,9 @@ public class LargeFactory {
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
         XMLDecoder.instantiate();
+        if(false){
+            XMLTestCode.TestComponents();
+        }
 
     }
 

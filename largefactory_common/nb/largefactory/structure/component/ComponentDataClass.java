@@ -1,5 +1,6 @@
 package nb.largefactory.structure.component;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ public class ComponentDataClass {
         information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
         dimensions =  new int[3];
+        Arrays.fill(dimensions, 1);
 
     }
 
@@ -67,11 +69,13 @@ public class ComponentDataClass {
      * This returns inner, multinner, control, casing
      */
     public String getType() {
+        int[] test = new int[3];
+        Arrays.fill(test,1);
         if (name.equals("casing"))
             return "casing";
         else if (controlBlock)
             return "control";
-        else if (dimensions != null)
+        else if (!Arrays.equals(dimensions, test))
             return "multinner";
         else
             return "inner";
@@ -79,10 +83,21 @@ public class ComponentDataClass {
     }
 
     public int[] getMultiSize() {
-        if (dimensions == null)
-            return new int[] { 1, 1, 1 };
-        else
-            return dimensions;
+        return dimensions;
 
     }
+    
+    public String informationAsString(){
+        String output = "";
+        for(Map.Entry<String, String> entry: information.entrySet()){
+            output = output + " " + entry.getKey() + ": " + entry.getValue();
+        }
+        return output;
+    }
+    
+    public String toString(){
+        return "Name: "+ name +" Type: " + getType() + " Structure Type: " + getStructureType();
+    }
+    
+    
 }

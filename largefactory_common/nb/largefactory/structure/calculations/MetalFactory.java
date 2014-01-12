@@ -20,6 +20,7 @@ public class MetalFactory {
 
     public static void learnMetal(NodeList metal) {
         MetalClass a = new MetalClass(metal.item(0).getTextContent());
+        XMLErrors.ADDED_ENTRY.printError(a.getName());
         for (int k = 1; k < metal.getLength(); k++) {
             // this is everything that is hidden as slag
             if (metal.item(k).getNodeName() == "yield") {
@@ -27,7 +28,7 @@ public class MetalFactory {
                         Float.parseFloat(metal.item(k).getTextContent()));
                 // this is primary yield so not hidden as slag
             } else if (metal.item(k).getNodeName() == "primary") {
-                a.importPrimaryValue(metal.item(k).getAttributes().getNamedItem("primary").getNodeValue(),
+                a.importPrimaryValue(metal.item(k).getAttributes().getNamedItem("material").getNodeValue(),
                         Float.parseFloat(metal.item(k).getTextContent()));
                 // error catch
             } else {
