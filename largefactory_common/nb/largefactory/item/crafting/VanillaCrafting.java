@@ -28,6 +28,8 @@ public class VanillaCrafting {
         GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.saltBlock), new Object[] { ModItems.saltChunk,
                 ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk, ModItems.saltChunk,
                 ModItems.saltChunk, ModItems.saltChunk });
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltChunk, 8), ModBlocks.saltBlock);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.salt, 8), ModItems.saltChunk);
 
     }
 

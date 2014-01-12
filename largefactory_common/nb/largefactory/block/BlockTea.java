@@ -3,6 +3,7 @@ package nb.largefactory.block;
 import java.util.Random;
 
 import nb.largefactory.item.ModItems;
+import nb.largefactory.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFlower;
@@ -93,9 +94,15 @@ public class BlockTea extends BlockCrops {
         iconArray = new Icon[6];
 
         for (int i = 0; i < iconArray.length; ++i) {
-            iconArray[i] = par1IconRegister.registerIcon(getTextureName() + "_stage_" + i);
+            iconArray[i] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
+                    getUnwrappedUnlocalizedName(getUnlocalizedName()) + "_stage_" + i));
         }
     }
+
+protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
+
+    return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+}
 
     public int getRenderType() {
         return 0;
