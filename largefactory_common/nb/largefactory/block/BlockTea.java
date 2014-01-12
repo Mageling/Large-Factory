@@ -20,6 +20,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -35,6 +36,7 @@ public class BlockTea extends BlockCrops {
         setCreativeTab(CreativeTabs.tabMisc);
         setHardness(0.3F);
         setStepSound(soundGrassFootstep);
+        setUnlocalizedName("teaPlant");
     }
 
     @Override
@@ -84,19 +86,37 @@ public class BlockTea extends BlockCrops {
         if (par2 < 0 || par2 > 5) {
             par2 = 5;
         }
+        
+        if (par2==3) {
+            switch(par1) {
+            case 1:
+                return iconArray[6];
+            case 0:
+                return iconArray[2];
+            default:
+                return iconArray[3];
+            }
+        }
 
         return iconArray[par2];
     }
     
+    
+    
+
+
 @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        iconArray = new Icon[6];
+        iconArray = new Icon[8];
 
-        for (int i = 0; i < iconArray.length; ++i) {
+        for (int i = 0; i < 6; ++i) {
             iconArray[i] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
                     getUnwrappedUnlocalizedName(getUnlocalizedName()) + "_stage_" + i));
         }
+        
+        iconArray[6] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
+                getUnwrappedUnlocalizedName(getUnlocalizedName()) + "_stage_3_top"));
     }
 
 protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
@@ -139,6 +159,7 @@ protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
     public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
         if(par1World.isRemote) return;
         
+        if(par5EntityPlayer.getCurrentEquippedItem() != null) return;
         
         int l = par1World.getBlockMetadata(par2, par3, par4);
 
