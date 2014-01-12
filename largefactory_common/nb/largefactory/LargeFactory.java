@@ -79,7 +79,7 @@ public class LargeFactory {
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
         XMLDecoder.instantiate();
-        if(false){
+        if(Reference.DEBUG_MODE){
             XMLTestCode.TestComponents();
         }
 
