@@ -15,6 +15,7 @@ public enum XMLErrors {
     LOADED_METAL("The XML metal file is loaded", "", DefaultErrorLevels.INFO),
     LOADED_COMPONENTS("The XML component file is loaded", "", DefaultErrorLevels.INFO),
     LOADED_STRUCTURE("The XML structure file is loaded", "", DefaultErrorLevels.INFO),
+    XML_STARTING_NODE_INVALID("The first node in the the XML file: ", " is invalid", DefaultErrorLevels.XML),
 
     UNKNOWN_ERROR("THIS IS VERY BAD", "", DefaultErrorLevels.XML);
 
