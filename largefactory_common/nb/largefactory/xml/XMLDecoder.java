@@ -15,8 +15,6 @@ public class XMLDecoder {
     static NodeList node;
 
     public static void instantiate() {
-        XMLErrors.UNKNOWN_ERROR.printError(Files.XML_COMPONENT_LOCATION);
-
         // This does the components
         try {
             File file = new File(Files.XML_COMPONENT_LOCATION);
@@ -67,9 +65,11 @@ public class XMLDecoder {
                     }
                 }
                 XMLErrors.LOADED_METAL.printError();
+            }else{
+                XMLErrors.METAL_MISSING.printError();
             }
         } catch (Exception e) {
-            XMLErrors.METAL_MISSING.printError();
+            
         }
 
         try {
@@ -92,9 +92,10 @@ public class XMLDecoder {
                     }
                 }
                 XMLErrors.LOADED_STRUCTURE.printError();
+            }else{
+                XMLErrors.STRUCTURE_MISSING.printError();
             }
         } catch (Exception e) {
-            XMLErrors.STRUCTURE_MISSING.printError();
         }
 
     }
