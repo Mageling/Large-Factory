@@ -3,6 +3,7 @@ package nb.largefactory.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
@@ -18,7 +19,7 @@ import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockTea extends BlockFlower implements IPlantable {
+public class BlockTea extends BlockCrops {
 
     @SideOnly(Side.CLIENT)
     private Icon[] iconArray;
@@ -65,7 +66,11 @@ public class BlockTea extends BlockFlower implements IPlantable {
             l = 5;
         }
 
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 3);
+    }
+    
+    public int idDropped(int par1, Random par2Random, int par3) {
+        return blockID;
     }
 
     @Override
@@ -86,6 +91,10 @@ public class BlockTea extends BlockFlower implements IPlantable {
         for (int i = 0; i < iconArray.length; ++i) {
             iconArray[i] = par1IconRegister.registerIcon(getTextureName() + "_stage_" + i);
         }
+    }
+
+    public int getRenderType() {
+        return 0;
     }
 
     

@@ -49,6 +49,18 @@ public class IDConfiguration {
                     ItemIDs.SALT_CHICKEN_RAW_DEFAULT).getInt(ItemIDs.SALT_CHICKEN_RAW_DEFAULT);
             ItemIDs.SALT_CHUNK = idConfiguration.getItem(Strings.SALT_CHUNK_NAME, ItemIDs.SALT_CHUNK_DEFAULT).getInt(
                     ItemIDs.SALT_CHUNK_DEFAULT);
+            ItemIDs.WHITE_TEA = idConfiguration.getItem(Strings.WHITE_TEA_NAME, ItemIDs.WHITE_TEA_DEFAULT).getInt(
+                    ItemIDs.WHITE_TEA_DEFAULT);
+            ItemIDs.GREEN_TEA = idConfiguration.getItem(Strings.GREEN_TEA_NAME, ItemIDs.GREEN_TEA_DEFAULT).getInt(
+                    ItemIDs.GREEN_TEA_DEFAULT);
+            ItemIDs.BLACK_TEA = idConfiguration.getItem(Strings.BLACK_TEA_NAME, ItemIDs.BLACK_TEA_DEFAULT).getInt(
+                    ItemIDs.BLACK_TEA_DEFAULT);
+            ItemIDs.WHITE_TEA_BASKET = idConfiguration.getItem(Strings.WHITE_TEA_BASKET_NAME, ItemIDs.WHITE_TEA_BASKET_DEFAULT).getInt(
+                    ItemIDs.WHITE_TEA_BASKET_DEFAULT);
+            ItemIDs.GREEN_TEA_BASKET = idConfiguration.getItem(Strings.GREEN_TEA_BASKET_NAME, ItemIDs.GREEN_TEA_BASKET_DEFAULT).getInt(
+                    ItemIDs.GREEN_TEA_BASKET_DEFAULT);
+            ItemIDs.BLACK_TEA_BASKET = idConfiguration.getItem(Strings.BLACK_TEA_BASKET_NAME, ItemIDs.BLACK_TEA_BASKET_DEFAULT).getInt(
+                    ItemIDs.BLACK_TEA_BASKET_DEFAULT);
 
         } catch (Exception e) {
 

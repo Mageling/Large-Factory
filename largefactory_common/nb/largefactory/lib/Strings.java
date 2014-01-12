@@ -28,11 +28,18 @@ public class Strings {
     public static final String SALT_FISH_RAW_NAME = "saltFishRaw";
     public static final String SALT_FISH_COOKED_NAME = "saltFishCooked";
     public static final String ITEM_STRUCTURE_NAME = "itemStructure";
-
+    public static final String WHITE_TEA_NAME = "teaWhite";
+    public static final String GREEN_TEA_NAME = "teaGreen";
+    public static final String BLACK_TEA_NAME = "teaBlack";
+    public static final String WHITE_TEA_BASKET_NAME = "basketTeaWhite";
+    public static final String GREEN_TEA_BASKET_NAME = "basketTeaGreen";
+    public static final String BLACK_TEA_BASKET_NAME = "basketTeaBlack";
+    
     /* TileEntity name constants */
     public static final String TE_SALT_CONDENSER_NAME = "tileEntitySaltCondenser";
 
     /* Container related constants */
     public static final String CONTAINER_INVENTORY = "container.inventory";
+    
 
 }
