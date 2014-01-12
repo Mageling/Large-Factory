@@ -16,7 +16,7 @@ public enum XMLErrors {
     LOADED_COMPONENTS("The XML component file is loaded", "", DefaultErrorLevels.INFO),
     LOADED_STRUCTURE("The XML structure file is loaded", "", DefaultErrorLevels.INFO),
 
-    UNKNOWN_ERROR("THIS IS VERY BAD/TESTING PURPOSE", "", DefaultErrorLevels.XML);
+    UNKNOWN_ERROR("THIS IS VERY BAD", "", DefaultErrorLevels.XML);
 
     private String part1;
     private String part2;

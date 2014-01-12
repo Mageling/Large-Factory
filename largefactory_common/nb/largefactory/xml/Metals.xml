@@ -1,0 +1,16 @@
+<metal>
+	<iron>
+		<name>iron</name>
+		<primary material="iron">120</primary>
+		<yield material="iron">120</yield>
+		<yield material="quartz">40</yield>
+		<yield material="slag">720</yield>
+	</iron>
+	<gold>
+		<name>gold</name>
+		<primary material="gold">60</primary>
+		<yield material="gold">60</yield>
+		<yield material="platinum">5</yield>
+		<yield material="slag">875</yield>
+	</gold>
+</metal>

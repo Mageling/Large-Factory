@@ -1,0 +1,62 @@
+<components>
+		<component>
+			<name>crusher</name>		
+		</component>
+		<component>
+			<name>power core</name>
+			<max>4</max>
+			<ergpercent>-10</ergpercent>
+			<timepercetn>15</timepercetn>
+		</component>
+		<component>
+			<name>blade core</name>
+			<max>4</max>
+			<ergpercent>15</ergpercent>
+			<timepercetn>-10</timepercetn>
+		</component>
+		<component>
+			<name>hydraulic piston</name>
+			<max>10</max>
+			<mainorebonus>2</mainorebonus>
+			<slagbonus>-2</slagbonus>
+			<ergcost>4</ergcost>
+			<ergcoststack>1</ergcoststack>
+		</component>
+		<component>
+			<name>precision actuator</name>
+			<max>5</max>
+			<attunemetal>true</attunemetal>
+			<attunevalue>2</attunevalue>
+			<attunedisvalue>3</attunedisvalue>
+			<ergcost>3</ergcost>
+			<ergcoststack>1</ergcoststack>
+		</component>
+		<component>
+			<name>vibration chamber</name>
+			<max>1</max>
+			<dimensions>2,2,2</dimensions>
+			<secondarypercentbonus>50</secondarypercentbonus>
+		</component>
+		<component>
+			<name>smelter</name>
+		</component>
+		<component>
+			<name>incinerator</name>
+			<dimensions>2,2,2</dimensions>
+			<ergperslag>-1</ergperslag>
+		</component>
+		<component>
+			<name>bellows</name>
+			<type>smelter</type>
+			<max>4</max>
+			<timecost>-10</timecost>
+			<ergcost>15</ergcost>
+		</component>
+		<component>
+			<name>internal recycling</name>
+			<max>10</max>
+			<oreperingot>-2</oreperingot>
+			<ergperingot>2</ergperingot>
+			<ergperingotstack>2</ergperingotstack>
+		</component>
+</components>
