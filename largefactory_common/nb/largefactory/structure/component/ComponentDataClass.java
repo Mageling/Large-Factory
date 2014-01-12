@@ -20,6 +20,7 @@ public class ComponentDataClass {
         structureType = structure_type;
         information = new HashMap<String, String>();
         information.put("texturefilelocation", Textures.DEFAULT_TEXTURE_FILE_LOCATION);
+        dimensions =  new int[3];
 
     }
 

@@ -73,7 +73,6 @@ public class LargeFactory {
 
     @EventHandler
     public void modsLoaded(FMLPostInitializationEvent event) {
-        XMLErrors.UNKNOWN_ERROR.printError();
         //xml loading
         StructureTypeFactory.instantiate();
         MetalFactory.instantiate();

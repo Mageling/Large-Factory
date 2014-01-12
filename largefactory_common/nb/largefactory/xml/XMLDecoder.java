@@ -19,7 +19,6 @@ public class XMLDecoder {
         try {
             File file = new File(Files.XML_COMPONENT_LOCATION);
             if (file.exists()) {
-                XMLErrors.UNKNOWN_ERROR.printError();
                 DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse(Files.XML_COMPONENT_LOCATION);
@@ -37,12 +36,13 @@ public class XMLDecoder {
                                 .getParentNode().getNodeName().replaceAll("\\s+", ""));
                     }
                 }
+                
                 XMLErrors.LOADED_COMPONENTS.printError();
             }else{
                 XMLErrors.COMPONENT_MISSING.printError();
             }
         } catch (Exception e) {
-
+            XMLErrors.ADDED_ENTRY.printError(e.getMessage());
         }
 
         try {
