@@ -2,6 +2,7 @@ package nb.largefactory.block;
 
 import java.util.Random;
 
+import nb.largefactory.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFlower;
@@ -9,7 +10,10 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -102,24 +106,49 @@ public class BlockTea extends BlockCrops {
     @Override
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer,
             int par6, float par7, float par8, float par9) {
+        if(par1World.isRemote) return false;
+        
+        if(par5EntityPlayer.getCurrentEquippedItem() != null) return false;
+        
+        
         int l = par1World.getBlockMetadata(par2, par3, par4);
 
         if (l <= 2)
             return false;
         else if (l == 3) {
-            // TODO entity drop code
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2,0));
+            par1World.spawnEntityInWorld(entityitem);
         } else if (l == 4) {
-
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4,0));
+            par1World.spawnEntityInWorld(entityitem);
         } else if (l <= 5) {
-
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3,0));
+            par1World.spawnEntityInWorld(entityitem);
         }
         par1World.setBlock(par2, par3, par4, blockID, 2,3);
         return true;
     }
 
-    public boolean onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer,
-            int par6, float par7, float par8, float par9) {
-        return onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);
+    public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
+        if(par1World.isRemote) return;
+        
+        
+        int l = par1World.getBlockMetadata(par2, par3, par4);
+
+        if (l <= 2)
+            return;
+        else if (l == 3) {
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2,0));
+            par1World.spawnEntityInWorld(entityitem);
+        } else if (l == 4) {
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4,0));
+            par1World.spawnEntityInWorld(entityitem);
+        } else if (l <= 5) {
+            EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D, par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3,0));
+            par1World.spawnEntityInWorld(entityitem);
+        }
+        par1World.setBlock(par2, par3, par4, blockID, 2,3);
+        return;
     }
     
     @Override
