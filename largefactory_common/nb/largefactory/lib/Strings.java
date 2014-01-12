@@ -13,6 +13,7 @@ public class Strings {
     public static final String SALT_CONDENSER_NAME = "saltCondenser";
     public static final String SALT_BLOCK_NAME = "saltBlock";
     public static final String STRUCTURE_BLOCK_NAME = "structureBlock";
+    public static final String TEA_PLANT_NAME = "teaPlant";
 
     /* Item name constants */
     public static final String SALT_NAME = "salt";

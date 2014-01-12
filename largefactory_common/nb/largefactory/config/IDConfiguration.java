@@ -24,6 +24,8 @@ public class IDConfiguration {
                     BlockIDs.SALT_CONDENSER_DEFAULT).getInt(BlockIDs.SALT_CONDENSER_DEFAULT);
             BlockIDs.STRUCTURE_BLOCK = idConfiguration.getBlock(Strings.STRUCTURE_BLOCK_NAME,
                     BlockIDs.STRUCTURE_BLOCK_DEFAULT).getInt(BlockIDs.STRUCTURE_BLOCK_DEFAULT);
+            BlockIDs.TEA_PLANT = idConfiguration.getBlock(Strings.TEA_PLANT_NAME,
+                    BlockIDs.TEA_PLANT_DEFAULT).getInt(BlockIDs.TEA_PLANT_DEFAULT);
 
             ItemIDs.ITEM_STRUCTURE = idConfiguration.getItem(Strings.ITEM_STRUCTURE_NAME,
                     ItemIDs.ITEM_STRUCTURE_DEFAULT).getInt(ItemIDs.ITEM_STRUCTURE_DEFAULT);
