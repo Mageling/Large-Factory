@@ -12,7 +12,10 @@ public enum XMLLogger {
 
     LOADED_METAL("The XML metal file is loaded", ""),
     LOADED_COMPONENTS("The XML component file is loaded", ""),
-    LOADED_STRUCTURE("The XML structure file is loaded", "");
+    LOADED_STRUCTURE("The XML structure file is loaded", ""),
+    VALIDATED_XML("The XML files have been successfully validated", ""),
+    REPLACING_XMLS("The current XML files are invalid. Replacing...", ""),
+    CHECKING_XMLS("Checking XML files", "");
 
     private String part1;
     private String part2;

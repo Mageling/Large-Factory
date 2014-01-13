@@ -2,6 +2,8 @@ package nb.largefactory.xml;
 
 import java.io.File;
 
+import nb.largefactory.lib.Reference;
+import nb.largefactory.lib.locations.Files;
 import nb.largefactory.util.FileOpener;
 import nb.largefactory.util.logging.XMLErrors;
 import nb.largefactory.util.logging.XMLLogger;
@@ -14,27 +16,36 @@ public class XMLDecoder {
     public static File[] xmlFiles;
 
     public static void instantiate() {
-        for (File file : xmlFiles) {
-            if (instantializeComponents(file.getAbsolutePath())) {
-                XMLLogger.LOADED_FILE.printLog(file.getName());
+        if (Reference.DEBUG_MODE) {
+            for (File file : xmlFiles) {
+                if (instantializeComponents(file.getAbsolutePath())) {
+                    XMLLogger.LOADED_FILE.printLog(file.getName());
+                } else {
+                    XMLErrors.FAILED_TO_LOAD.printError(file.getName());
+                }
+            }
+        } else {
+
+            // This does the components
+            if (instantializeComponents(Files.XML_COMPONENT_LOCATION)) {
+                XMLLogger.LOADED_COMPONENTS.printLog();
             } else {
-                XMLErrors.FAILED_TO_LOAD.printError(file.getName());
+                XMLErrors.COMPONENT_MISSING.printError();
+            }
+            // This does metals
+            if (instantializeComponents(Files.XML_METAL_LOCATION)) {
+                XMLLogger.LOADED_METAL.printLog();
+            } else {
+                XMLErrors.METAL_MISSING.printError();
+            }
+            // This does structures
+            if (instantializeComponents(Files.XML_STRUCTURE_LOCATION)) {
+                XMLLogger.LOADED_STRUCTURE.printLog();
+            } else {
+                XMLErrors.STRUCTURE_MISSING.printError();
+
             }
         }
-
-        /*
-         * // This does the components if
-         * (instantializeComponents(Files.XML_COMPONENT_LOCATION)) {
-         * XMLLogger.LOADED_COMPONENTS.printLog(); } else {
-         * XMLErrors.COMPONENT_MISSING.printError(); } // This does metals if
-         * (instantializeComponents(Files.XML_METAL_LOCATION)) {
-         * XMLLogger.LOADED_METAL.printLog(); } else {
-         * XMLErrors.METAL_MISSING.printError(); } // This does structures if
-         * (instantializeComponents(Files.XML_STRUCTURE_LOCATION)) {
-         * XMLLogger.LOADED_STRUCTURE.printLog(); } else {
-         * XMLErrors.STRUCTURE_MISSING.printError(); }
-         */
-
     }
 
     private static boolean instantializeComponents(String location) {

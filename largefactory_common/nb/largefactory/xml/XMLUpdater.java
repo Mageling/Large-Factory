@@ -5,6 +5,7 @@ import java.io.File;
 import nb.largefactory.lib.locations.Files;
 import nb.largefactory.util.FileHelper;
 import nb.largefactory.util.logging.XMLErrors;
+import nb.largefactory.util.logging.XMLLogger;
 
 import org.apache.commons.io.FileUtils;
 
@@ -16,12 +17,14 @@ public class XMLUpdater {
         xmldir = new File(Files.CONFIG_LOCATION + Files.XML_LOCATION_MODIFIER);
         File[] xmls = xmldir.listFiles(FileHelper.xmlFilter);
         if (isValidXMLs(xmls)) {
+            XMLLogger.VALIDATED_XML.printLog();
             XMLDecoder.xmlFiles = xmls;
         } else if (!isValidXMLs(xmlDefaults)) {
             XMLErrors.DEFAULT_XML_INVALID.printError();
             throw new Exception();
             // TODO make this exception work properly.
         } else {
+            XMLLogger.REPLACING_XMLS.printLog();
             for (File file : xmls) {
                 file.delete();
             }
@@ -33,11 +36,16 @@ public class XMLUpdater {
     }
 
     public static boolean isValidXMLs(File[] files) {
+        //TODO make this correct.
+        if (files == null)
+            return false;
         for (String name : listDefaultXMLs()) {
             boolean flag = false;
             for (File file : files) {
-                if (file.getName() == name) {
-                    flag = true;
+                if (file != null) {
+                    if (file.getName() == name) {
+                        flag = true;
+                    }
                 }
             }
             if (!flag)
@@ -56,6 +64,7 @@ public class XMLUpdater {
             checkXMLs();
         } catch (Exception e) {
             // TODO catch this exception
+            e.printStackTrace();
         }
 
     }
