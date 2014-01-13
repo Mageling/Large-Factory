@@ -13,9 +13,9 @@ import nb.largefactory.proxy.CommonProxy;
 import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.structure.component.ComponentFactory;
-import nb.largefactory.util.errors.XMLErrors;
 import nb.largefactory.xml.XMLDecoder;
 import nb.largefactory.xml.XMLTestCode;
+import nb.largefactory.xml.XMLUpdater;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -50,6 +50,7 @@ public class LargeFactory {
         Files.CONFIG_LOCATION = event.getModConfigurationDirectory().getAbsolutePath() + File.separator
                 + Reference.CHANNEL_NAME.toLowerCase() + File.separator;
         ConfigurationHandler.init(Files.CONFIG_LOCATION);
+        XMLUpdater.init();
 
         // Register Blocks and Items
         ModBlocks.registerBlocks();

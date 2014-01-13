@@ -2,7 +2,7 @@ package nb.largefactory.tileentity.structure;
 
 import java.util.logging.Level;
 
-import nb.largefactory.util.errors.StructureCreationErrors;
+import nb.largefactory.util.logging.StructureCreationErrors;
 
 public class TileEntityStructureMultiblock extends TileEntityStructureInner {
 

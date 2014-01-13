@@ -1,4 +1,4 @@
-package nb.largefactory.util.errors;
+package nb.largefactory.util.logging;
 
 import java.util.logging.Level;
 

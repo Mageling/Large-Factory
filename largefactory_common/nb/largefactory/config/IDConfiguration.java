@@ -5,7 +5,7 @@ import java.io.File;
 import nb.largefactory.lib.BlockIDs;
 import nb.largefactory.lib.ItemIDs;
 import nb.largefactory.lib.Strings;
-import nb.largefactory.util.errors.ConfigurationErrors;
+import nb.largefactory.util.logging.ConfigurationErrors;
 import net.minecraftforge.common.Configuration;
 
 public class IDConfiguration {

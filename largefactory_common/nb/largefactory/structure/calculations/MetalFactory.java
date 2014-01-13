@@ -3,7 +3,8 @@ package nb.largefactory.structure.calculations;
 import java.util.HashMap;
 import java.util.Map;
 
-import nb.largefactory.util.errors.XMLErrors;
+import nb.largefactory.util.logging.XMLErrors;
+import nb.largefactory.util.logging.XMLLogger;
 
 import org.w3c.dom.NodeList;
 
@@ -20,7 +21,7 @@ public class MetalFactory {
 
     public static void learnMetal(NodeList metal) {
         MetalClass a = new MetalClass(metal.item(0).getTextContent());
-        XMLErrors.ADDED_ENTRY.printError(a.getName());
+        XMLLogger.ADDED_ENTRY.printLog(a.getName());
         for (int k = 1; k < metal.getLength(); k++) {
             // this is everything that is hidden as slag
             if (metal.item(k).getNodeName() == "yield") {

@@ -1,7 +1,7 @@
 package nb.largefactory.tileentity.structure;
 
 import nb.largefactory.structure.component.ComponentFactory;
-import nb.largefactory.util.errors.StructureCreationErrors;
+import nb.largefactory.util.logging.StructureCreationErrors;
 
 public class TileEntityStructureInner extends TileEntityStructure {
 

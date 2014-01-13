@@ -5,7 +5,7 @@ import java.util.logging.Level;
 
 import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.component.ComponentFactory;
-import nb.largefactory.util.errors.StructureCreationErrors;
+import nb.largefactory.util.logging.StructureCreationErrors;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;

@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import nb.largefactory.structure.component.ComponentFactory;
-import nb.largefactory.util.errors.StructureCreationErrors;
-import nb.largefactory.util.errors.XMLErrors;
+import nb.largefactory.util.logging.StructureCreationErrors;
+import nb.largefactory.util.logging.XMLLogger;
 import net.minecraft.world.World;
 
 import org.w3c.dom.NodeList;
@@ -45,7 +45,7 @@ public class StructureTypeFactory {
             }
         }
         structureList.put(structure.item(0).getTextContent(), a);
-        XMLErrors.ADDED_ENTRY.printError(a.getName());
+        XMLLogger.ADDED_ENTRY.printLog(a.getName());
     }
 
     public static boolean validateStructure(String structureType, String[] tempComponentList, World world, int xCoord,

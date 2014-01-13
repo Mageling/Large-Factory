@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import nb.largefactory.lib.locations.Textures;
-import nb.largefactory.util.errors.XMLErrors;
+import nb.largefactory.util.logging.XMLErrors;
 
 public class ComponentDataClass {
     String name;
@@ -94,6 +94,7 @@ public class ComponentDataClass {
         return output;
     }
 
+    @Override
     public String toString() {
         return "Name: " + name + " Type: " + getType() + " Structure Type: " + getStructureType();
     }

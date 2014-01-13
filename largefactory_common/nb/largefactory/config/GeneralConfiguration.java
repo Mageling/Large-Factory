@@ -4,7 +4,7 @@ import java.io.File;
 
 import nb.largefactory.lib.Scalables;
 import nb.largefactory.lib.Strings;
-import nb.largefactory.util.errors.ConfigurationErrors;
+import nb.largefactory.util.logging.ConfigurationErrors;
 import net.minecraftforge.common.Configuration;
 
 public class GeneralConfiguration {

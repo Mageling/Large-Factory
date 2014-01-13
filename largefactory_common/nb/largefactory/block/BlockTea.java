@@ -5,24 +5,17 @@ import java.util.Random;
 import nb.largefactory.item.ModItems;
 import nb.largefactory.lib.Reference;
 import nb.largefactory.lib.Scalables;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockLeavesBase;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -85,11 +78,12 @@ public class BlockTea extends BlockCrops {
 
         float f1 = par1World.getBiomeGenForCoords(par2, par4).temperature;
         float f2 = par1World.getBiomeGenForCoords(par2, par4).rainfall;
-        float f3 = (float) Scalables.TEA_GROWTH_FACTOR / 100F;
+        float f3 = Scalables.TEA_GROWTH_FACTOR / 100F;
 
         return base * f1 * f2 * f3;
     }
 
+    @Override
     public void fertilize(World par1World, int par2, int par3, int par4) {
         int l = par1World.getBlockMetadata(par2, par3, par4) + 1;
 
@@ -104,6 +98,7 @@ public class BlockTea extends BlockCrops {
         par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 3);
     }
 
+    @Override
     public int idDropped(int par1, Random par2Random, int par3) {
         return blockID;
     }
@@ -148,6 +143,7 @@ public class BlockTea extends BlockCrops {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
+    @Override
     public int getRenderType() {
         return 0;
     }
@@ -182,6 +178,7 @@ public class BlockTea extends BlockCrops {
         return true;
     }
 
+    @Override
     public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
         if (par1World.isRemote)
             return;
@@ -218,28 +215,23 @@ public class BlockTea extends BlockCrops {
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
-        if (l < 1) {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D,
-                    (double) y + 0.5D, (double) z + 0.75D);
-        } else if (l < 2) {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D,
-                    (double) y + 0.75D, (double) z + 0.875D);
-        } else {
-            return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
-        }
+        if (l < 1)
+            return AxisAlignedBB.getBoundingBox(x + 0.25D, y, z + 0.25D, x + 0.75D, y + 0.5D, z + 0.75D);
+        else if (l < 2)
+            return AxisAlignedBB.getBoundingBox(x + 0.125D, y, z + 0.125D, x + 0.875D, y + 0.75D, z + 0.875D);
+        else
+            return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
     }
 
+    @Override
     public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
-        if (l < 1) {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D,
-                    (double) y + 0.5D, (double) z + 0.75D);
-        } else if (l < 2) {
-            return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D,
-                    (double) y + 0.75D, (double) z + 0.875D);
-        } else {
-            return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
-        }
+        if (l < 1)
+            return AxisAlignedBB.getBoundingBox(x + 0.25D, y, z + 0.25D, x + 0.75D, y + 0.5D, z + 0.75D);
+        else if (l < 2)
+            return AxisAlignedBB.getBoundingBox(x + 0.125D, y, z + 0.125D, x + 0.875D, y + 0.75D, z + 0.875D);
+        else
+            return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D);
     }
 
     @Override
