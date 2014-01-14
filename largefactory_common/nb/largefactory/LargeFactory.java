@@ -81,7 +81,7 @@ public class LargeFactory {
         StructureTypeFactory.instantiate();
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
-        XMLDecoder.instantiate();
+        //XMLDecoder.instantiate();
         if (Reference.DEBUG_MODE) {
             XMLTestCode.TestComponents();
         }
