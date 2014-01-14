@@ -30,6 +30,15 @@ public class VanillaCrafting {
                 ModItems.saltChunk, ModItems.saltChunk });
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.saltChunk, 8), ModBlocks.saltBlock);
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.salt, 8), ModItems.saltChunk);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.basketTeaWhite), Item.bowlEmpty, ModItems.teaWhite,
+                ModItems.teaWhite, ModItems.teaWhite, ModItems.teaWhite, ModItems.teaWhite, ModItems.teaWhite,
+                ModItems.teaWhite, ModItems.teaWhite);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.basketTeaGreen), Item.bowlEmpty, ModItems.teaGreen,
+                ModItems.teaGreen, ModItems.teaGreen, ModItems.teaGreen, ModItems.teaGreen, ModItems.teaGreen,
+                ModItems.teaGreen, ModItems.teaGreen);
+        GameRegistry.addShapelessRecipe(new ItemStack(ModItems.basketTeaBlack), Item.bowlEmpty, ModItems.teaBlack,
+                ModItems.teaBlack, ModItems.teaBlack, ModItems.teaBlack, ModItems.teaBlack, ModItems.teaBlack,
+                ModItems.teaBlack, ModItems.teaBlack);
 
     }
 
@@ -38,6 +47,8 @@ public class VanillaCrafting {
         GameRegistry.addSmelting(ModItems.saltSteakRaw.itemID, new ItemStack(ModItems.saltSteakCooked, 1), 0.35F);
         GameRegistry.addSmelting(ModItems.saltChickenRaw.itemID, new ItemStack(ModItems.saltChickenCooked, 1), 0.35F);
         GameRegistry.addSmelting(ModItems.saltFishRaw.itemID, new ItemStack(ModItems.saltFishCooked, 1), 0.35F);
+        GameRegistry.addSmelting(ModItems.teaGreen.itemID, new ItemStack(ModItems.teaBlack, 1), 0.35F);
+        GameRegistry.addSmelting(ModItems.basketTeaGreen.itemID, new ItemStack(ModItems.teaBlack, 8), 0.7F);
     }
 
 }
