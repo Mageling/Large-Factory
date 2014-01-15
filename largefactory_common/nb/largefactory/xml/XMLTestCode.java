@@ -23,13 +23,15 @@ public class XMLTestCode {
     }
     public static void TestXMLLocation(){
         try{ 
-        URL dog =  XMLTestCode.class.getResource("Metals.xml");
+        URL dog =  XMLTestCode.class.getResource("Ores.xml");
         //URL dog = this.getClass().getResource("Metals");
         File file = new File(URLDecoder.decode(dog.getFile(), "UTF-8"));
         FMLLog.log(Level.INFO, URLDecoder.decode(dog.getPath(), "UTF-8"));
         }
         catch (Exception e){
-            FMLLog.log(Level.SEVERE, e.getMessage());
+            String message = e.getMessage();
+            if (message == null) message = "";
+            FMLLog.log(Level.SEVERE, message);
         }
     }
 

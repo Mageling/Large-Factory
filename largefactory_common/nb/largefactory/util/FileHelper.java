@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import nb.largefactory.util.logging.XMLErrors;
 import nb.largefactory.xml.XMLDefaultFileNames;
 import nb.largefactory.xml.XMLTestCode;
-import nb.largefactory.xml.XMLUpdater;
+import nb.largefactory.xml.XMLChecker;
 
 public class FileHelper {
 
@@ -34,7 +34,7 @@ public class FileHelper {
         try {
             ArrayList<File> xmlFiles = new ArrayList<File>();
             for(XMLDefaultFileNames x : XMLDefaultFileNames.values()){
-                URL url = XMLUpdater.class.getResource(x + ".xml");
+                URL url = XMLChecker.class.getResource(x + ".xml");
                 xmlFiles.add(new File(URLDecoder.decode(url.getFile(), "UTF-8")));
                 XMLErrors.FAILED_TO_LOAD.printError(URLDecoder.decode(url.getPath(), "UTF-8"));
             }

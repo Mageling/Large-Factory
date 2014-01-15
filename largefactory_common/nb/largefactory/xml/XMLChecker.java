@@ -10,24 +10,18 @@ import nb.largefactory.util.logging.XMLLogger;
 
 import org.apache.commons.io.FileUtils;
 
-public class XMLUpdater {
+public class XMLChecker {
     static File xmldir;
     static File[] xmlDefaults = FileHelper.getDefaultXMLFiles();
 
     public static void checkXMLs() throws IOException {
         xmldir = new File(Files.CONFIG_LOCATION + Files.XML_LOCATION_MODIFIER);
         File[] xmls = xmldir.listFiles(FileHelper.xmlFilter);
-        if (isValidXMLs(xmls)) {
+        if (xmls != null) {
             XMLLogger.VALIDATED_XML.printLog();
             XMLDecoder.xmlFiles = xmls;
-        } else if (!isValidXMLs(xmlDefaults)) {
-            XMLErrors.DEFAULT_XML_INVALID.printError();
-            throw new IllegalArgumentException("Internal XML files are not valid");
         } else {
             XMLLogger.REPLACING_XMLS.printLog();
-            for (File file : xmls) {
-                file.delete();
-            }
             for (File file : xmlDefaults) {
                 FileUtils.copyFileToDirectory(file, xmldir);
             }
