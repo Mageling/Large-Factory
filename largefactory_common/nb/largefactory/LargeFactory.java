@@ -50,7 +50,7 @@ public class LargeFactory {
         Files.CONFIG_LOCATION = event.getModConfigurationDirectory().getAbsolutePath() + File.separator
                 + Reference.CHANNEL_NAME.toLowerCase() + File.separator;
         ConfigurationHandler.init(Files.CONFIG_LOCATION);
-        //XMLUpdater.init();
+        XMLUpdater.init();
 
         // Register Blocks and Items
         ModBlocks.registerBlocks();
@@ -81,7 +81,7 @@ public class LargeFactory {
         StructureTypeFactory.instantiate();
         MetalFactory.instantiate();
         ComponentFactory.instantiate();
-        //XMLDecoder.instantiate();
+        XMLDecoder.instantiate();
         if (Reference.DEBUG_MODE) {
             XMLTestCode.TestXMLLocation();
         }

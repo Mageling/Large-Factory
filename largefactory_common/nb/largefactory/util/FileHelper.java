@@ -27,9 +27,13 @@ public class FileHelper {
         return filenames;
     }
     
-    public static String getDefaultXMLFiles() throws UnsupportedEncodingException {
-        URL url = XMLUpdater.class.getResource("Structure.xml");
-        return URLDecoder.decode(url.getPath(), "UTF-8").replace("Structure.xml", "");
+    public static String getDefaultXMLFiles() {
+        try {
+            URL url = XMLUpdater.class.getResource("Structure.xml");
+            return URLDecoder.decode(url.getPath(), "UTF-8").replace("/Structure.xml", "");
+    } catch(UnsupportedEncodingException e) {
+        throw new IllegalArgumentException("default XML location not findable", e);
+    }
     }
     
 }
