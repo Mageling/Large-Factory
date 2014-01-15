@@ -15,6 +15,7 @@ public enum XMLLogger {
     LOADED_STRUCTURE("The XML structure file is loaded", ""),
     VALIDATED_XML("The XML files have been successfully validated", ""),
     REPLACING_XMLS("The current XML files are invalid. Replacing...", ""),
+    FILE_EXISTS("The file: ", " exists"),
     CHECKING_XMLS("Checking XML files", "");
 
     private String part1;

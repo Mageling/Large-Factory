@@ -83,7 +83,7 @@ public class LargeFactory {
         ComponentFactory.instantiate();
         XMLDecoder.instantiate();
         if (Reference.DEBUG_MODE) {
-            XMLTestCode.TestXMLLocation();
+            //XMLTestCode.TestXMLLocation();
         }
 
     }

@@ -26,7 +26,7 @@ public class XMLDecoder {
     private static boolean instantializeComponents(String location) {
         node = FileOpener.openXML(location);
         String mainname = node.item(0).getNodeName();
-        XMLErrors.FILE_EXISTS.printError(mainname);
+        XMLLogger.FILE_EXISTS.printLog(location);
         NodeList componentNodes = node.item(0).getChildNodes();
         for (int k = 0; k < componentNodes.getLength(); k++) {
             if (componentNodes.item(k).getNodeName() != "#text") {
@@ -48,6 +48,7 @@ public class XMLDecoder {
                 }
             }
         }
+        
         return true;
     }
 
