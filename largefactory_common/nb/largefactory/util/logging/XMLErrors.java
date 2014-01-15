@@ -16,6 +16,7 @@ public enum XMLErrors {
     FAILED_TO_LOAD("The XML file ", "Failed to load"),
     FILE_TRANSFER("Files failed to update properly", ""),
     FOUND_INTERNAL_FILES("Found internal file :", ""),
+    FILE_EXISTS("The file: ", " exists"),
     UNKNOWN_ERROR("THIS IS VERY BAD", "");
 
     private String part1;
