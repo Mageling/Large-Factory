@@ -5,7 +5,10 @@ import java.io.FilenameFilter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 
+import nb.largefactory.util.logging.XMLErrors;
+import nb.largefactory.xml.XMLDefaultFileNames;
 import nb.largefactory.xml.XMLTestCode;
 import nb.largefactory.xml.XMLUpdater;
 
@@ -27,10 +30,15 @@ public class FileHelper {
         return filenames;
     }
     
-    public static String getDefaultXMLFiles() {
+    public static File[] getDefaultXMLFiles() {
         try {
-            URL url = XMLUpdater.class.getResource("Structure.xml");
-            return URLDecoder.decode(url.getPath(), "UTF-8").replace("/Structure.xml", "");
+            ArrayList<File> xmlFiles = new ArrayList<File>();
+            for(XMLDefaultFileNames x : XMLDefaultFileNames.values()){
+                URL url = XMLUpdater.class.getResource(x + ".xml");
+                xmlFiles.add(new File(URLDecoder.decode(url.getFile(), "UTF-8")));
+                XMLErrors.FAILED_TO_LOAD.printError(URLDecoder.decode(url.getPath(), "UTF-8"));
+            }
+            return xmlFiles.toArray(new File[xmlFiles.size()]);
     } catch(UnsupportedEncodingException e) {
         throw new IllegalArgumentException("default XML location not findable", e);
     }

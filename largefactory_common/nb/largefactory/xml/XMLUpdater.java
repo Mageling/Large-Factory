@@ -12,7 +12,7 @@ import org.apache.commons.io.FileUtils;
 
 public class XMLUpdater {
     static File xmldir;
-    static File[] xmlDefaults = new File(FileHelper.getDefaultXMLFiles()).listFiles(FileHelper.xmlFilter);
+    static File[] xmlDefaults = FileHelper.getDefaultXMLFiles();
 
     public static void checkXMLs() throws IOException {
         xmldir = new File(Files.CONFIG_LOCATION + Files.XML_LOCATION_MODIFIER);
@@ -35,29 +35,6 @@ public class XMLUpdater {
         }
     }
 
-    public static boolean isValidXMLs(File[] files) {
-        //TODO make this correct.
-        if (files == null)
-            return false;
-        for (String name : listDefaultXMLs()) {
-            boolean flag = false;
-            for (File file : files) {
-                if (file != null) {
-                    if (file.getName() == name) {
-                        flag = true;
-                    }
-                }
-            }
-            if (!flag)
-                return false;
-        }
-        return true;
-    }
-
-    public static String[] listDefaultXMLs() {
-        return FileHelper.getNames(xmlDefaults);
-
-    }
 
     public static void init() {
         try {
