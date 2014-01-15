@@ -3,6 +3,8 @@ package nb.largefactory.util;
 import java.io.File;
 import java.io.FilenameFilter;
 
+import nb.largefactory.xml.XMLTestCode;
+
 public class FileHelper {
 
     public static FilenameFilter xmlFilter = new FilenameFilter() {
@@ -20,5 +22,5 @@ public class FileHelper {
         }
         return filenames;
     }
-
+    
 }
