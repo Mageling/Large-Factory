@@ -101,7 +101,7 @@ public class ComponentDataClass {
 
     @Override
     public String toString() {
-        return "Name: " + name + " Type: " + getType() + " Structure Type: " + getStructureType();
+        return "Name: " + name + " Type: " + getType();
     }
 
 }
