@@ -6,8 +6,6 @@ import java.util.logging.Level;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import nb.largefactory.util.logging.XMLErrors;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
@@ -15,10 +13,9 @@ import cpw.mods.fml.common.FMLLog;
 
 public class FileOpener {
     public static NodeList openXML(String location) {
-        try {
+        try{
             File file = new File(location);
             if (file.exists()) {
-                XMLErrors.FILE_EXISTS.printError(file.getAbsolutePath());
                 DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = fact.newDocumentBuilder();
                 Document doc = builder.parse(location);
