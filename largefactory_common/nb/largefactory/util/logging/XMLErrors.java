@@ -14,6 +14,7 @@ public enum XMLErrors {
     XML_STARTING_NODE_INVALID("The first node in the the XML file: ", " is invalid"),
     DEFAULT_XML_INVALID("The XMLs in your mod file have been corrupted. Please redownload the mod.", ""),
     FAILED_TO_LOAD("The XML file ", "Failed to load"),
+    FILE_TRANSFER("Files failed to update properly", ""),
     UNKNOWN_ERROR("THIS IS VERY BAD", "");
 
     private String part1;

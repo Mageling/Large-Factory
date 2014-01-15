@@ -1,6 +1,7 @@
 package nb.largefactory.xml;
 
 import java.io.File;
+import java.io.IOException;
 
 import nb.largefactory.lib.locations.Files;
 import nb.largefactory.util.FileHelper;
@@ -13,7 +14,7 @@ public class XMLUpdater {
     static File xmldir;
     static File[] xmlDefaults = new File(Files.DEFAULT_XML_LOCATION).listFiles(FileHelper.xmlFilter);
 
-    public static void checkXMLs() throws Exception {
+    public static void checkXMLs() throws IOException {
         xmldir = new File(Files.CONFIG_LOCATION + Files.XML_LOCATION_MODIFIER);
         File[] xmls = xmldir.listFiles(FileHelper.xmlFilter);
         if (isValidXMLs(xmls)) {
@@ -21,8 +22,7 @@ public class XMLUpdater {
             XMLDecoder.xmlFiles = xmls;
         } else if (!isValidXMLs(xmlDefaults)) {
             XMLErrors.DEFAULT_XML_INVALID.printError();
-            throw new Exception();
-            // TODO make this exception work properly.
+            throw new IllegalArgumentException("Internal XML files are not valid");
         } else {
             XMLLogger.REPLACING_XMLS.printLog();
             for (File file : xmls) {
@@ -62,11 +62,10 @@ public class XMLUpdater {
     public static void init() {
         try {
             checkXMLs();
-        } catch (Exception e) {
-            // TODO catch this exception
+        } catch (IOException e) {
+            XMLErrors.FILE_TRANSFER.printError();
             e.printStackTrace();
         }
-
     }
 
 }
