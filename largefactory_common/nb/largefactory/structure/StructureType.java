@@ -9,6 +9,7 @@ public class StructureType {
     boolean isOutput;
     boolean specialValidation;
     List<String> requiredComponents;
+    List<String> allowedComponents;
     String requiredType;
 
     public StructureType(String n) {
@@ -17,9 +18,18 @@ public class StructureType {
         isOutput = false;
         specialValidation = false;
         requiredComponents = new ArrayList<String>();
+        allowedComponents = new ArrayList<String>();
         requiredType = null;
     }
 
+        
+    public boolean isValid(){
+        if(requiredComponents == null || allowedComponents == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
     public List<String> getRequiredComponents() {
         return requiredComponents;
     }
@@ -27,6 +37,16 @@ public class StructureType {
     public void addRequiredComponent(String comp) {
         requiredComponents.add(comp);
     }
+    
+    public List<String> getAllowedComponents() {
+        return allowedComponents;
+    }
+
+
+    public void addAllowedComponents(String component) {
+        allowedComponents.add(component);
+    }
+
 
     public String getRequiredType() {
         return requiredType;

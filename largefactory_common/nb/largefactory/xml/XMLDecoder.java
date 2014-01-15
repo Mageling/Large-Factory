@@ -34,13 +34,17 @@ public class XMLDecoder {
                 components = FileOpener.trimNodelist(components);
                 switch (mainname) {
                 case "components":
-                    nb.largefactory.structure.component.ComponentFactory.createComponent(components);
+                    if(!nb.largefactory.structure.component.ComponentFactory.createComponent(components))
+                        XMLErrors.INVALID_FIRST_NODE.printError(location);
                     break;
                 case "structure":
-                    nb.largefactory.structure.StructureTypeFactory.createStructureType(components);
+                    if (!nb.largefactory.structure.StructureTypeFactory.createStructureType(components)){
+                        XMLErrors.INVALID_FIRST_NODE.printError(location);
+                    }
                     break;
                 case "metal":
-                    nb.largefactory.structure.calculations.MetalFactory.learnMetal(components);
+                    if(!nb.largefactory.structure.calculations.MetalFactory.learnMetal(components))
+                        XMLErrors.INVALID_FIRST_NODE.printError(location);
                     break;
                 default:
                     XMLErrors.XML_STARTING_NODE_INVALID.printError(location);

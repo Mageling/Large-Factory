@@ -15,7 +15,10 @@ public enum XMLErrors {
     DEFAULT_XML_INVALID("The XMLs in your mod file have been corrupted. Please redownload the mod.", ""),
     FAILED_TO_LOAD("The XML file ", "Failed to load"),
     FILE_TRANSFER("Files failed to update properly", ""),
-    FOUND_INTERNAL_FILES("Found internal file :", ""),
+    FOUND_INTERNAL_FILES("Found internal file : ", ""),
+    INVALID_STRUCTURE_LOCATION("The structure : ", " Has an invald location"),
+    INVALID_XML("The xml for : ",  (" is invalid")),
+    INVALID_FIRST_NODE("One of the first nodes of the file: "," is not name"),
     UNKNOWN_ERROR("THIS IS VERY BAD", "");
 
     private String part1;

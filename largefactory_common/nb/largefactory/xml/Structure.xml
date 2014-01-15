@@ -2,11 +2,24 @@
 	<crusher>
 		<name>crusher</name>
 		<location>input</location>
-		<component>crusher</component>
+		<required>crusher</required>
+		<component>power core</component>
+		<component>blade core</component>
+		<component>hydraulic piston</component>
+		<component>precision actuator</component>
+		<component>vibration chamber</component>
 	</crusher>
+	<grinder>
+		<name>grinder</name>
+		<type>disk</type>
+		<required>grinder</required>
+	</grinder>
 	<smelter>
 		<name>smelter</name>
 		<location>output</location>
-		<component>smelter</component>
+		<required>smelter</required>
+		<component>incinerator</component>
+		<component>bellows</component>
+		<component>internal recycling</component>
 	</smelter>
 </structure>

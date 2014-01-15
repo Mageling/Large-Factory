@@ -15,6 +15,14 @@ public class MetalClass {
         yields = new HashMap<String, Float>();
     }
 
+    public boolean isValid(){
+        if(yields == null && primary == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
     public String getName() {
         return name;
         // return forgeOreName;

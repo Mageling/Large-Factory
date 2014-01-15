@@ -10,7 +10,6 @@ import nb.largefactory.util.logging.XMLErrors;
 public class ComponentDataClass {
     String name;
     String[] recipe;
-    String structureType;
     int[] dimensions;
     int maxNumber;
     boolean controlBlock;
@@ -49,8 +48,14 @@ public class ComponentDataClass {
         }
     }
 
-    public String getStructureType() {
-        return structureType;
+    public boolean isValid(){
+        return true;
+        /* we need to add recipies for this to make sence
+        if(recipe == null){
+            return false;
+        }else{
+            return true;
+        }*/
     }
 
     /**
