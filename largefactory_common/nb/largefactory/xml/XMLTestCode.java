@@ -21,11 +21,12 @@ public class XMLTestCode {
             XMLLogger.ADDED_ENTRY.printLog(entry.getValue().informationAsString());
         }
     }
-    public void TestXMLLocation(){
+    public static void TestXMLLocation(){
         try{ 
-        URL dog = this.getClass().getResource("Metals");
-        File file = new File(URLDecoder.decode(dog.getFile(), "URF-8"));
-        FMLLog.log(Level.INFO, file.getAbsolutePath());
+        URL dog =  XMLTestCode.class.getResource("Metals.xml");
+        //URL dog = this.getClass().getResource("Metals");
+        File file = new File(URLDecoder.decode(dog.getFile(), "UTF-8"));
+        FMLLog.log(Level.INFO, URLDecoder.decode(dog.getPath(), "UTF-8"));
         }
         catch (Exception e){
             FMLLog.log(Level.SEVERE, e.getMessage());

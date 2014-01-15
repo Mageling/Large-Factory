@@ -12,7 +12,7 @@ import org.apache.commons.io.FileUtils;
 
 public class XMLUpdater {
     static File xmldir;
-    static File[] xmlDefaults = new File(Files.DEFAULT_XML_LOCATION).listFiles(FileHelper.xmlFilter);
+    static File[] xmlDefaults = new File(FileHelper.getDefaultXMLFiles()).listFiles(FileHelper.xmlFilter);
 
     public static void checkXMLs() throws IOException {
         xmldir = new File(Files.CONFIG_LOCATION + Files.XML_LOCATION_MODIFIER);
