@@ -36,7 +36,7 @@ public class FileHelper {
             for(XMLDefaultFileNames x : XMLDefaultFileNames.values()){
                 URL url = XMLChecker.class.getResource(x + ".xml");
                 xmlFiles.add(new File(URLDecoder.decode(url.getFile(), "UTF-8")));
-                XMLErrors.FAILED_TO_LOAD.printError(URLDecoder.decode(url.getPath(), "UTF-8"));
+                XMLErrors.FOUND_INTERNAL_FILES.printError(URLDecoder.decode(url.getPath(), "UTF-8"));
             }
             return xmlFiles.toArray(new File[xmlFiles.size()]);
     } catch(UnsupportedEncodingException e) {
