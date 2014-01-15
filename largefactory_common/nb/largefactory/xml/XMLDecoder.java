@@ -28,32 +28,38 @@ public class XMLDecoder {
         String mainname = node.item(0).getNodeName();
         XMLLogger.FILE_EXISTS.printLog(location);
         NodeList componentNodes = node.item(0).getChildNodes();
-        for (int k = 0; k < componentNodes.getLength(); k++) {
-            if (componentNodes.item(k).getNodeName() != "#text") {
-                NodeList components = componentNodes.item(k).getChildNodes();
-                components = FileOpener.trimNodelist(components);
-                switch (mainname) {
-                case "components":
-                    if(!nb.largefactory.structure.component.ComponentFactory.createComponent(components))
-                        XMLErrors.INVALID_FIRST_NODE.printError(location);
-                    break;
-                case "structure":
-                    if (!nb.largefactory.structure.StructureTypeFactory.createStructureType(components)){
-                        XMLErrors.INVALID_FIRST_NODE.printError(location);
+        if (componentNodes.getLength() != 0){
+            for (int k = 0; k < componentNodes.getLength(); k++) {
+                if (componentNodes.item(k).getNodeName() != "#text") {
+                    NodeList components = componentNodes.item(k).getChildNodes();
+                    components = FileOpener.trimNodelist(components);
+                    switch (mainname) {
+                    case "components":
+                        if(!nb.largefactory.structure.component.ComponentFactory.createComponent(components))
+                            XMLErrors.INVALID_FIRST_NODE.printError(location);
+                        break;
+                    case "structure":
+                        if (!nb.largefactory.structure.StructureTypeFactory.createStructureType(components)){
+                            XMLErrors.INVALID_FIRST_NODE.printError(location);
+                        }
+                        break;
+                    case "metal":
+                        if(!nb.largefactory.structure.calculations.MetalFactory.learnMetal(components))
+                            XMLErrors.INVALID_FIRST_NODE.printError(location);
+                        break;
+                    default:
+                        XMLErrors.XML_STARTING_NODE_INVALID.printError(location);
+                        return false;
                     }
-                    break;
-                case "metal":
-                    if(!nb.largefactory.structure.calculations.MetalFactory.learnMetal(components))
-                        XMLErrors.INVALID_FIRST_NODE.printError(location);
-                    break;
-                default:
-                    XMLErrors.XML_STARTING_NODE_INVALID.printError(location);
-                    return false;
                 }
             }
+            
+            return true;
+        }else{
+            XMLErrors.XML_EMPTY.printError(location);
+            return false;
+            
         }
-        
-        return true;
     }
 
 }

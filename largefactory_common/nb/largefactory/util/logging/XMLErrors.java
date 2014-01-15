@@ -19,6 +19,7 @@ public enum XMLErrors {
     INVALID_STRUCTURE_LOCATION("The structure : ", " Has an invald location"),
     INVALID_XML("The xml for : ",  (" is invalid")),
     INVALID_FIRST_NODE("One of the first nodes of the file: "," is not name"),
+    XML_EMPTY("The XML file: ", " is empty"),
     UNKNOWN_ERROR("THIS IS VERY BAD", "");
 
     private String part1;
