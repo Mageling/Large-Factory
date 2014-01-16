@@ -1,6 +1,7 @@
 <components>
 		<component>
-			<name>crusher</name>		
+			<name>crusher</name>
+			<control>crusher</control>		
 		</component>
 		<component>
 			<name>power core</name>
@@ -39,6 +40,7 @@
 		</component>
 		<component>
 			<name>smelter</name>
+			<control>smelter</control>
 		</component>
 		<component>
 			<name>incinerator</name>

@@ -13,6 +13,7 @@ public class ComponentDataClass {
     int[] dimensions;
     int maxNumber;
     boolean controlBlock;
+    String structureType;
     Map<String, String> information;
 
     public ComponentDataClass(String compname) {
@@ -42,6 +43,9 @@ public class ComponentDataClass {
         case "texturefile":
             information.put("texturefilelocation", data);
             break;
+        case "control":
+            controlBlock = true;
+            structureType = data;
         default:
             information.put(name, data);
             break;

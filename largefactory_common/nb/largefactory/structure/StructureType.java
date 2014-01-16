@@ -47,7 +47,6 @@ public class StructureType {
         allowedComponents.add(component);
     }
 
-
     public String getRequiredType() {
         return requiredType;
     }
