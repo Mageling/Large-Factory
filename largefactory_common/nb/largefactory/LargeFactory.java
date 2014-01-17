@@ -14,7 +14,6 @@ import nb.largefactory.structure.StructureTypeFactory;
 import nb.largefactory.structure.calculations.MetalFactory;
 import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.xml.XMLDecoder;
-import nb.largefactory.xml.XMLTestCode;
 import nb.largefactory.xml.XMLChecker;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
