@@ -102,6 +102,10 @@ public class ComponentDataClass {
         }
         return output;
     }
+    
+    public String getStructureType(){
+        return structureType;
+    }
 
     @Override
     public String toString() {

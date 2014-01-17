@@ -2,7 +2,7 @@ package nb.largefactory.structure.calculations;
 
 import java.util.HashMap;
 
-public class MetalClass {
+public class OreClass {
     String name;
     // don't know if we need this
     String forgeOreName;
@@ -10,7 +10,7 @@ public class MetalClass {
     Float primaryYield;
     HashMap<String, Float> yields;
 
-    public MetalClass(String metalname) {
+    public OreClass(String metalname) {
         name = metalname;
         yields = new HashMap<String, Float>();
     }

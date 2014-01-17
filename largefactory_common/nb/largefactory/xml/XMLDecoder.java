@@ -44,7 +44,7 @@ public class XMLDecoder {
                         }
                         break;
                     case "metal":
-                        if(!nb.largefactory.structure.calculations.MetalFactory.learnMetal(components))
+                        if(!nb.largefactory.structure.calculations.OreFactory.learnMetal(components))
                             XMLErrors.INVALID_FIRST_NODE.printError(location);
                         break;
                     default:

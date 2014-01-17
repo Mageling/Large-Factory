@@ -8,11 +8,11 @@ import nb.largefactory.util.logging.XMLLogger;
 
 import org.w3c.dom.NodeList;
 
-public class MetalFactory {
-    public static Map<String, MetalClass> metalList;
+public class OreFactory {
+    public static Map<String, OreClass> metalList;
 
     public static void instantiate() {
-        metalList = new HashMap<String, MetalClass>();
+        metalList = new HashMap<String, OreClass>();
     }
 
     /*
@@ -21,7 +21,7 @@ public class MetalFactory {
 
     public static boolean learnMetal(NodeList metal) {
         if(metal.item(0).getNodeName() == "name"){
-            MetalClass a = new MetalClass(metal.item(0).getTextContent());
+            OreClass a = new OreClass(metal.item(0).getTextContent());
             XMLLogger.ADDED_ENTRY.printLog(a.getName());
             for (int k = 1; k < metal.getLength(); k++) {
                 // this is everything that is hidden as slag

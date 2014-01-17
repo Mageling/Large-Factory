@@ -5,8 +5,8 @@ import java.util.Map;
 
 import nb.largefactory.structure.calculations.CycleData;
 import nb.largefactory.structure.calculations.Imput;
-import nb.largefactory.structure.calculations.MetalClass;
-import nb.largefactory.structure.calculations.MetalFactory;
+import nb.largefactory.structure.calculations.OreClass;
+import nb.largefactory.structure.calculations.OreFactory;
 import nb.largefactory.util.DataMap;
 
 public class Crusher {
@@ -49,7 +49,7 @@ public class Crusher {
         for (Imput I : start) {
             int numberOfBlocks = I.getNumberOfItems();
             Float oreSlag = 0f;
-            MetalClass currentMetal = MetalFactory.metalList.get(I.getNameOfMaterial());
+            OreClass currentMetal = OreFactory.metalList.get(I.getNameOfMaterial());
 
             if (attuneMetal == currentMetal.getName() || attuneMetal == null) {
                 solid.add(currentMetal.getName(), (currentMetal.getPrimaryValue() + mainOreBonus + attuneValue)

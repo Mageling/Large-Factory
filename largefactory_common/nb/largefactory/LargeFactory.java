@@ -11,7 +11,7 @@ import nb.largefactory.lib.locations.Files;
 import nb.largefactory.network.PacketHandler;
 import nb.largefactory.proxy.CommonProxy;
 import nb.largefactory.structure.StructureTypeFactory;
-import nb.largefactory.structure.calculations.MetalFactory;
+import nb.largefactory.structure.calculations.OreFactory;
 import nb.largefactory.structure.component.ComponentFactory;
 import nb.largefactory.xml.XMLDecoder;
 import nb.largefactory.xml.XMLChecker;
@@ -78,7 +78,7 @@ public class LargeFactory {
     public void modsLoaded(FMLPostInitializationEvent event) {
         // xml loading
         StructureTypeFactory.instantiate();
-        MetalFactory.instantiate();
+        OreFactory.instantiate();
         ComponentFactory.instantiate();
         XMLDecoder.instantiate();
         if (Reference.DEBUG_MODE) {
