@@ -14,19 +14,19 @@ public class ModBlocks {
     public static Block teaPlant;
 
     public static void registerBlocks() {
-        saltCondenser = new BlockSaltCondenser(BlockIDs.SALT_CONDENSER);
+        saltCondenser = new BlockSaltCondenser();
         GameRegistry.registerBlock(saltCondenser, Strings.SALT_CONDENSER_NAME);
         LanguageRegistry.addName(saltCondenser, "Salt Condenser");
 
-        saltBlock = new BlockSalt(BlockIDs.SALT_BLOCK);
+        saltBlock = new BlockSalt();
         GameRegistry.registerBlock(saltBlock, Strings.SALT_BLOCK_NAME);
         LanguageRegistry.addName(saltBlock, "Salt Block");
 
-        structureComponent = new BlockStructure(BlockIDs.STRUCTURE_BLOCK);
+        structureComponent = new BlockStructure();
         GameRegistry.registerBlock(structureComponent, Strings.STRUCTURE_BLOCK_NAME);
         LanguageRegistry.addName(structureComponent, "Structure Component");
 
-        teaPlant = new BlockTea(BlockIDs.TEA_PLANT);
+        teaPlant = new BlockTea();
         GameRegistry.registerBlock(teaPlant, Strings.TEA_PLANT_NAME);
         LanguageRegistry.addName(teaPlant, "Tea Plant");
     }

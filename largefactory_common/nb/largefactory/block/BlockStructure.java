@@ -9,15 +9,15 @@ import net.minecraft.world.World;
 
 public class BlockStructure extends BlockContainerLargeFactory {
 
-    public BlockStructure(int id) {
-        super(id, Material.iron);
-        setUnlocalizedName(Strings.STRUCTURE_BLOCK_NAME);
+    public BlockStructure() {
+        super(Material.iron);
+        setBlockName(Strings.STRUCTURE_BLOCK_NAME);
         setHardness(5F);
         setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world) {
+    public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileEntityStructureCasing("casing");
     }
 

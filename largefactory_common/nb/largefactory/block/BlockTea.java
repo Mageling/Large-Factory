@@ -6,13 +6,16 @@ import nb.largefactory.item.ModItems;
 import nb.largefactory.lib.Reference;
 import nb.largefactory.lib.Scalables;
 import net.minecraft.block.BlockCrops;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
+
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -22,15 +25,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockTea extends BlockCrops {
 
     @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+    private IIcon[] iconArray;
 
-    public BlockTea(int id) {
-        super(id);
+    public BlockTea() {
+        super();
         setTickRandomly(true);
         setCreativeTab(CreativeTabs.tabMisc);
         setHardness(0.3F);
-        setStepSound(soundGrassFootstep);
-        setUnlocalizedName("teaPlant");
+        setStepSound(soundTypeGlass);
+        setBlockName("teaPlant");
     }
 
     @Override
@@ -84,7 +87,7 @@ public class BlockTea extends BlockCrops {
     }
 
     @Override
-    public void fertilize(World par1World, int par2, int par3, int par4) {
+    public void func_149863_m(World par1World, int par2, int par3, int par4) {
         int l = par1World.getBlockMetadata(par2, par3, par4) + 1;
 
         if (l == 3) {
@@ -99,13 +102,13 @@ public class BlockTea extends BlockCrops {
     }
 
     @Override
-    public int idDropped(int par1, Random par2Random, int par3) {
-        return blockID;
+    public Item getItemDropped(int par1, Random par2Random, int par3) {
+        return Item.getItemFromBlock(this);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Icon getIcon(int par1, int par2) {
+    public IIcon getIcon(int par1, int par2) {
         if (par2 < 0 || par2 > 5) {
             par2 = 5;
         }
@@ -126,8 +129,8 @@ public class BlockTea extends BlockCrops {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister) {
-        iconArray = new Icon[8];
+    public void registerBlockIcons(IIconRegister par1IconRegister) {
+        iconArray = new IIcon[8];
 
         for (int i = 0; i < 6; ++i) {
             iconArray[i] = par1IconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(),
@@ -163,18 +166,18 @@ public class BlockTea extends BlockCrops {
             return false;
         else if (l == 3) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite, 2, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l == 4) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen, 4, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l <= 5) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen, 3, 0));
             par1World.spawnEntityInWorld(entityitem);
         }
-        par1World.setBlock(par2, par3, par4, blockID, 2, 3);
+        par1World.setBlock(par2, par3, par4, this, 2, 3);
         return true;
     }
 
@@ -192,18 +195,18 @@ public class BlockTea extends BlockCrops {
             return;
         else if (l == 3) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite.itemID, 2, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaWhite, 2, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l == 4) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 4, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen, 4, 0));
             par1World.spawnEntityInWorld(entityitem);
         } else if (l <= 5) {
             EntityItem entityitem = new EntityItem(par1World, par5EntityPlayer.posX, par5EntityPlayer.posY - 1.0D,
-                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen.itemID, 3, 0));
+                    par5EntityPlayer.posZ, new ItemStack(ModItems.teaGreen, 3, 0));
             par1World.spawnEntityInWorld(entityitem);
         }
-        par1World.setBlock(par2, par3, par4, blockID, 2, 3);
+        par1World.setBlock(par2, par3, par4, this, 2, 3);
         return;
     }
 
@@ -266,18 +269,8 @@ public class BlockTea extends BlockCrops {
     }
 
     @Override
-    public EnumPlantType getPlantType(World world, int x, int y, int z) {
+    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
         return EnumPlantType.Plains;
-    }
-
-    @Override
-    public int getPlantID(World world, int x, int y, int z) {
-        return blockID;
-    }
-
-    @Override
-    public int getPlantMetadata(World world, int x, int y, int z) {
-        return world.getBlockMetadata(x, y, z);
     }
 
 }

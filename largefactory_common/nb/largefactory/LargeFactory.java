@@ -24,12 +24,10 @@ import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.NetworkMod;
+
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false,
-        packetHandler = PacketHandler.class)
 public class LargeFactory {
 
     @Instance(Reference.MOD_ID)
@@ -64,7 +62,7 @@ public class LargeFactory {
     @EventHandler
     public void load(FMLInitializationEvent event) {
         // Register the GUI Handler
-        NetworkRegistry.instance().registerGuiHandler(instance, proxy);
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
 
         // Register Tile Entities
         proxy.registerTileEntities();

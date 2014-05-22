@@ -12,6 +12,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -22,21 +24,21 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
 
     private final Random saltRand = new Random();
 
-    protected BlockSaltCondenser(int par1) {
-        super(par1, Material.wood);
-        setUnlocalizedName(Strings.SALT_CONDENSER_NAME);
+    protected BlockSaltCondenser() {
+        super(Material.wood);
+        setBlockName(Strings.SALT_CONDENSER_NAME);
         setHardness(5F);
         setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world) {
+    public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileEntitySaltCondenser();
     }
 
     @Override
-    public int idDropped(int par1, Random par2Random, int par3) {
-        return 0;
+    public Item getItemDropped(int i, Random r, int j) {
+    	return null;
     }
 
     @Override
@@ -70,7 +72,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
                 }
 
                 itemstack.stackSize -= k1;
-                EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.itemID,
+                EntityItem entityitem = new EntityItem(world, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(),
                         k1, itemstack.getItemDamage()));
 
                 if (itemstack.hasTagCompound()) {
@@ -87,13 +89,13 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
     }
 
     @Override
-    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
+    public void breakBlock(World par1World, int par2, int par3, int par4, Block par5Block, int par6) {
 
-        dropItemStack(new ItemStack(Item.bucketEmpty, 1), par1World, par2, par3, par4);
-        dropItemStack(new ItemStack(Block.glass, 2), par1World, par2, par3, par4);
-        dropItemStack(new ItemStack(Block.chest, 1), par1World, par2, par3, par4);
+        dropItemStack(new ItemStack(Items.bucket, 1), par1World, par2, par3, par4);
+        dropItemStack(new ItemStack(Blocks.glass, 2), par1World, par2, par3, par4);
+        dropItemStack(new ItemStack(Blocks.chest, 1), par1World, par2, par3, par4);
 
-        TileEntitySaltCondenser tileentitysaltcondenser = (TileEntitySaltCondenser) par1World.getBlockTileEntity(par2,
+        TileEntitySaltCondenser tileentitysaltcondenser = (TileEntitySaltCondenser) par1World.getTileEntity(par2,
                 par3, par4);
 
         if (tileentitysaltcondenser != null) {
@@ -102,11 +104,10 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
 
                 dropItemStack(itemstack, par1World, par2, par3, par4);
 
-                par1World.func_96440_m(par2, par3, par4, par5);
             }
         }
 
-        super.breakBlock(par1World, par2, par3, par4, par5, par6);
+        super.breakBlock(par1World, par2, par3, par4, par5Block, par6);
     }
 
     @Override
@@ -117,7 +118,7 @@ public class BlockSaltCondenser extends BlockContainerLargeFactory {
             return false;
         else {
             if (!world.isRemote) {
-                TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world.getBlockTileEntity(x,
+                TileEntitySaltCondenser tileEntitySaltCondenser = (TileEntitySaltCondenser) world.getTileEntity(x,
                         y, z);
 
                 if (tileEntitySaltCondenser != null) {
